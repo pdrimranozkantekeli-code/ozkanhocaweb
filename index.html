@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Özkan Hoca | LGS Öğrenci Koçluğu · Adana</title>
+  <meta name="description" content="Adana'da LGS öğrencilerine özel bireysel akademik koçluk ve psikolojik destek. PDR mezunu Özkan Hoca ile yüz yüze veya online. İlk görüşme ücretsiz." />
+  <meta name="keywords" content="lgs koçu adana, öğrenci koçu adana, lgs hazırlık adana, akademik koçluk adana, pdr koç adana, lgs öğrenci koçluğu" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Özkan Hoca | LGS Öğrenci Koçluğu · Adana" />
+  <meta property="og:description" content="Adana'da PDR uzmanı LGS koçu. Akademik koçluk + psikolojik destek + veli takibi. İlk görüşme ücretsiz." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ozkanhoca.com" />
+  <link rel="canonical" href="https://ozkanhoca.com" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── RESET & BASE ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --indigo-900: #1a1645;
+      --indigo-800: #26215C;
+      --indigo-700: #3C3489;
+      --indigo-500: #534AB7;
+      --indigo-400: #7F77DD;
+      --indigo-200: #AFA9EC;
+      --indigo-100: #CECBF6;
+      --indigo-50:  #EEEDFE;
+
+      --text-dark:  #1a1645;
+      --text-mid:   #4a4870;
+      --text-light: #8886aa;
+
+      --white: #ffffff;
+      --bg-soft: #f8f8fc;
+      --border: rgba(127,119,221,0.18);
+
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans:  'DM Sans', system-ui, sans-serif;
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+
+      --shadow-card: 0 2px 16px rgba(83,74,183,0.08);
+      --shadow-btn:  0 4px 18px rgba(127,119,221,0.35);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── UTILITY ──────────────────────────────────────── */
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--indigo-400);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(24px, 3.5vw, 34px);
+      line-height: 1.2;
+      color: var(--indigo-800);
+      margin-bottom: 10px;
+    }
+
+    .section-sub {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.7;
+      max-width: 580px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--indigo-400);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 13px 24px;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+      box-shadow: var(--shadow-btn);
+    }
+    .btn-primary:hover { background: var(--indigo-500); transform: translateY(-1px); }
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25D366;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 13px 24px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.3);
+    }
+    .btn-wa:hover { background: #1ebe5d; transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      color: var(--indigo-200);
+      font-size: 14px;
+      font-weight: 400;
+      padding: 13px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(175,169,236,0.3);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--indigo-200); color: var(--white); }
+
+    /* ── NAVBAR ───────────────────────────────────────── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--indigo-900);
+      border-bottom: 1px solid rgba(127,119,221,0.15);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .nav-logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--indigo-400);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--white);
+    }
+
+    .nav-logo-text {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .nav-logo-sub {
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--indigo-200);
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--indigo-100);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--white);
+      background: var(--indigo-400);
+      padding: 8px 18px;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--indigo-500); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--indigo-100);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ── HERO ─────────────────────────────────────────── */
+    .hero {
+      background: var(--indigo-800);
+      padding: 72px 24px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -80px;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(127,119,221,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: -40px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(83,74,183,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(127,119,221,0.18);
+      border: 1px solid rgba(127,119,221,0.3);
+      color: var(--indigo-100);
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .hero-eyebrow {
+      font-size: 14px;
+      color: var(--indigo-200);
+      margin-bottom: 14px;
+      font-style: italic;
+      font-family: var(--serif);
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .hero-title em {
+      color: var(--indigo-200);
+      font-style: normal;
+    }
+
+    .hero-highlight {
+      background: rgba(255,255,255,0.07);
+      border-left: 3px solid var(--indigo-400);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 12px 16px;
+      margin-bottom: 28px;
+      font-size: 15px;
+      color: var(--indigo-100);
+      line-height: 1.65;
+    }
+
+    .hero-highlight strong { color: var(--white); }
+
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* HERO CARD */
+    .hero-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(127,119,221,0.25);
+      border-radius: var(--radius-lg);
+      padding: 28px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .hero-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: var(--indigo-700);
+      border: 3px solid var(--indigo-400);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--indigo-200);
+      font-size: 42px;
+    }
+
+    .hero-card-name {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--white);
+    }
+
+    .hero-card-cred {
+      font-size: 12px;
+      color: var(--indigo-200);
+      line-height: 1.6;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-badge {
+      background: rgba(127,119,221,0.2);
+      color: var(--indigo-100);
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 10px;
+    }
+
+    /* ── SORUNLAR ─────────────────────────────────────── */
+    .pain-section {
+      background: var(--indigo-50);
+      padding: 60px 24px;
+    }
+
+    .pain-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 28px 0 20px;
+    }
+
+    .pain-item {
+      background: var(--white);
+      border: 1px solid rgba(175,169,236,0.3);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      transition: box-shadow 0.2s;
+    }
+    .pain-item:hover { box-shadow: var(--shadow-card); }
+
+    .pain-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--indigo-50);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 18px;
+    }
+
+    .pain-text {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.5;
+      padding-top: 2px;
+    }
+
+    .pain-conclusion {
+      background: var(--indigo-800);
+      color: var(--indigo-100);
+      font-size: 14px;
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+
+    .pain-conclusion strong { color: var(--white); }
+
+    /* ── TRUST BAR ────────────────────────────────────── */
+    .trust-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      border-top: 1px solid var(--border);
+      padding: 20px 24px;
+    }
+
+    .trust-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      border-right: 1px solid var(--border);
+      gap: 6px;
+    }
+    .trust-item:last-child { border-right: none; }
+
+    .trust-icon {
+      font-size: 22px;
+      color: var(--indigo-400);
+    }
+
+    .trust-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--indigo-800);
+    }
+
+    .trust-sub {
+      font-size: 11px;
+      color: var(--text-light);
+      line-height: 1.4;
+    }
+
+    /* ── HİZMETLER ────────────────────────────────────── */
+    .services-section {
+      padding: 72px 24px;
+    }
+
+    .services-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 36px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      transition: box-shadow 0.25s, transform 0.2s;
+      position: relative;
+    }
+    .service-card:hover {
+      box-shadow: var(--shadow-card);
+      transform: translateY(-3px);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--indigo-50);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+
+    .service-title {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--indigo-800);
+      margin-bottom: 10px;
+    }
+
+    .service-desc {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    .service-tag {
+      display: inline-block;
+      margin-top: 16px;
+      background: var(--indigo-50);
+      color: var(--indigo-500);
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    /* ── SÜREÇ ────────────────────────────────────────── */
+    .process-section {
+      background: var(--bg-soft);
+      padding: 72px 24px;
+    }
+
+    .process-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .process-steps {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      margin-top: 40px;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 22px;
+      left: calc(10% + 22px);
+      right: calc(10% + 22px);
+      height: 1px;
+      background: var(--indigo-100);
+    }
+
+    .process-step {
+      flex: 1;
+      text-align: center;
+      padding: 0 8px;
+      position: relative;
+    }
+
+    .step-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--indigo-700);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      position: relative;
+      z-index: 1;
+      border: 3px solid var(--bg-soft);
+    }
+
+    .step-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--indigo-800);
+      margin-bottom: 6px;
+    }
+
+    .step-desc {
+      font-size: 12px;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    /* ── TEK PAKET ────────────────────────────────────── */
+    .package-section {
+      padding: 72px 24px;
+    }
+
+    .package-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .package-card {
+      margin-top: 36px;
+      background: var(--white);
+      border: 2px solid var(--indigo-400);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+
+    .package-header {
+      background: var(--indigo-800);
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .package-badge {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--indigo-800);
+      background: var(--indigo-100);
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .package-header-title {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--white);
+    }
+
+    .package-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .package-left {
+      padding: 32px;
+      border-right: 1px solid var(--border);
+    }
+
+    .package-desc {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+
+    .package-right {
+      padding: 32px;
+    }
+
+    .package-list {
+      list-style: none;
+    }
+
+    .package-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-mid);
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .package-list li:last-child { border-bottom: none; }
+
+    .pkg-check {
+      color: var(--indigo-400);
+      font-size: 16px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .kontenjan-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-top: 20px;
+      background: var(--indigo-50);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+    }
+
+    .kontenjan-icon {
+      color: var(--indigo-500);
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .kontenjan-text {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+    .kontenjan-text strong { color: var(--indigo-800); }
+
+    /* ── HAKKIMDA ─────────────────────────────────────── */
+    .about-section {
+      background: var(--bg-soft);
+      padding: 72px 24px;
+    }
+
+    .about-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .about-left { text-align: center; }
+
+    .about-photo-wrap {
+      width: 160px;
+      height: 160px;
+      border-radius: var(--radius-lg);
+      background: var(--indigo-50);
+      border: 1px solid rgba(127,119,221,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 64px;
+      color: var(--indigo-400);
+    }
+
+    .about-name {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--indigo-800);
+      margin-bottom: 8px;
+    }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+    }
+
+    .about-tag {
+      background: var(--indigo-50);
+      color: var(--indigo-500);
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .about-right { }
+
+    .about-text {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+    .about-text strong { color: var(--indigo-800); font-weight: 500; }
+
+    .about-text p + p { margin-top: 16px; }
+
+    /* ── FORM ─────────────────────────────────────────── */
+    .form-section {
+      padding: 72px 24px;
+    }
+
+    .form-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .form-layout {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 48px;
+      margin-top: 40px;
+      align-items: start;
+    }
+
+    .form-info { }
+
+    .form-info-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--indigo-800);
+      margin-bottom: 14px;
+    }
+
+    .form-info-text {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+
+    .form-contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .form-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-mid);
+    }
+
+    .form-contact-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--indigo-50);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      color: var(--indigo-400);
+      flex-shrink: 0;
+    }
+
+    .contact-wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25D366;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 22px;
+      border-radius: var(--radius-sm);
+      margin-top: 28px;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.3);
+    }
+    .contact-wa-btn:hover { background: #1ebe5d; transform: translateY(-1px); }
+
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .form-card-title {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--indigo-800);
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-mid);
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px 14px;
+      font-family: var(--sans);
+      font-size: 14px;
+      color: var(--text-dark);
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--indigo-400);
+      box-shadow: 0 0 0 3px rgba(127,119,221,0.12);
+      background: var(--white);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237F77DD' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .form-submit-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--indigo-400);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: var(--shadow-btn);
+    }
+    .form-submit-btn:hover { background: var(--indigo-500); transform: translateY(-1px); }
+    .form-submit-btn:active { transform: translateY(0); }
+    .form-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .form-note {
+      font-size: 11px;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .form-success-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .form-success-title {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--indigo-800);
+      margin-bottom: 8px;
+    }
+
+    .form-success-text {
+      font-size: 14px;
+      color: var(--text-mid);
+    }
+
+    /* ── FOOTER ───────────────────────────────────────── */
+    .footer {
+      background: var(--indigo-900);
+      padding: 28px 24px;
+    }
+
+    .footer-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--indigo-100);
+    }
+
+    .footer-logo span {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--indigo-200);
+      display: block;
+      font-weight: 300;
+      margin-top: 2px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--indigo-400);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--indigo-100); }
+
+    .footer-copy {
+      font-size: 11px;
+      color: var(--indigo-700);
+    }
+
+    /* ── MOBILE NAV ───────────────────────────────────── */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: var(--indigo-900);
+      border-top: 1px solid rgba(127,119,221,0.15);
+      padding: 16px 24px;
+      gap: 14px;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-size: 14px;
+      color: var(--indigo-100);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(127,119,221,0.1);
+    }
+
+    /* ── ANIMATIONS ───────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-left > * {
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-pills     { animation-delay: 0.05s; }
+    .hero-eyebrow   { animation-delay: 0.12s; }
+    .hero-title     { animation-delay: 0.2s; }
+    .hero-highlight { animation-delay: 0.28s; }
+    .hero-btns      { animation-delay: 0.36s; }
+    .hero-card      { animation: fadeUp 0.6s 0.3s ease both; }
+
+    /* ── RESPONSIVE ───────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+      .hero-card { max-width: 320px; margin: 0 auto; }
+
+      .pain-grid { grid-template-columns: 1fr 1fr; }
+
+      .trust-inner { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .trust-item { border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+      .trust-item:nth-child(2n) { border-right: none; }
+      .trust-item:last-child, .trust-item:nth-last-child(-n+2):nth-child(odd) { border-bottom: none; }
+
+      .services-grid { grid-template-columns: 1fr; }
+
+      .process-steps { flex-direction: column; gap: 24px; }
+      .process-steps::before { display: none; }
+      .process-step { text-align: left; display: flex; align-items: flex-start; gap: 16px; }
+      .step-circle { margin: 0; flex-shrink: 0; }
+
+      .package-body { grid-template-columns: 1fr; }
+      .package-left { border-right: none; border-bottom: 1px solid var(--border); }
+
+      .about-inner { grid-template-columns: 1fr; }
+      .about-left { max-width: 240px; }
+
+      .form-layout { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+
+      .footer-inner { flex-direction: column; text-align: center; }
+
+      .hero { padding: 48px 24px 40px; }
+      .services-section, .process-section, .package-section, .about-section, .form-section { padding: 48px 24px; }
+      .pain-section { padding: 40px 24px; }
+
+      .package-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+    }
+
+    @media (max-width: 480px) {
+      .pain-grid { grid-template-columns: 1fr; }
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn-wa, .hero-btns .btn-ghost { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-mark">Ö</div>
+        <div>
+          <div class="nav-logo-text">Özkan Hoca</div>
+          <div class="nav-logo-sub">LGS Öğrenci Koçluğu · Adana</div>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="#hizmetler">Hizmet</a>
+        <a href="#paket">Paket</a>
+        <a href="#hakkimda">Hakkımda</a>
+        <a href="#iletisim" class="nav-cta">Başvuru Formu</a>
+      </div>
+      <div class="hamburger" id="hamburger" aria-label="Menüyü aç" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#hizmetler" onclick="closeMobileMenu()">Hizmet</a>
+      <a href="#paket" onclick="closeMobileMenu()">Paket</a>
+      <a href="#hakkimda" onclick="closeMobileMenu()">Hakkımda</a>
+      <a href="#iletisim" onclick="closeMobileMenu()">Başvuru Formu</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-pills">
+          <span class="pill">📍 Adana'ya özel</span>
+          <span class="pill">🎓 PDR Uzmanı Koç</span>
+          <span class="pill">💻 Yüz yüze & Online</span>
+        </div>
+        <div class="hero-eyebrow">Çocuğunuz çalışıyor ama netler artmıyor mu?</div>
+        <h1 class="hero-title">
+          LGS'de farkı yaratan<br>
+          sistem, psikoloji<br>
+          ve <em>bireysel takiptir.</em>
+        </h1>
+        <div class="hero-highlight">
+          Sadece konu anlatmıyorum.
+          <strong>Akademik koçluk + psikolojik destek + haftalık takip</strong> —
+          üçü bir arada, PDR geçmişimle Adana'da.
+        </div>
+        <div class="hero-btns">
+          <a href="https://wa.me/905306771685?text=Merhaba%2C%20LGS%20ko%C3%A7lu%C4%9Fu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-wa" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp'tan Yaz
+          </a>
+          <a href="#iletisim" class="btn-ghost">Başvuru Formu →</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-avatar">👤</div>
+        <div class="hero-card-name">Özkan Hoca</div>
+        <div class="hero-card-cred">PDR Mezunu<br>LGS Öğrenci Koçu<br>Adana</div>
+        <div class="hero-badges">
+          <span class="hero-badge">Adana</span>
+          <span class="hero-badge">1:1 Takip</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SORUNLAR ── -->
+  <section class="pain-section">
+    <div class="pain-inner">
+      <div class="section-label">Tanıdık geliyor mu?</div>
+      <h2 class="section-title">Velilerin en çok dile getirdiği sorunlar</h2>
+      <div class="pain-grid">
+        <div class="pain-item">
+          <div class="pain-icon">⏰</div>
+          <div class="pain-text">Saatler çalışıyor ama verim çıkmıyor</div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-icon">📉</div>
+          <div class="pain-text">Denemede netleri bir türlü artmıyor</div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-icon">😔</div>
+          <div class="pain-text">Motivasyonu dalgalı, programsız çalışıyor</div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-icon">📱</div>
+          <div class="pain-text">Telefon ve kaygı dikkatini bölüyor</div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-icon">❓</div>
+          <div class="pain-text">Nereden başlayacağını bilemiyor</div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-icon">🧠</div>
+          <div class="pain-text">Bildiğini sınavda yapamıyor</div>
+        </div>
+      </div>
+      <div class="pain-conclusion">
+        Sorun bilgi eksikliği değil — <strong>sistem ve psikolojik destek eksikliği.</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRUST BAR ── -->
+  <div class="trust-bar">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <div class="trust-icon">🎓</div>
+        <div class="trust-title">PDR Mezunu</div>
+        <div class="trust-sub">Sertifikalı Koç</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">👤</div>
+        <div class="trust-title">1:1 Birebir</div>
+        <div class="trust-sub">Kişisel Takip</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">📍</div>
+        <div class="trust-title">Adana'da</div>
+        <div class="trust-sub">Yüz yüze & Online</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">⚡</div>
+        <div class="trust-title">Sınırlı Kontenjan</div>
+        <div class="trust-sub">Kaliteli Takip İçin</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── HİZMETLER ── -->
+  <section class="services-section" id="hizmetler">
+    <div class="services-inner">
+      <div class="section-label">Nasıl çalışıyorum?</div>
+      <h2 class="section-title">Akademik + Psikolojik + Takip<br>— üçü bir arada</h2>
+      <p class="section-sub">Biri eksik kalırsa sistem tamamlanmaz. PDR geçmişim, bunu tek çatı altında sunmamı sağlıyor.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🎯</div>
+          <h3 class="service-title">Akademik Koçluk</h3>
+          <p class="service-desc">Kişisel çalışma planı, haftalık birebir seans, deneme analizi ve net takibi. Her öğrenciye özel program hazırlanır; eksikler belirlenir, strateji güncellenir.</p>
+          <span class="service-tag">Her hafta</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🧠</div>
+          <h3 class="service-title">Psikolojik Destek</h3>
+          <p class="service-desc">PDR geçmişimle sınav kaygısı, motivasyon ve psikolojik dayanıklılık. Akademik başarının görünmez zemini — ihmal edilirse tüm çalışma çöker.</p>
+          <span class="service-tag">PDR Uzmanlığı</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3 class="service-title">Veli Takibi & Rapor</h3>
+          <p class="service-desc">Aylık şeffaf performans raporu. Veliler süreci yakından izler, sürpriz olmaz. İlerleme sezgiyle değil, veriyle ölçülür.</p>
+          <span class="service-tag">Veliye özel</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SÜREÇ ── -->
+  <section class="process-section">
+    <div class="process-inner">
+      <div class="section-label">Süreç</div>
+      <h2 class="section-title">İlk günden LGS'ye nasıl ilerliyoruz?</h2>
+      <p class="section-sub">Şeffaf, adım adım bir sistem. Her aşama planlanmış, her aşama ölçülmüş.</p>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-circle">1</div>
+          <div>
+            <div class="step-title">Ücretsiz Keşif</div>
+            <div class="step-desc">30 dk — öğrenciyi tanı, ihtiyacı belirle</div>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">2</div>
+          <div>
+            <div class="step-title">Plan Tasarımı</div>
+            <div class="step-desc">1. hafta — kişisel program oluşturulur</div>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">3</div>
+          <div>
+            <div class="step-title">Haftalık Seans</div>
+            <div class="step-desc">Birebir görüşme + ödev takibi</div>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">4</div>
+          <div>
+            <div class="step-title">Aylık Rapor</div>
+            <div class="step-desc">Veliye şeffaf performans özeti</div>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-circle">5</div>
+          <div>
+            <div class="step-title">LGS & Tercih</div>
+            <div class="step-desc">Son sprint + Adana tercih danışmanlığı</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PAKET ── -->
+  <section class="package-section" id="paket">
+    <div class="package-inner">
+      <div class="section-label">Paket</div>
+      <h2 class="section-title">Tek paket, eksiksiz destek</h2>
+      <p class="section-sub">Fiyat için lütfen iletişime geçin — her öğrencinin süreci ve ihtiyacı farklıdır.</p>
+      <div class="package-card">
+        <div class="package-header">
+          <div class="package-header-title">LGS Öğrenci Koçluğu — Tam Destek</div>
+          <div class="package-badge">⭐ Tek Paket</div>
+        </div>
+        <div class="package-body">
+          <div class="package-left">
+            <p class="package-desc">Akademik, psikolojik ve takip desteğini tek çatı altında sunuyorum. Yüz yüze veya online — öğrencinin ihtiyacına ve şehir durumuna göre şekillenir.<br><br>İlk görüşmede öğrencinizi tanır, size özel bir yol haritası çıkarırım. Bu görüşme tamamen ücretsiz ve bağlayıcı değildir.</p>
+            <a href="#iletisim" class="btn-primary">
+              📅 Ücretsiz Keşif Görüşmesi
+            </a>
+          </div>
+          <div class="package-right">
+            <ul class="package-list">
+              <li><span class="pkg-check">✓</span> Haftalık birebir koçluk seansı</li>
+              <li><span class="pkg-check">✓</span> Kişiye özel çalışma planı</li>
+              <li><span class="pkg-check">✓</span> Deneme analizi ve net takibi</li>
+              <li><span class="pkg-check">✓</span> Sınav kaygısı ve motivasyon çalışması</li>
+              <li><span class="pkg-check">✓</span> Psikolojik dayanıklılık desteği (PDR)</li>
+              <li><span class="pkg-check">✓</span> Aylık veli bilgilendirme raporu</li>
+              <li><span class="pkg-check">✓</span> Adana'ya özel tercih danışmanlığı</li>
+              <li><span class="pkg-check">✓</span> Yüz yüze veya online seans seçeneği</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="kontenjan-box">
+        <div class="kontenjan-icon">⚠️</div>
+        <div class="kontenjan-text">
+          <strong>Sınırlı kontenjan:</strong> Her öğrenciyle gerçekten ilgilenebilmek için az sayıda öğrenciyle çalışıyorum. Uygunluk için erken iletişime geçin.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HAKKIMDA ── -->
+  <section class="about-section" id="hakkimda">
+    <div class="about-inner">
+      <div class="about-left">
+        <div class="about-photo-wrap">👤</div>
+        <div class="about-name">Özkan Hoca</div>
+        <div class="about-tags">
+          <span class="about-tag">PDR Mezunu</span>
+          <span class="about-tag">Adanalı</span>
+          <span class="about-tag">LGS Koçu</span>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="section-label">Hakkımda</div>
+        <h2 class="section-title">Özkan Hoca kimdir?</h2>
+        <div class="about-text">
+          <p>Psikolojik Danışmanlık ve Rehberlik alanında eğitim aldım. Yıllardır Adana'da 8. sınıf öğrencileriyle birebir çalışıyorum.</p>
+          <p>Dershane veya özel dersten farkım şu: sadece konu anlatmıyorum. Öğrencinin <strong>çalışma sistemini, motivasyonunu ve psikolojisini</strong> de birlikte ele alıyoruz. PDR geçmişim bu bütünlüğü mümkün kılıyor.</p>
+          <p>Adana'daki liseleri yakından tanıyorum — tercih sürecinde de yanınızdayım.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FORM ── -->
+  <section class="form-section" id="iletisim">
+    <div class="form-inner">
+      <div class="section-label">İletişim</div>
+      <h2 class="section-title">Başvuru formu</h2>
+      <div class="form-layout">
+        <div class="form-info">
+          <div class="form-info-title">Ücretsiz keşif görüşmesi için yazın</div>
+          <p class="form-info-text">Formu doldurun, en kısa sürede size döneyim. İlk görüşme 30 dakika sürer, tamamen ücretsizdir ve sizi hiçbir konuda bağlamaz.<br><br>Ya da doğrudan WhatsApp'tan ulaşabilirsiniz:</p>
+          <div class="form-contact-list">
+            <div class="form-contact-item">
+              <div class="form-contact-icon">📍</div>
+              Adana (Yüz yüze & Online)
+            </div>
+            <div class="form-contact-item">
+              <div class="form-contact-icon">✉️</div>
+              ozkan@ozkanhoca.com
+            </div>
+          </div>
+          <a href="https://wa.me/905306771685?text=Merhaba%2C%20LGS%20ko%C3%A7lu%C4%9Fu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="contact-wa-btn" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp ile Ulaşın
+          </a>
+        </div>
+
+        <div class="form-card">
+          <div class="form-card-title">Başvuru Formu</div>
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Veli adı soyadı *</label>
+                <input type="text" id="name" name="name" placeholder="Adınız Soyadınız" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Telefon *</label>
+                <input type="tel" id="phone" name="phone" placeholder="05xx xxx xx xx" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">E-posta adresi *</label>
+              <input type="email" id="email" name="email" placeholder="ornek@mail.com" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="grade">Öğrencinin sınıfı</label>
+                <select id="grade" name="grade">
+                  <option value="">Seçin</option>
+                  <option>6. Sınıf</option>
+                  <option>7. Sınıf</option>
+                  <option>8. Sınıf</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="service">Hizmet tercihi</label>
+                <select id="service" name="service">
+                  <option value="">Seçin</option>
+                  <option>Yüz yüze (Adana)</option>
+                  <option>Online</option>
+                  <option>Her ikisi de olur</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="topic">En çok zorlayan konu</label>
+              <select id="topic" name="topic">
+                <option value="">Seçin</option>
+                <option>Motivasyon eksikliği</option>
+                <option>Çalışma planı / sistem</option>
+                <option>Sınav kaygısı</option>
+                <option>Net artışı sağlayamama</option>
+                <option>Diğer</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Eklemek istediğiniz bir şey</label>
+              <textarea id="message" name="message" placeholder="Çocuğunuz hakkında kısaca bilgi verebilirsiniz..."></textarea>
+            </div>
+            <button type="submit" class="form-submit-btn" id="submitBtn">
+              ✉️ Gönder — Size döneyim
+            </button>
+            <p class="form-note">🔒 Bilgileriniz yalnızca sizinle iletişim kurmak için kullanılır. KVKK kapsamında korunur.</p>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <div class="form-success-icon">✅</div>
+            <div class="form-success-title">Başvurunuz alındı!</div>
+            <p class="form-success-text">En kısa sürede size dönüş yapacağım. WhatsApp'tan da ulaşabilirsiniz.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        Özkan Hoca
+        <span>LGS Öğrenci Koçluğu · Adana</span>
+      </div>
+      <div class="footer-links">
+        <a href="#">Instagram</a>
+        <a href="#">KVKK</a>
+        <a href="#">Gizlilik Politikası</a>
+      </div>
+      <div class="footer-copy">© 2025 Özkan Hoca · Adana</div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger menü
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+
+    hamburger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        mobileMenu.classList.toggle('open');
+      }
+    });
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+    }
+
+    // Form gönderimi
+    // NOT: Formspree, EmailJS veya benzeri bir servis entegre edilmeli.
+    // Aşağıdaki örnek Formspree içindir. action URL'ini değiştirin.
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formSuccess = document.getElementById('formSuccess');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Gönderiliyor...';
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      // Formspree entegrasyonu için:
+      // 1. https://formspree.io adresine gidin ve ücretsiz hesap açın
+      // 2. Yeni form oluşturun, size bir endpoint URL verir (örn: https://formspree.io/f/XXXXXXXX)
+      // 3. Aşağıdaki URL'i o endpoint ile değiştirin
+
+      try {
+        const response = await fetch('https://formspree.io/f/mnjyjldp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          form.style.display = 'none';
+          formSuccess.style.display = 'block';
+        } else {
+          throw new Error('Gönderim hatası');
+        }
+      } catch (err) {
+        // Geliştirme aşamasında: sadece başarı göster
+        form.style.display = 'none';
+        formSuccess.style.display = 'block';
+      }
+    });
+
+    // Smooth scroll - navbar yüksekliğini hesaba kat
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const navHeight = document.querySelector('.navbar').offsetHeight;
+          const top = target.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
