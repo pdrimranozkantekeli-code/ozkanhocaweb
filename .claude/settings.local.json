@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git config *)",
+      "Bash(git push *)",
+      "Bash(curl -s https://ozkanhoca.com)",
+      "Bash(curl -sI https://ozkanhoca.com)",
+      "Bash(curl -sL https://ozkanhoca.com)",
+      "Bash(curl -sL https://www.ozkanhoca.com)",
+      "Bash(Get-FileHash C:\\\\ozkanhocaweb\\\\index.html -Algorithm MD5)",
+      "Bash(Select-Object -ExpandProperty Hash)",
+      "Bash(curl -s https://raw.githubusercontent.com/pdrimranozkantekeli-code/ozkanhocaweb/master/index.html)",
+      "Read(//mnt/c/ozkanhocaweb/**)",
+      "Bash(certutil -hashfile C:\\\\\\\\ozkanhocaweb\\\\\\\\index.html MD5)",
+      "PowerShell(\\(Get-FileHash C:\\\\ozkanhocaweb\\\\index.html -Algorithm MD5\\).Hash.ToLower\\(\\))",
+      "Bash(curl -s https://www.ozkanhoca.com)",
+      "Bash(npm install *)",
+      "Bash(vercel --prod)",
+      "Bash(Select-Object Name)"
+    ]
+  }
+}
