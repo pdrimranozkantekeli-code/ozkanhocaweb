@@ -771,6 +771,108 @@
     }
     .kontenjan-text strong { color: var(--indigo-800); }
 
+    /* ── SSS ──────────────────────────────────────────── */
+    .faq-section {
+      padding: 72px 24px;
+      background: var(--white);
+    }
+
+    .faq-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .faq-list {
+      margin-top: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border: 1px solid rgba(127,119,221,0.18);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .faq-item[open] {
+      border-color: rgba(127,119,221,0.3);
+      border-left: 3px solid var(--gold);
+      box-shadow: var(--shadow-card);
+    }
+
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--indigo-800);
+      transition: background 0.15s;
+    }
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary:hover { background: var(--bg-soft); }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      color: var(--indigo-200);
+      transition: transform 0.25s, color 0.2s;
+    }
+
+    .faq-item[open] .faq-chevron {
+      transform: rotate(180deg);
+      color: var(--indigo-400);
+    }
+
+    .faq-answer {
+      padding: 0 20px 18px;
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.75;
+      border-top: 1px solid rgba(175,169,236,0.2);
+      padding-top: 14px;
+      margin-top: 0;
+    }
+
+    .faq-cta {
+      margin-top: 24px;
+      background: var(--indigo-50);
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.55;
+    }
+
+    .faq-cta-icon {
+      color: var(--indigo-500);
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .faq-cta a {
+      color: var(--indigo-500);
+      font-weight: 500;
+      text-decoration: underline;
+    }
+    .faq-cta a:hover { color: var(--indigo-700); }
+
+    @media (max-width: 768px) {
+      .faq-section { padding: 48px 24px; }
+      .faq-item summary { font-size: 13.5px; padding: 14px 16px; }
+      .faq-answer { padding: 12px 16px 16px; font-size: 13.5px; }
+    }
+
     /* ── HAKKIMDA ─────────────────────────────────────── */
     .about-section {
       background: var(--bg-soft);
@@ -1192,6 +1294,7 @@
       <div class="nav-links">
         <a href="#hizmetler">Hizmet</a>
         <a href="#paket">Paket</a>
+        <a href="#sss">SSS</a>
         <a href="#hakkimda">Hakkımda</a>
         <a href="#iletisim" class="nav-cta">Başvuru Formu</a>
       </div>
@@ -1202,6 +1305,7 @@
     <div class="mobile-menu" id="mobile-menu">
       <a href="#hizmetler" onclick="closeMobileMenu()">Hizmet</a>
       <a href="#paket" onclick="closeMobileMenu()">Paket</a>
+      <a href="#sss" onclick="closeMobileMenu()">SSS</a>
       <a href="#hakkimda" onclick="closeMobileMenu()">Hakkımda</a>
       <a href="#iletisim" onclick="closeMobileMenu()">Başvuru Formu</a>
     </div>
@@ -1433,6 +1537,90 @@
         <div class="kontenjan-icon">⚠️</div>
         <div class="kontenjan-text">
           <strong>Sınırlı kontenjan:</strong> Her öğrenciyle gerçekten ilgilenebilmek için az sayıda öğrenciyle çalışıyorum. Uygunluk için erken iletişime geçin.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SSS ── -->
+  <section class="faq-section" id="sss">
+    <div class="faq-inner">
+      <div class="section-label">Sıkça Sorulanlar</div>
+      <h2 class="section-title">Velilerin merak ettikleri</h2>
+      <p class="section-sub">Görüşmeden önce kafanızdaki soruların büyük çoğunluğu burada cevaplanıyor.</p>
+
+      <div class="faq-list">
+
+        <details class="faq-item" open>
+          <summary>
+            Özel ders veya dershaneden farkınız ne?
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Dershane konuyu anlatır, özel ders eksiği kapatır. Ben üçünü birlikte yürütüyorum: kişiye özel akademik plan, psikolojik destek ve haftalık birebir takip. PDR geçmişim sayesinde sınav kaygısı ve motivasyon da süreçte ele alınıyor — çoğu zaman asıl sorun bilgi değil, sistem ve psikolojik destek eksikliğidir.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            Görüşmeler nerede yapılıyor?
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Adana'da yüz yüze veya online görüşüyoruz. Öğrencinin yaşadığı semt, müsaitlik ve tercih durumuna göre birlikte karar veriyoruz. Online seanslar yüz yüzeyle aynı yapıda ilerliyor — ekran paylaşımı, ödev takibi ve birebir konuşma dahil.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            Hangi sınıflarla çalışıyorsunuz?
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Ağırlıklı olarak 8. sınıf öğrencileriyle çalışıyorum çünkü LGS sürecinin tamamına odaklı bir sistemim var. 6 ve 7. sınıflara ise erken hazırlık ve çalışma alışkanlığı kurma amacıyla destek veriyorum.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            Haftada kaç seans yapılıyor?
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Genelde haftada 1 birebir koçluk seansı yapıyoruz (45-60 dk). Ama süreç sadece seansla sınırlı değil: haftalık çalışma planı, ödev takibi ve gerektiğinde kısa kontrol görüşmeleriyle öğrenciyi haftanın tamamında takip ediyorum.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            Fiyat nedir?
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Tek bir paket var ama her öğrencinin süreci ve ihtiyacı farklı olduğu için fiyatı keşif görüşmesinde net olarak konuşuyoruz. İlk görüşme ücretsiz ve bağlayıcı değil — uygun bulmazsanız hiçbir taahhüdünüz yok.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            Başarı garantisi veriyor musunuz?
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Hayır. Çocuğunuzun başarısı çok faktörlü bir denklem; tek bir kişinin "garanti" sözü vermesi gerçekçi değil. Benim taahhüdüm şu: şeffaf süreç, aylık veri raporu ve öğrencinizin ilerlemesini birlikte ölçmek. Abartılı vaat yerine ölçülebilir takibi tercih ediyorum.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            Çocuğum çekingen veya motivasyonsuz, faydası olur mu?
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Aslında en çok fark yarattığım profil bu. PDR yaklaşımım sayesinde önce öğrenciyle güven ilişkisi kuruyoruz — sonra çalışma sistemi ve motivasyon birlikte oturuyor. "Bilgisi var ama sınavda yapamıyor" ya da "çalışmaya başlamakta zorlanıyor" diyen velilerin sıklıkla ulaştığı sonuç bu.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            Veli olarak süreci nasıl takip ediyorum?
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">Her ay düzenli bir bilgilendirme raporu paylaşıyorum: çocuğunuzun bu ay neler çalıştığı, denemelerdeki net değişimi, çalıştığımız psikolojik konular ve bir sonraki aya yönelik plan. Ayrıca acil durumlarda WhatsApp'tan da iletişimdeyiz.</div>
+        </details>
+
+      </div>
+
+      <div class="faq-cta">
+        <div class="faq-cta-icon">💬</div>
+        <div>
+          Aklınızdaki soru burada yoksa <a href="https://wa.me/905306771685?text=Merhaba%2C%20LGS%20ko%C3%A7lu%C4%9Fu%20hakk%C4%B1nda%20bir%20sorum%20var." target="_blank" rel="noopener">WhatsApp'tan yazın</a> — doğrudan ben cevaplıyorum.
         </div>
       </div>
     </div>
