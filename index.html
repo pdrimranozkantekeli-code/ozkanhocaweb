@@ -1267,15 +1267,151 @@
       .hero-btns { flex-direction: column; }
       .hero-btns .btn-wa, .hero-btns .btn-ghost { width: 100%; justify-content: center; }
     }
+    /* ── ÇEREZ BANNERI ────────────────────────────────── */
+    .cookie-banner {
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      max-width: 1060px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 1px solid rgba(127,119,221,0.25);
+      border-radius: 12px;
+      padding: 18px 22px;
+      box-shadow: 0 8px 32px rgba(26,22,69,0.18);
+      display: none;
+      align-items: center;
+      gap: 20px;
+      z-index: 200;
+      animation: cookieSlideUp 0.4s ease-out;
+    }
+
+    .cookie-banner.is-visible { display: flex; }
+
+    .cookie-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: var(--indigo-50);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--indigo-500);
+      font-size: 22px;
+    }
+
+    .cookie-text {
+      flex: 1;
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    .cookie-text strong { color: var(--indigo-800); }
+
+    .cookie-text a {
+      color: var(--indigo-500);
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+    .cookie-text a:hover { color: var(--indigo-700); }
+
+    .cookie-actions {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .cookie-btn {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 9px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.1s;
+      white-space: nowrap;
+    }
+    .cookie-btn:active { transform: translateY(1px); }
+
+    .cookie-btn-reject {
+      background: var(--white);
+      color: var(--text-mid);
+      border: 1px solid rgba(127,119,221,0.3);
+    }
+    .cookie-btn-reject:hover { border-color: var(--indigo-400); }
+
+    .cookie-btn-accept {
+      background: var(--indigo-400);
+      color: var(--white);
+      border: none;
+    }
+    .cookie-btn-accept:hover { background: var(--indigo-500); }
+
+    @keyframes cookieSlideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .cookie-banner {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        padding: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+      .cookie-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .cookie-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+      }
+      .cookie-text { font-size: 12px; }
+      .cookie-actions { gap: 6px; }
+      .cookie-btn { flex: 1; padding: 8px; font-size: 12px; }
+    }
   </style>
 
-  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) - Consent Mode v2 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-T5M63NSF2L"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+
+    // VARSAYILAN: Tüm izinler reddedildi (kullanıcı seçim yapana kadar)
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
+
     gtag('js', new Date());
-    gtag('config', 'G-T5M63NSF2L');
+    gtag('config', 'G-T5M63NSF2L', { 'anonymize_ip': true });
+
+    // Kullanıcı daha önce seçim yapmışsa onu uygula
+    (function() {
+      try {
+        var consent = localStorage.getItem('cookie_consent');
+        var ts = localStorage.getItem('cookie_consent_ts');
+        var ONE_YEAR = 365 * 24 * 60 * 60 * 1000;
+        if (consent && ts && (Date.now() - parseInt(ts) < ONE_YEAR)) {
+          if (consent === 'accepted') {
+            gtag('consent', 'update', { 'analytics_storage': 'granted' });
+          }
+        }
+      } catch(e) {}
+    })();
   </script>
 
   <!-- ── SCHEMA.ORG STRUCTURED DATA ── -->
@@ -1900,6 +2036,29 @@
     </div>
   </footer>
 
+  <!-- ── ÇEREZ BANNERI ── -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Çerez bildirimi" aria-live="polite">
+    <div class="cookie-content" style="display: contents;">
+      <div class="cookie-icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/>
+          <circle cx="8.5" cy="8.5" r="0.5" fill="currentColor"/>
+          <circle cx="15" cy="15" r="0.5" fill="currentColor"/>
+          <circle cx="9.5" cy="14.5" r="0.5" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="cookie-text">
+        <strong>Çerez kullanımı.</strong>
+        İnternet sitemiz ziyaretçi deneyimini geliştirmek için anonim analitik çerezler kullanır. Tercihinizi belirtmediğiniz sürece zorunlu çerezler dışında veri toplanmaz.
+        <a href="/gizlilik.html">Gizlilik Politikası</a>
+      </div>
+    </div>
+    <div class="cookie-actions">
+      <button type="button" class="cookie-btn cookie-btn-reject" id="cookieReject">Reddet</button>
+      <button type="button" class="cookie-btn cookie-btn-accept" id="cookieAccept">Kabul Et</button>
+    </div>
+  </div>
+
   <script>
     // Hamburger menü
     const hamburger = document.getElementById('hamburger');
@@ -1973,6 +2132,58 @@
         }
       });
     });
+
+    // ── Çerez bildirimi mantığı ──
+    (function() {
+      var banner = document.getElementById('cookieBanner');
+      var acceptBtn = document.getElementById('cookieAccept');
+      var rejectBtn = document.getElementById('cookieReject');
+      var ONE_YEAR = 365 * 24 * 60 * 60 * 1000;
+
+      function hasValidConsent() {
+        try {
+          var consent = localStorage.getItem('cookie_consent');
+          var ts = localStorage.getItem('cookie_consent_ts');
+          if (!consent || !ts) return false;
+          if (Date.now() - parseInt(ts) >= ONE_YEAR) return false;
+          return true;
+        } catch(e) { return false; }
+      }
+
+      function setConsent(value) {
+        try {
+          localStorage.setItem('cookie_consent', value);
+          localStorage.setItem('cookie_consent_ts', Date.now().toString());
+        } catch(e) {}
+      }
+
+      function hideBanner() {
+        banner.classList.remove('is-visible');
+      }
+
+      function showBanner() {
+        banner.classList.add('is-visible');
+      }
+
+      // Sayfa yüklendiğinde kontrol et
+      if (!hasValidConsent()) {
+        // Küçük gecikme — sayfa render olduktan sonra göster
+        setTimeout(showBanner, 600);
+      }
+
+      acceptBtn.addEventListener('click', function() {
+        setConsent('accepted');
+        if (typeof gtag === 'function') {
+          gtag('consent', 'update', { 'analytics_storage': 'granted' });
+        }
+        hideBanner();
+      });
+
+      rejectBtn.addEventListener('click', function() {
+        setConsent('rejected');
+        hideBanner();
+      });
+    })();
   </script>
 
 </body>
