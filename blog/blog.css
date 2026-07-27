@@ -290,3 +290,32 @@ img { max-width: 100%; display: block; }
   .blog-nav-links a { font-size: 12px; }
   .post-card { padding: 18px; }
 }
+
+
+/* ── İLGİLİ YAZILAR ───────────────────────────────── */
+.related-posts {
+  margin-top: 34px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.related-title {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--indigo-800);
+  margin-bottom: 12px;
+}
+.related-list { list-style: none; }
+.related-list li { margin-bottom: 8px; }
+.related-list a {
+  display: block;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 15px;
+  color: var(--indigo-500);
+  transition: background 0.15s, border-color 0.15s;
+}
+.related-list a:hover {
+  background: var(--indigo-50);
+  border-color: var(--indigo-200);
+}
