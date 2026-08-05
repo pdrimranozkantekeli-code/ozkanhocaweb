@@ -89,7 +89,17 @@ Depoda hâlâ atıl bir `main` var (6 Haziran'da "Add files via upload" ile donm
 Tahmin yürütme, veriye bak. Search Console'a Chrome eklentisiyle doğrudan erişilebiliyor — dosyalara bakıp SEO teşhisi koymak yerine gerçek veriye bak. Yanıldığında açıkça söyle.
 
 ### Commit — terminal komutu verme
-Commit'e hazır olunca Özkan'a terminal komutu yazdırma. `../../05-operasyon/COMMIT-AT.command` dosyasındaki `VARSAYILAN_MESAJ` satırını o commit'e uygun şekilde güncelle; o dosyaya çift tıklayarak çalıştırıyor. Script branch'i kontrol eder, değişiklikleri gösterir, onay alır, commit atar, sonra push sorar. Yeni dosya oluşturma — mevcut olanı güncelle. Değişiklik sonrası `chmod +x` gerekir.
+Commit'e hazır olunca Özkan'a terminal komutu yazdırma. `../../05-operasyon/COMMIT-AT.command` dosyasındaki `VARSAYILAN_MESAJ` satırını o commit'e uygun şekilde güncelle; o dosyaya çift tıklayarak çalıştırıyor.
+
+**Klasörde tek bir `.command` dosyası olur.** İkinci bir tane oluşturma — düzeltme, geri alma, force push dahil hiçbir durumda. Script zaten iki modlu:
+
+1. Yeni commit
+2. Son commit'i düzelt — amend + `--force-with-lease` push, öncesinde `yedek-duzeltme-oncesi` etiketi bırakır
+
+Başka bir işlem gerekiyorsa bu dosyaya mod ekle, yeni dosya açma. Değişiklik sonrası `chmod +x` gerekir.
+
+### Depoda git yazma komutu çalıştırma
+Sandbox'ın `.git/` altına yazma izni yok. `git add`, `commit`, `remote set-head` gibi komutlar yarım kalıp `.git/index.lock` bırakıyor ve sandbox onu silemediği için sonraki bütün git işlemleri kilitleniyor. Okuma komutları (`git log`, `git status`, `git diff`) sorunsuz. Yazma işleri `.command` script'i üzerinden gider.
 
 ### Yeni blog yazısı — 4 yer güncellenir
 1. Yazının kendi dosyası (`blog/<slug>.html`)
