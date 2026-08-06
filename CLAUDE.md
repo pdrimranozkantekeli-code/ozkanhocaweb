@@ -14,7 +14,7 @@
 - **Dosyalar:** `index.html` (ana sayfa) · `kvkk.html` · `gizlilik.html` · `blog/index.html` (liste) · `blog/*.html` (yazılar) · `blog/blog.css`
 
 ### Branch
-Çalışılan branch **`master`** — 4 Ağustos 2026'da GitHub'da varsayılan branch de `master` yapıldı, artık temiz bir clone doğru yere düşer.
+Çalışılan branch **`master`** — 6 Ağustos 2026'da GitHub'da varsayılan branch de `master` yapıldı, artık temiz bir clone doğru yere düşer.
 
 Depoda hâlâ atıl bir `main` var (6 Haziran'da "Add files via upload" ile donmuş). Silinebilir. Yine de commit öncesi `git branch --show-current` ile doğrulamak iyi alışkanlık.
 
