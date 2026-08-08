@@ -953,6 +953,122 @@
 
     .about-text p + p { margin-top: 16px; }
 
+    /* ── VELİ YORUMLARI ───────────────────────────────── */
+    .reviews-section {
+      padding: 72px 24px;
+      background: var(--bg-soft);
+    }
+
+    .reviews-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .reviews-score {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      margin: 28px 0 36px;
+      padding: 16px 26px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+    }
+
+    .reviews-score-num {
+      font-family: var(--serif);
+      font-size: 42px;
+      line-height: 1;
+      color: var(--indigo-800);
+    }
+
+    .reviews-score-side { text-align: left; }
+
+    .reviews-stars {
+      display: flex;
+      gap: 2px;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .reviews-score-text {
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .reviews-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      text-align: left;
+    }
+
+    .review-card {
+      margin: 0;
+      padding: 26px 24px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .review-card blockquote {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-mid);
+      flex: 1;
+    }
+
+    .review-card blockquote::before {
+      content: "“";
+      display: block;
+      font-family: var(--serif);
+      font-size: 40px;
+      line-height: 0.6;
+      color: var(--indigo-200);
+      margin-bottom: 10px;
+    }
+
+    .review-card figcaption {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .review-author {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--indigo-800);
+    }
+
+    .review-meta {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    .reviews-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 32px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--indigo-500);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s ease;
+    }
+
+    .reviews-link:hover { border-bottom-color: var(--indigo-500); }
+
     /* ── FORM ─────────────────────────────────────────── */
     .form-section {
       padding: 72px 24px;
@@ -1274,16 +1390,24 @@
       .footer-inner { flex-direction: column; text-align: center; }
 
       .hero { padding: 48px 24px 40px; }
-      .services-section, .process-section, .package-section, .about-section, .form-section { padding: 48px 24px; }
+      .services-section, .process-section, .package-section, .about-section, .form-section, .reviews-section { padding: 48px 24px; }
       .pain-section { padding: 40px 24px; }
 
       .package-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+      .reviews-list { grid-template-columns: 1fr; gap: 16px; }
+      .reviews-score { margin: 24px 0 28px; padding: 14px 22px; }
+      .reviews-score-num { font-size: 36px; }
     }
 
     @media (max-width: 480px) {
       .pain-grid { grid-template-columns: 1fr; }
       .hero-btns { flex-direction: column; }
       .hero-btns .btn-wa, .hero-btns .btn-ghost { width: 100%; justify-content: center; }
+
+      .reviews-score { width: 100%; justify-content: center; }
+      .review-card { padding: 22px 20px; }
+      .review-card blockquote { font-size: 14.5px; }
     }
     /* ── ÇEREZ BANNERI ────────────────────────────────── */
     .cookie-banner {
@@ -1957,6 +2081,62 @@
           <p>Adana'daki liseleri yakından tanıyorum — tercih sürecinde de yanınızdayım.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ── VELİ YORUMLARI ── -->
+  <section class="reviews-section" id="yorumlar">
+    <div class="reviews-inner">
+      <div class="section-label">Veliler ne diyor</div>
+      <h2 class="section-title">Google'daki değerlendirmeler</h2>
+      <p class="section-sub">Aşağıdaki yorumlar Google İşletme Profili'nde herkese açık — isterseniz doğrudan Google'dan da okuyabilirsiniz.</p>
+
+      <div class="reviews-score">
+        <div class="reviews-score-num">5,0</div>
+        <div class="reviews-score-side">
+          <div class="reviews-stars" aria-label="5 üzerinden 5 yıldız">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="reviews-score-text">14 Google değerlendirmesi</div>
+        </div>
+      </div>
+
+      <div class="reviews-list">
+
+        <figure class="review-card">
+          <blockquote>Birçok yeri araştırdım ve sonunda Özkan hocam gibi güler yüzlü, öğrencinin ne istediğinden anlayan, donanımlı, deneyimli bir eğitimciye denk geldim. Merak eden arkadaşlar olursa çekinmeden kendisine danışabilirler, biz memnun kaldık.</blockquote>
+          <figcaption>
+            <span class="review-author">Barış</span>
+            <span class="review-meta">Google değerlendirmesi</span>
+          </figcaption>
+        </figure>
+
+        <figure class="review-card">
+          <blockquote>Özkan hocanın önderliğinde her şey çok güzel olmuş ve sorunsuz ilerledi, kendisine çok teşekkür ediyoruz. Tüm akrabalarıma tavsiye edeceğim.</blockquote>
+          <figcaption>
+            <span class="review-author">Semra Yıldırım</span>
+            <span class="review-meta">Google değerlendirmesi</span>
+          </figcaption>
+        </figure>
+
+        <figure class="review-card">
+          <blockquote>Sayesinde kardeşim hafta sonu sınava tam özgüvenle girecek. Teşekkür ederiz hocam.</blockquote>
+          <figcaption>
+            <span class="review-author">Çağrı Algan</span>
+            <span class="review-meta">Google değerlendirmesi</span>
+          </figcaption>
+        </figure>
+
+      </div>
+
+      <a class="reviews-link" href="https://www.google.com/maps/place/%C3%96zkan+Hoca+LGS+%C3%96%C4%9Frenci+Ko%C3%A7lu%C4%9Fu/@37.4714504,35.5342665,8z/data=!4m8!3m7!1s0xa390aa93aaa46fb3:0xe5e10f11f0fadd7!8m2!3d37.4714504!4d35.5342665!9m1!1b1!16s%2Fg%2F11z930m042" target="_blank" rel="noopener">
+        Tüm değerlendirmeleri Google'da görün
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
     </div>
   </section>
 
