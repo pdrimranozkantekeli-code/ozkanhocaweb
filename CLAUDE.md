@@ -11,7 +11,14 @@
 - **Repo:** pdrimranozkantekeli-code/ozkanhocaweb
 - **Hosting:** Vercel (production branch: master, otomatik deploy)
 - **Mimari:** Statik HTML/CSS/JS — framework yok, derleme adımı yok
-- **Dosyalar:** `index.html` (ana sayfa) · `kvkk.html` · `gizlilik.html` · `blog/index.html` (liste) · `blog/*.html` (yazılar) · `blog/blog.css`
+- **Dosyalar:** `index.html` (ana sayfa) · `adana-lise-taban-puanlari.html` (araç sayfası) · `kvkk.html` · `gizlilik.html` · `blog/index.html` (liste) · `blog/*.html` (yazılar) · `blog/blog.css`
+
+### Adana lise taban puanları sayfası
+`/adana-lise-taban-puanlari` — veli LGS puanını girer, hangi liselerin ulaşılabilir olduğunu görür. 24 okul (fen, Anadolu, sosyal bilimler). Veri sayfanın içindeki `OKULLAR` dizisinde, ayrı dosya yok.
+
+**Veri kuralı:** 2026 taban puanları ve 2025 yüzdelik dilimleri kesin veridir. **2026 yüzdelik dilimleri MEB tarafından açıklanmadı — tahmin yazma.** Açıklandığında `d25` alanlarının yanına `d26` eklenip tablo başlığı güncellenecek. Her yıl yerleştirme sonrası `t26`/`t25` kaydırılarak güncellenmeli.
+
+Blog sayfalarıyla aynı görünüm: `blog.css` + sayfa içi ek stiller. Vanilla JS, kütüphane yok.
 
 ### Branch
 Çalışılan branch **`master`** — 6 Ağustos 2026'da GitHub'da varsayılan branch de `master` yapıldı, artık temiz bir clone doğru yere düşer.

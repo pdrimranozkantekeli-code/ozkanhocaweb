@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>Adana Liseleri Taban Puanları | Hangi Liseye Girilir?</title>
+  <meta name="description" content="Çocuğunuzun LGS puanını girin, Adana'da hangi liselere yettiğini görün. Fen, Anadolu ve sosyal bilimler liselerinin taban puanları ve yüzdelik dilimleri.">
+  <link rel="canonical" href="https://ozkanhoca.com/adana-lise-taban-puanlari" />
+  <meta property="og:title" content="Adana Liseleri Taban Puanları | Hangi Liseye Girilir?">
+  <meta property="og:description" content="Çocuğunuzun LGS puanını girin, Adana'da hangi liselere yettiğini görün. Fen, Anadolu ve sosyal bilimler liselerinin taban puanları ve yüzdelik dilimleri.">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ozkanhoca.com/adana-lise-taban-puanlari" />
+  <meta property="og:image" content="https://ozkanhoca.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Adana Liseleri Taban Puanları | Hangi Liseye Girilir?">
+  <meta name="twitter:image" content="https://ozkanhoca.com/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="/blog/blog.css" />
+
+  <style>
+    .tool-header { max-width: 780px; margin: 0 auto; padding: 40px 24px 0; }
+    .tool-title {
+      font-family: var(--serif);
+      font-size: clamp(26px, 4vw, 38px);
+      line-height: 1.25;
+      color: var(--indigo-800);
+      margin-bottom: 14px;
+    }
+    .tool-intro { font-size: 16px; color: var(--text-mid); line-height: 1.75; }
+    .tool-intro p + p { margin-top: 12px; }
+
+    /* Puan girisi */
+    .score-box {
+      max-width: 780px;
+      margin: 32px auto 0;
+      padding: 26px 24px;
+      background: var(--indigo-50);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+    .score-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--indigo-800);
+      margin-bottom: 10px;
+    }
+    .score-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .score-input {
+      flex: 1;
+      min-width: 180px;
+      padding: 13px 16px;
+      font-family: var(--sans);
+      font-size: 17px;
+      color: var(--text-dark);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    .score-input:focus { outline: 2px solid var(--indigo-400); outline-offset: -1px; }
+    .score-btn {
+      padding: 13px 26px;
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 500;
+      color: #fff;
+      background: var(--indigo-500);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background .2s ease;
+    }
+    .score-btn:hover { background: var(--indigo-800); }
+    .score-hint { margin-top: 10px; font-size: 13px; color: var(--text-light); }
+    .score-error { margin-top: 10px; font-size: 14px; color: #b4342a; display: none; }
+
+    /* Sonuc ozeti */
+    .result-summary {
+      max-width: 780px;
+      margin: 24px auto 0;
+      padding: 20px 24px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--indigo-500);
+      border-radius: 12px;
+      display: none;
+    }
+    .result-summary strong { color: var(--indigo-800); }
+    .result-summary .rs-count { font-size: 17px; font-weight: 500; color: var(--indigo-800); }
+    .result-summary .rs-note { margin-top: 8px; font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+
+    /* Filtreler */
+    .filters {
+      max-width: 780px;
+      margin: 28px auto 0;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 8px 15px;
+      font-family: var(--sans);
+      font-size: 13.5px;
+      color: var(--text-mid);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+    .filter-btn:hover { border-color: var(--indigo-400); }
+    .filter-btn.active {
+      background: var(--indigo-500);
+      border-color: var(--indigo-500);
+      color: #fff;
+    }
+
+    /* Tablo */
+    .table-wrap {
+      max-width: 780px;
+      margin: 20px auto 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    table.schools {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      min-width: 620px;
+    }
+    table.schools thead th {
+      text-align: left;
+      padding: 12px 10px;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: var(--text-light);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    table.schools tbody td {
+      padding: 13px 10px;
+      border-bottom: 1px solid rgba(127,119,221,0.1);
+      vertical-align: top;
+    }
+    table.schools tbody tr.hidden { display: none; }
+    .school-name { font-weight: 500; color: var(--indigo-800); }
+    .school-meta { font-size: 12.5px; color: var(--text-light); margin-top: 2px; }
+    .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .tag-fen  { color: var(--indigo-500); }
+    .tag-and  { color: var(--text-light); }
+    .tag-sos  { color: #8a6d1f; }
+
+    tr.fits    { background: rgba(83,74,183,0.05); }
+    tr.fits .school-name::before {
+      content: "✓ ";
+      color: var(--indigo-500);
+      font-weight: 600;
+    }
+    .gap { font-size: 12.5px; color: var(--text-light); }
+
+    /* Uyari kutusu */
+    .disclaimer {
+      max-width: 780px;
+      margin: 36px auto 0;
+      padding: 20px 22px;
+      background: #fffdf6;
+      border: 1px solid rgba(250,199,117,0.5);
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text-mid);
+    }
+    .disclaimer strong { color: var(--indigo-800); }
+    .disclaimer ul { margin: 10px 0 0 18px; }
+    .disclaimer li { margin-bottom: 6px; }
+
+    .tool-outro { max-width: 780px; margin: 36px auto 0; padding: 0 24px; }
+    .tool-outro h2 {
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--indigo-800);
+      margin-bottom: 12px;
+    }
+    .tool-outro p { font-size: 15.5px; color: var(--text-mid); line-height: 1.8; }
+    .tool-outro p + p { margin-top: 12px; }
+
+    .tool-wrap { padding-bottom: 60px; }
+
+    @media (max-width: 768px) {
+      .tool-header, .tool-outro { padding-left: 20px; padding-right: 20px; }
+      .score-box, .result-summary, .disclaimer { margin-left: 20px; margin-right: 20px; }
+      .filters, .table-wrap { padding: 0 20px; }
+      .score-btn { width: 100%; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Adana Liseleri Taban Puanları",
+    "description": "Adana'daki fen, Anadolu ve sosyal bilimler liselerinin LGS taban puanları ve yüzdelik dilimleri.",
+    "url": "https://ozkanhoca.com/adana-lise-taban-puanlari",
+    "inLanguage": "tr",
+    "isPartOf": { "@id": "https://ozkanhoca.com/#business" },
+    "about": { "@id": "https://ozkanhoca.com/#business" }
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="blog-navbar">
+    <div class="blog-navbar-inner">
+      <a href="/" class="blog-nav-brand">
+        <img src="/logo-icon-dark.svg" alt="Özkan Hoca logo" />
+        <span>Özkan Hoca</span>
+      </a>
+      <div class="blog-nav-links">
+        <a href="/">Ana Sayfa</a>
+        <a href="/blog">Blog</a>
+        <a href="/#iletisim" class="blog-nav-cta">Başvuru</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="tool-wrap">
+
+    <div class="tool-header">
+      <div class="blog-label">Adana · Tercih Rehberi</div>
+      <h1 class="tool-title">Adana liseleri taban puanları</h1>
+      <div class="tool-intro">
+        <p>Çocuğunuzun LGS puanını yazın, Adana'da hangi liselerin bu puanla ulaşılabilir olduğunu görün. Aşağıda Adana'da sınavla öğrenci alan fen liseleri, Anadolu liseleri ve sosyal bilimler liseleri yer alıyor.</p>
+        <p>Deneme sonucu da yazabilirsiniz — yıl içinde nerede durduğunuzu görmek için.</p>
+      </div>
+    </div>
+
+    <div class="score-box">
+      <label class="score-label" for="puan">LGS puanı</label>
+      <div class="score-row">
+        <input class="score-input" type="number" id="puan" placeholder="Örnek: 420" min="100" max="500" step="0.001" inputmode="decimal" />
+        <button class="score-btn" type="button" id="hesapla">Liseleri göster</button>
+      </div>
+      <div class="score-hint">LGS puanı 100 ile 500 arasında olur. Ondalıklı yazabilirsiniz.</div>
+      <div class="score-error" id="hata"></div>
+    </div>
+
+    <div class="result-summary" id="ozet"></div>
+
+    <div class="filters" id="filtreler">
+      <button class="filter-btn active" type="button" data-tur="hepsi">Tümü</button>
+      <button class="filter-btn" type="button" data-tur="fen">Fen liseleri</button>
+      <button class="filter-btn" type="button" data-tur="anadolu">Anadolu liseleri</button>
+      <button class="filter-btn" type="button" data-tur="sosyal">Sosyal bilimler</button>
+    </div>
+
+    <div class="table-wrap">
+      <table class="schools" id="tablo">
+        <thead>
+          <tr>
+            <th>Okul</th>
+            <th class="num">2026 taban</th>
+            <th class="num">2025 taban</th>
+            <th class="num">2025 dilim</th>
+            <th class="num">Kont.</th>
+          </tr>
+        </thead>
+        <tbody id="govde"></tbody>
+      </table>
+    </div>
+
+    <div class="disclaimer">
+      <strong>Bu sayfayı okurken bilinmesi gerekenler</strong>
+      <ul>
+        <li><strong>2026 taban puanları</strong> yerleştirme sonuçlarına dayanıyor, kesin verilerdir.</li>
+        <li><strong>Yüzdelik dilimler 2025 yılına aittir.</strong> MEB 2026 yüzdelik dilimlerini henüz yayınlamadı; tahmin yazmaktansa doğrulanmış veriyi göstermeyi tercih ettik. Açıklandığında burası güncellenecek.</li>
+        <li>Taban puanı her yıl değişir — kontenjan, tercih yoğunluğu ve sınavın zorluğu etkiler. Bir okulun geçen yılki puanı, gelecek yıl için garanti değildir.</li>
+        <li>Veriler MEB yerleştirme sonuçlarından derlenmiştir. Tercih yapmadan önce <a href="https://www.meb.gov.tr" target="_blank" rel="noopener">MEB'in güncel kılavuzundan</a> doğrulayın.</li>
+        <li>Listede imam hatip liseleri ve mesleki-teknik liseler yer almıyor.</li>
+      </ul>
+    </div>
+
+    <div class="tool-outro">
+      <h2>Puan tek başına yeterli değil</h2>
+      <p>Bir okulun taban puanını tutturmak, o okulun çocuğunuza uygun olduğu anlamına gelmiyor. Evden uzaklık, okulun kültürü, çocuğun sosyal ihtiyaçları ve akademik temposu da tercihte belirleyici olmalı. Doğru puanla yanlış okula yerleşen öğrenci sayısı sanılandan fazla.</p>
+      <p>Tercih dönemi yaklaştığında bu konuyu ayrıntılı ele aldığım yazı için: <a href="/blog/adana-liseleri-lgs-tercih-rehberi">Adana Liseleri ve LGS Tercih Rehberi</a>.</p>
+
+      <div class="article-cta" style="margin-top:32px;">
+        <div class="article-cta-title">Hedef okul belirlemekte zorlanıyor musunuz?</div>
+        <div class="article-cta-sub">İlk keşif görüşmesi ücretsiz — 30 dakika sürer, hiçbir bağlayıcılığı yoktur.</div>
+        <a href="/#iletisim" class="article-cta-btn">Ücretsiz Görüşme Planla</a>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    // Kaynak: MEB 2026 LGS yerlestirme sonuclari.
+    // t26 = 2026 taban puani (kesin) · t25 = 2025 taban puani (kesin) · d25 = 2025 yuzdelik dilim (kesin)
+    // 2026 yuzdelik dilimleri MEB tarafindan henuz yayinlanmadigi icin yazilmadi.
+    var OKULLAR = [
+      { ad:"Adana Fen Lisesi", ilce:"Seyhan", tur:"fen", dil:"İngilizce", t26:482.973, t25:485.893, d25:0.51, kont:120 },
+      { ad:"Seyhan Borsa İstanbul Fen Lisesi", ilce:"Seyhan", tur:"fen", dil:"İngilizce", t26:471.055, t25:476.402, d25:1.13, kont:120 },
+      { ad:"Adana Anadolu Lisesi", ilce:"Çukurova", tur:"anadolu", dil:"İngilizce", t26:460.621, t25:465.237, d25:2.09, kont:180 },
+      { ad:"ÇEAS Anadolu Lisesi", ilce:"Çukurova", tur:"anadolu", dil:"İngilizce", t26:450.120, t25:452.965, d25:3.35, kont:180 },
+      { ad:"İsmail Safa Özler Anadolu Lisesi", ilce:"Çukurova", tur:"anadolu", dil:"İngilizce", t26:446.603, t25:448.235, d25:3.89, kont:90 },
+      { ad:"İsmail Safa Özler Anadolu Lisesi", ilce:"Çukurova", tur:"anadolu", dil:"Almanca", t26:445.269, t25:446.788, d25:4.05, kont:30 },
+      { ad:"Piri Reis Anadolu Lisesi", ilce:"Çukurova", tur:"anadolu", dil:"İngilizce", t26:436.188, t25:438.869, d25:5.02, kont:180 },
+      { ad:"Kozan Fen Lisesi", ilce:"Kozan", tur:"fen", dil:"İngilizce", t26:435.939, t25:439.375, d25:4.96, kont:120 },
+      { ad:"Adana Ticaret Odası Anadolu Lisesi", ilce:"Sarıçam", tur:"anadolu", dil:"İngilizce", t26:425.252, t25:427.598, d25:6.55, kont:150 },
+      { ad:"Sungurbey Anadolu Lisesi", ilce:"Çukurova", tur:"anadolu", dil:"İngilizce", t26:423.516, t25:424.658, d25:6.95, kont:150 },
+      { ad:"Eczacı Bahattin-Sevinç Erdinç Fen Lisesi", ilce:"Ceyhan", tur:"fen", dil:"İngilizce", t26:413.938, t25:418.653, d25:7.81, kont:120 },
+      { ad:"Seyhan Rotary Anadolu Lisesi", ilce:"Yüreğir", tur:"anadolu", dil:"İngilizce", t26:413.677, t25:412.736, d25:8.71, kont:150 },
+      { ad:"Gazi Anadolu Lisesi", ilce:"Seyhan", tur:"anadolu", dil:"İngilizce", t26:413.221, t25:411.871, d25:8.84, kont:150 },
+      { ad:"Seyhan Danişment Gazi Anadolu Lisesi", ilce:"Seyhan", tur:"anadolu", dil:"İngilizce", t26:405.726, t25:403.080, d25:10.24, kont:150 },
+      { ad:"75. Yıl Anadolu Lisesi", ilce:"Yüreğir", tur:"anadolu", dil:"İngilizce", t26:399.092, t25:397.025, d25:11.23, kont:120 },
+      { ad:"Fatih Anadolu Lisesi", ilce:"Kozan", tur:"anadolu", dil:"İngilizce", t26:393.662, t25:393.851, d25:11.76, kont:150 },
+      { ad:"Yüreğir Halıcılar Anadolu Lisesi", ilce:"Yüreğir", tur:"anadolu", dil:"İngilizce", t26:389.616, t25:387.169, d25:12.90, kont:150 },
+      { ad:"Şehit Zeynep Sağır Anadolu Lisesi", ilce:"Ceyhan", tur:"anadolu", dil:"İngilizce", t26:389.152, t25:375.692, d25:14.94, kont:90 },
+      { ad:"TOKİ Köprülü Anadolu Lisesi", ilce:"Yüreğir", tur:"anadolu", dil:"İngilizce", t26:384.124, t25:379.948, d25:14.17, kont:150 },
+      { ad:"Ceyhan Anadolu Lisesi", ilce:"Ceyhan", tur:"anadolu", dil:"İngilizce", t26:367.710, t25:337.992, d25:22.43, kont:90 },
+      { ad:"Adana Erkek Anadolu Lisesi", ilce:"Seyhan", tur:"anadolu", dil:"İngilizce", t26:367.494, t25:345.319, d25:20.86, kont:60 },
+      { ad:"Bahtiyar Vahabzade Sosyal Bilimler Lisesi", ilce:"Sarıçam", tur:"sosyal", dil:"İngilizce", t26:355.540, t25:351.080, d25:19.69, kont:120 },
+      { ad:"Ceyhan Ticaret Borsası Sosyal Bilimler Lisesi", ilce:"Ceyhan", tur:"sosyal", dil:"İngilizce", t26:332.078, t25:313.967, d25:27.96, kont:90 },
+      { ad:"Adana Kız Lisesi", ilce:"Çukurova", tur:"anadolu", dil:"İngilizce", t26:239.203, t25:170.061, d25:94.59, kont:90 }
+    ];
+
+    var TUR_ADI = { fen:"Fen Lisesi", anadolu:"Anadolu Lisesi", sosyal:"Sosyal Bilimler Lisesi" };
+    var TUR_SINIF = { fen:"tag-fen", anadolu:"tag-and", sosyal:"tag-sos" };
+
+    var govde = document.getElementById("govde");
+    var aktifTur = "hepsi";
+    var aktifPuan = null;
+
+    function sayi(n) {
+      return n.toLocaleString("tr-TR", { minimumFractionDigits: 3, maximumFractionDigits: 3 });
+    }
+
+    function ciz() {
+      govde.innerHTML = "";
+      var gosterilen = 0;
+
+      OKULLAR.forEach(function (o) {
+        if (aktifTur !== "hepsi" && o.tur !== aktifTur) return;
+        gosterilen++;
+
+        var tr = document.createElement("tr");
+        var yetiyor = aktifPuan !== null && aktifPuan >= o.t26;
+        if (yetiyor) tr.className = "fits";
+
+        var fark = "";
+        if (aktifPuan !== null && !yetiyor) {
+          fark = '<div class="gap">' + sayi(o.t26 - aktifPuan) + ' puan eksik</div>';
+        }
+
+        tr.innerHTML =
+          '<td><div class="school-name">' + o.ad + '</div>' +
+          '<div class="school-meta ' + TUR_SINIF[o.tur] + '">' + TUR_ADI[o.tur] + ' · ' + o.ilce + ' · ' + o.dil + '</div>' + fark + '</td>' +
+          '<td class="num">' + sayi(o.t26) + '</td>' +
+          '<td class="num">' + sayi(o.t25) + '</td>' +
+          '<td class="num">%' + o.d25.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '</td>' +
+          '<td class="num">' + o.kont + '</td>';
+
+        govde.appendChild(tr);
+      });
+
+      return gosterilen;
+    }
+
+    function ozetYaz() {
+      var kutu = document.getElementById("ozet");
+      if (aktifPuan === null) { kutu.style.display = "none"; return; }
+
+      var yeten = OKULLAR.filter(function (o) { return aktifPuan >= o.t26; });
+      var enYuksek = yeten.length ? yeten[0] : null;
+
+      var metin = "";
+      if (yeten.length === 0) {
+        var enDusuk = OKULLAR[OKULLAR.length - 1];
+        metin = '<div class="rs-count">Bu puan listedeki okulların taban puanlarının altında kalıyor.</div>' +
+                '<div class="rs-note">Listedeki en düşük taban puanı <strong>' + sayi(enDusuk.t26) +
+                '</strong> (' + enDusuk.ad + '). Aradaki fark <strong>' + sayi(enDusuk.t26 - aktifPuan) + ' puan</strong>. ' +
+                'Bu sayfada imam hatip ve mesleki-teknik liseler yer almıyor — onlar bu puan aralığında seçenek sunabilir.</div>';
+      } else {
+        metin = '<div class="rs-count">Bu puanla <strong>' + yeten.length + ' okulun</strong> 2026 taban puanı aşılıyor.</div>' +
+                '<div class="rs-note">En yüksek puanlı olanı: <strong>' + enYuksek.ad + '</strong> (' + sayi(enYuksek.t26) + '). ' +
+                'Tabloda ✓ işaretli satırlar bu puanla ulaşılabilen okullar. ' +
+                'Unutmayın: bunlar geçen yılın puanları, gelecek yıl için garanti değil.</div>';
+      }
+
+      kutu.innerHTML = metin;
+      kutu.style.display = "block";
+    }
+
+    document.getElementById("hesapla").addEventListener("click", function () {
+      var girdi = document.getElementById("puan").value.trim().replace(",", ".");
+      var hata = document.getElementById("hata");
+      var p = parseFloat(girdi);
+
+      if (girdi === "" || isNaN(p)) {
+        hata.textContent = "Lütfen bir puan yazın.";
+        hata.style.display = "block";
+        aktifPuan = null; ciz(); ozetYaz();
+        return;
+      }
+      if (p < 100 || p > 500) {
+        hata.textContent = "LGS puanı 100 ile 500 arasında olmalı. Yazdığınız değeri kontrol edin.";
+        hata.style.display = "block";
+        aktifPuan = null; ciz(); ozetYaz();
+        return;
+      }
+
+      hata.style.display = "none";
+      aktifPuan = p;
+      ciz();
+      ozetYaz();
+    });
+
+    document.getElementById("puan").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") document.getElementById("hesapla").click();
+    });
+
+    document.getElementById("filtreler").addEventListener("click", function (e) {
+      var btn = e.target.closest(".filter-btn");
+      if (!btn) return;
+      document.querySelectorAll(".filter-btn").forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      aktifTur = btn.dataset.tur;
+      ciz();
+    });
+
+    ciz();
+  </script>
+
+</body>
+</html>
