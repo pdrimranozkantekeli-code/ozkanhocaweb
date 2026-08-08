@@ -167,7 +167,12 @@
       color: var(--indigo-500);
       font-weight: 600;
     }
-    .gap { font-size: 12.5px; color: var(--text-light); }
+    .empty-row {
+      padding: 26px 10px !important;
+      text-align: center;
+      color: var(--text-light);
+      font-size: 14px;
+    }
 
     /* Uyari kutusu */
     .disclaimer {
@@ -353,20 +358,19 @@
 
       OKULLAR.forEach(function (o) {
         if (aktifTur !== "hepsi" && o.tur !== aktifTur) return;
+
+        // Puan girildiyse sadece o puanla ulasilabilen okullar listelenir.
+        // Yetmeyenleri de gostermek veliyi yaniltiyordu.
+        if (aktifPuan !== null && aktifPuan < o.t26) return;
+
         gosterilen++;
 
         var tr = document.createElement("tr");
-        var yetiyor = aktifPuan !== null && aktifPuan >= o.t26;
-        if (yetiyor) tr.className = "fits";
-
-        var fark = "";
-        if (aktifPuan !== null && !yetiyor) {
-          fark = '<div class="gap">' + sayi(o.t26 - aktifPuan) + ' puan eksik</div>';
-        }
+        if (aktifPuan !== null) tr.className = "fits";
 
         tr.innerHTML =
           '<td><div class="school-name">' + o.ad + '</div>' +
-          '<div class="school-meta ' + TUR_SINIF[o.tur] + '">' + TUR_ADI[o.tur] + ' · ' + o.ilce + ' · ' + o.dil + '</div>' + fark + '</td>' +
+          '<div class="school-meta ' + TUR_SINIF[o.tur] + '">' + TUR_ADI[o.tur] + ' · ' + o.ilce + ' · ' + o.dil + '</div></td>' +
           '<td class="num">' + sayi(o.t26) + '</td>' +
           '<td class="num">' + sayi(o.t25) + '</td>' +
           '<td class="num">%' + o.d25.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '</td>' +
@@ -374,6 +378,17 @@
 
         govde.appendChild(tr);
       });
+
+      // Puan girildi ama secili turde hic okul kalmadiysa bos tabloyu aciklayalim
+      if (gosterilen === 0) {
+        var tr = document.createElement("tr");
+        tr.innerHTML = '<td colspan="5" class="empty-row">' +
+          (aktifPuan === null
+            ? 'Bu türde okul bulunmuyor.'
+            : 'Bu puanla seçili türde ulaşılabilen okul yok. Filtreyi değiştirip diğer türlere bakabilirsiniz.') +
+          '</td>';
+        govde.appendChild(tr);
+      }
 
       return gosterilen;
     }
@@ -393,10 +408,22 @@
                 '</strong> (' + enDusuk.ad + '). Aradaki fark <strong>' + sayi(enDusuk.t26 - aktifPuan) + ' puan</strong>. ' +
                 'Bu sayfada imam hatip ve mesleki-teknik liseler yer almıyor — onlar bu puan aralığında seçenek sunabilir.</div>';
       } else {
-        metin = '<div class="rs-count">Bu puanla <strong>' + yeten.length + ' okulun</strong> 2026 taban puanı aşılıyor.</div>' +
-                '<div class="rs-note">En yüksek puanlı olanı: <strong>' + enYuksek.ad + '</strong> (' + sayi(enYuksek.t26) + '). ' +
-                'Tabloda ✓ işaretli satırlar bu puanla ulaşılabilen okullar. ' +
-                'Unutmayın: bunlar geçen yılın puanları, gelecek yıl için garanti değil.</div>';
+        // Puanin hemen ustundeki okul: "biraz daha calisirsa" bilgisi
+        var sonraki = null;
+        for (var i = OKULLAR.length - 1; i >= 0; i--) {
+          if (OKULLAR[i].t26 > aktifPuan) { sonraki = OKULLAR[i]; break; }
+        }
+
+        var ekNot = "";
+        if (sonraki) {
+          ekNot = ' Bir üstteki okul <strong>' + sonraki.ad + '</strong> — ' +
+                  sayi(sonraki.t26 - aktifPuan) + ' puan uzakta.';
+        }
+
+        metin = '<div class="rs-count">Bu puanla <strong>' + yeten.length + ' okula</strong> ulaşılabiliyor.</div>' +
+                '<div class="rs-note">Aşağıdaki tabloda yalnızca bu okullar listeleniyor; en yükseği <strong>' +
+                enYuksek.ad + '</strong> (' + sayi(enYuksek.t26) + ').' + ekNot +
+                ' Unutmayın: bunlar geçen yılın puanları, gelecek yıl için garanti değil.</div>';
       }
 
       kutu.innerHTML = metin;
