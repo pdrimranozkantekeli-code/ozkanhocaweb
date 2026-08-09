@@ -114,6 +114,11 @@ Sandbox'ın `.git/` altına yazma izni yok. `git add`, `commit`, `remote set-hea
 3. `sitemap.xml` — `<loc>` + **gerçek** `<lastmod>`
 4. Mevcut 2-3 yazıya karşılıklı iç link (her yazı en az 2 iç link almalı)
 
+### İkonlar — emoji kullanma
+Ana sayfadaki 22 ikon, 8 Ağustos 2026'da emojiden SVG'ye çevrildi. Emoji her cihazda farklı görünüyor ve marka paletiyle uyumsuz duruyordu.
+
+Yeni ikon eklerken: `class="ikon"`, 24×24 viewBox, `fill="none" stroke="currentColor" stroke-width="1.6"`, `aria-hidden="true"`. Renk `currentColor` ile kapsayıcıdan gelir — ikonun içine renk yazma. Kapsayıcıların çoğu flex + gap kullanıyor, ikon otomatik hizalanır.
+
 ### SEO / meta kuralları
 - `<title>` en fazla **60 karakter**, `<meta name="description">` en fazla **158** — üstü arama sonucunda kesilir
 - `og:title` / `twitter:title` başlıkla, `og:description` / `twitter:description` açıklamayla aynı olsun
