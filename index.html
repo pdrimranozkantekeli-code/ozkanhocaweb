@@ -361,6 +361,45 @@
       flex-wrap: wrap;
     }
 
+    /* Butonlarin hemen altindaki sosyal kanit rozeti.
+       Tiklayinca #yorumlar bolumune kaydirir. */
+    .hero-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 18px;
+      padding: 7px 14px 7px 12px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background .2s ease, border-color .2s ease;
+    }
+
+    .hero-rating:hover {
+      background: rgba(255,255,255,0.11);
+      border-color: rgba(250,199,117,0.4);
+    }
+
+    .hero-rating-stars {
+      display: inline-flex;
+      gap: 1px;
+      color: var(--gold);
+    }
+
+    .hero-rating-stars svg { display: block; }
+
+    .hero-rating-text {
+      font-size: 13px;
+      color: var(--indigo-100);
+      white-space: nowrap;
+    }
+
+    .hero-rating-text strong {
+      color: var(--white);
+      font-weight: 500;
+    }
+
     /* HERO CARD */
     .hero-card {
       background: rgba(255,255,255,0.06);
@@ -1436,6 +1475,10 @@
       .hero-btns { flex-direction: column; }
       .hero-btns .btn-wa, .hero-btns .btn-ghost { width: 100%; justify-content: center; }
 
+      /* Dar ekranda rozet de tam genislikte ve ortali dursun */
+      .hero-rating { display: flex; justify-content: center; margin-top: 14px; }
+      .hero-rating-text { font-size: 12.5px; }
+
       .reviews-score { width: 100%; justify-content: center; }
       .review-card { padding: 22px 20px; }
       .review-card blockquote { font-size: 14.5px; }
@@ -1798,6 +1841,17 @@
           </a>
           <a href="#iletisim" class="btn-ghost">Başvuru Formu →</a>
         </div>
+
+        <a href="#yorumlar" class="hero-rating">
+          <span class="hero-rating-stars" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </span>
+          <span class="hero-rating-text"><strong>5,0</strong> · 14 Google değerlendirmesi</span>
+        </a>
       </div>
 
       <div class="hero-card">
