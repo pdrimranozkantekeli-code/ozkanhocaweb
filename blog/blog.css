@@ -211,6 +211,44 @@ img { max-width: 100%; display: block; }
 }
 .pdr-note strong { color: var(--indigo-800); }
 
+/* Yazı içi karşılaştırma tablosu.
+   Dar ekranda yatay kaydırılabilir olması için .tablo-sarmal ile sarılır. */
+.tablo-sarmal {
+  margin: 24px 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.article-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  min-width: 460px;
+}
+
+.article-body thead th {
+  text-align: left;
+  padding: 11px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--indigo-800);
+  background: #f4f3fd;
+  border-bottom: 1px solid var(--border);
+}
+
+.article-body thead th:first-child { border-radius: 8px 0 0 0; }
+.article-body thead th:last-child  { border-radius: 0 8px 0 0; }
+
+.article-body tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(127,119,221,0.13);
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.article-body tbody tr:last-child td { border-bottom: none; }
+.article-body tbody td:first-child { color: var(--indigo-900); font-weight: 500; }
+
 .article-cta {
   background: var(--indigo-800);
   border-radius: 14px;
