@@ -11,7 +11,7 @@
 - **Repo:** pdrimranozkantekeli-code/ozkanhocaweb
 - **Hosting:** Vercel (production branch: master, otomatik deploy)
 - **Mimari:** Statik HTML/CSS/JS — framework yok, derleme adımı yok
-- **Dosyalar:** `index.html` (ana sayfa) · `adana-lise-taban-puanlari.html` (araç sayfası) · `kvkk.html` · `gizlilik.html` · `blog/index.html` (liste) · `blog/*.html` (yazılar) · `blog/blog.css`
+- **Dosyalar:** `index.html` (ana sayfa) · `adana-lise-taban-puanlari.html` (araç sayfası) · `kvkk.html` · `gizlilik.html` · `blog/index.html` (liste) · `blog/*.html` (13 yazı) · `blog/blog.css`
 
 ### Adana lise taban puanları sayfası
 `/adana-lise-taban-puanlari` — veli LGS puanını girer, hangi liselerin ulaşılabilir olduğunu görür. 24 okul (fen, Anadolu, sosyal bilimler). Veri sayfanın içindeki `OKULLAR` dizisinde, ayrı dosya yok.
@@ -108,11 +108,20 @@ Başka bir işlem gerekiyorsa bu dosyaya mod ekle, yeni dosya açma. Değişikli
 ### Depoda git yazma komutu çalıştırma
 Sandbox'ın `.git/` altına yazma izni yok. `git add`, `commit`, `remote set-head` gibi komutlar yarım kalıp `.git/index.lock` bırakıyor ve sandbox onu silemediği için sonraki bütün git işlemleri kilitleniyor. Okuma komutları (`git log`, `git status`, `git diff`) sorunsuz. Yazma işleri `.command` script'i üzerinden gider.
 
-### Yeni blog yazısı — 4 yer güncellenir
-1. Yazının kendi dosyası (`blog/<slug>.html`)
-2. `blog/index.html` — kart + `ItemList` şeması
+### Yeni blog yazısı — 5 yer güncellenir
+1. Yazının kendi dosyası (`blog/<slug>.html`) — içinde **iki** JSON-LD bloğu olmalı: `BlogPosting` + `BreadcrumbList`
+2. `blog/index.html` — kart + `ItemList` şeması (yeni yazı 1. sıraya, diğerlerinin `position` değeri birer kayar)
 3. `sitemap.xml` — `<loc>` + **gerçek** `<lastmod>`
 4. Mevcut 2-3 yazıya karşılıklı iç link (her yazı en az 2 iç link almalı)
+5. Tarih dört yerde geçer: `datePublished`, `dateModified`, `post-date` satırı, `blog/index.html` kartı. **Yazmadan önce `date` çalıştır** — bu projede üç kez yanlış tarih yazıldı.
+
+### Kırıntı navigasyonu (breadcrumb)
+Her blog yazısında ve araç sayfasında `BreadcrumbList` şeması var (17 Ağustos 2026'da eklendi). Arama sonucunda `ozkanhoca.com › Blog › Yazı` görünümünü sağlıyor.
+
+Yapı: `Ana Sayfa` (url'li) → `Blog` (url'li) → yazı adı (**url'siz**, son öge item almaz). Son ögenin adı **45 karakteri geçmesin** — tam başlık değil, kısaltılmış bir ad kullan. Ana sayfada breadcrumb yok, gerekmiyor.
+
+### Yazı içi tablo
+`blog.css`'te tablo stili var. Kullanımı: `<div class="tablo-sarmal"><table>…</table></div>`. Sarmal, dar ekranda yatay kaydırma sağlıyor — tablosuz kullanma.
 
 ### İkonlar — emoji kullanma
 Ana sayfadaki 22 ikon, 8 Ağustos 2026'da emojiden SVG'ye çevrildi. Emoji her cihazda farklı görünüyor ve marka paletiyle uyumsuz duruyordu.
