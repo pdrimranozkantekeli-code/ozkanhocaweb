@@ -1430,6 +1430,37 @@
       color: var(--text-mid);
     }
 
+    /* Gonderim basarisiz oldugunda — veliyi bos birakmamak icin
+       alternatif kanal sunuyoruz. */
+    .form-error {
+      display: none;
+      text-align: center;
+      padding: 18px 20px;
+      margin-top: 14px;
+      background: #fdf3f3;
+      border: 1px solid #f0d4d4;
+      border-radius: 10px;
+    }
+
+    .form-error-text {
+      font-size: 14px;
+      color: #8a4444;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .form-error-wa {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 9px 18px;
+      border-radius: 8px;
+      background: #25D366;
+      color: #fff;
+      transition: background 0.15s;
+    }
+    .form-error-wa:hover { background: #1da851; }
+
     /* ── FOOTER ───────────────────────────────────────── */
     .footer {
       background: var(--indigo-900);
@@ -1754,38 +1785,9 @@
     }
   </style>
 
-  <!-- Google tag (gtag.js) - Consent Mode v2 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T5M63NSF2L"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-
-    // VARSAYILAN: Tüm izinler reddedildi (kullanıcı seçim yapana kadar)
-    gtag('consent', 'default', {
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'analytics_storage': 'denied',
-      'wait_for_update': 500
-    });
-
-    gtag('js', new Date());
-    gtag('config', 'G-T5M63NSF2L', { 'anonymize_ip': true });
-
-    // Kullanıcı daha önce seçim yapmışsa onu uygula
-    (function() {
-      try {
-        var consent = localStorage.getItem('cookie_consent');
-        var ts = localStorage.getItem('cookie_consent_ts');
-        var ONE_YEAR = 365 * 24 * 60 * 60 * 1000;
-        if (consent && ts && (Date.now() - parseInt(ts) < ONE_YEAR)) {
-          if (consent === 'accepted') {
-            gtag('consent', 'update', { 'analytics_storage': 'granted' });
-          }
-        }
-      } catch(e) {}
-    })();
-  </script>
+  <!-- Olcum, cerez onayi ve donusum takibi — tum sayfalarda ayni dosya.
+       Icerik ve aciklamalar: /analytics.js -->
+  <script src="/analytics.js" defer></script>
 
   <!-- ── SCHEMA.ORG STRUCTURED DATA ── -->
 
@@ -2505,6 +2507,10 @@
             <div class="form-success-title">Başvurunuz alındı!</div>
             <p class="form-success-text">En kısa sürede size dönüş yapacağım. WhatsApp'tan da ulaşabilirsiniz.</p>
           </div>
+          <div class="form-error" id="formError">
+            <p class="form-error-text">Başvurunuz gönderilemedi — bağlantıda bir sorun olmuş olabilir. Tekrar deneyebilir ya da doğrudan WhatsApp'tan yazabilirsiniz.</p>
+            <a href="https://wa.me/905306771685?text=Merhaba%2C%20LGS%20ko%C3%A7lu%C4%9Fu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="form-error-wa" target="_blank" rel="noopener">WhatsApp'tan yazın</a>
+          </div>
         </div>
       </div>
     </div>
@@ -2609,6 +2615,7 @@
     const form = document.getElementById('contactForm');
     const submitBtn = document.getElementById('submitBtn');
     const formSuccess = document.getElementById('formSuccess');
+    const formError = document.getElementById('formError');
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -2632,15 +2639,24 @@
         });
 
         if (response.ok) {
+          // Donusum olcumu — analytics.js icinde tanimli
+          if (typeof window.donusumBildir === 'function') {
+            window.donusumBildir('form', 'iletisim');
+          }
           form.style.display = 'none';
           formSuccess.style.display = 'block';
         } else {
           throw new Error('Gönderim hatası');
         }
       } catch (err) {
-        // Geliştirme aşamasında: sadece başarı göster
-        form.style.display = 'none';
-        formSuccess.style.display = 'block';
+        // Gonderim basarisiz. Veliye "gonderildi" demek yerine alternatif
+        // kanal sunuyoruz — aksi halde mesaj ulasmadigi halde ulastigi
+        // saniliyor ve iletisim tamamen kopuyor.
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Tekrar Dene';
+        if (typeof formError !== 'undefined' && formError) {
+          formError.style.display = 'block';
+        }
       }
     });
 

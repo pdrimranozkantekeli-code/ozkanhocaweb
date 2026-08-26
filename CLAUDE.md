@@ -108,12 +108,28 @@ Başka bir işlem gerekiyorsa bu dosyaya mod ekle, yeni dosya açma. Değişikli
 ### Depoda git yazma komutu çalıştırma
 Sandbox'ın `.git/` altına yazma izni yok. `git add`, `commit`, `remote set-head` gibi komutlar yarım kalıp `.git/index.lock` bırakıyor ve sandbox onu silemediği için sonraki bütün git işlemleri kilitleniyor. Okuma komutları (`git log`, `git status`, `git diff`) sorunsuz. Yazma işleri `.command` script'i üzerinden gider.
 
-### Yeni blog yazısı — 5 yer güncellenir
+### Ölçüm — `analytics.js`
+Google Analytics, çerez onayı ve dönüşüm ölçümü tek dosyada: **`/analytics.js`**. Her sayfanın `<head>` bölümünde şu satır bulunmalı:
+
+```html
+<script src="/analytics.js" defer></script>
+```
+
+25 Ağustos 2026'da kuruldu. Öncesinde ölçüm kodu yalnızca `index.html` içindeydi, bu yüzden 17 sayfa (13 blog yazısı, taban puanları, blog listesi, KVKK, gizlilik) hiç ölçülmüyordu.
+
+Dosya üç iş yapıyor: GA4'ü çalıştırmak, Consent Mode v2 ile çerez onayını yönetmek (varsayılan **red**), ve dönüşümleri `generate_lead` olayıyla bildirmek (`yontem` parametresi: `whatsapp` / `form` / `telefon`).
+
+**Çerez bildirimi:** `index.html`'in kendi kutusu var (`#cookieBanner`), script onu görünce karışmıyor. Diğer sayfalarda kutuyu kendisi üretiyor. İkisi aynı `localStorage` anahtarını kullanıyor (`cookie_consent`), yani bir sayfada verilen onay tüm sitede geçerli.
+
+Ölçüm koduna dokunulduğunda `analytics.js` düzenlenir — sayfalara kod kopyalanmaz.
+
+### Yeni blog yazısı — 6 yer güncellenir
 1. Yazının kendi dosyası (`blog/<slug>.html`) — içinde **iki** JSON-LD bloğu olmalı: `BlogPosting` + `BreadcrumbList`
 2. `blog/index.html` — kart + `ItemList` şeması (yeni yazı 1. sıraya, diğerlerinin `position` değeri birer kayar)
 3. `sitemap.xml` — `<loc>` + **gerçek** `<lastmod>`
 4. Mevcut 2-3 yazıya karşılıklı iç link (her yazı en az 2 iç link almalı)
 5. Tarih dört yerde geçer: `datePublished`, `dateModified`, `post-date` satırı, `blog/index.html` kartı. **Yazmadan önce `date` çalıştır** — bu projede üç kez yanlış tarih yazıldı.
+6. `<head>` içinde `<script src="/analytics.js" defer></script>` ve `</main>` sonrasında `<footer class="site-footer">` — ikisi de her sayfada olmalı (yukarıdaki Ölçüm bölümüne bak)
 
 ### Kırıntı navigasyonu (breadcrumb)
 Her blog yazısında ve araç sayfasında `BreadcrumbList` şeması var (17 Ağustos 2026'da eklendi). Arama sonucunda `ozkanhoca.com › Blog › Yazı` görünümünü sağlıyor.
