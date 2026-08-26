@@ -394,3 +394,80 @@ img { max-width: 100%; display: block; }
   .site-footer-links { gap: 6px 16px; }
   .site-footer-copy { font-size: 12px; }
 }
+
+/* ---- Yazi sonu CTA — iki secenek --------------------------------------
+   Blog okuyan veli genelde henuz basvuru asamasinda degil, sorusu var.
+   Form doldurmak yuksek esikli; WhatsApp tek tik. Ikisini esit agirlikta
+   sunuyoruz, karari veli veriyor. */
+.article-cta-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.article-cta-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25D366;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.article-cta-wa:hover { background: #1ebe5d; }
+.article-cta-wa svg { flex-shrink: 0; }
+
+@media (max-width: 440px) {
+  .article-cta-actions { flex-direction: column; }
+  .article-cta-btn, .article-cta-wa { justify-content: center; text-align: center; }
+}
+
+/* ---- Sabit WhatsApp butonu -------------------------------------------
+   Ana sayfadakinin ayni davranisi: sayfa biraz kaydirilinca beliriyor.
+   Yazilar uzun oldugu icin veli sonu beklemeden ulasabilsin diye var. */
+.wa-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  height: 54px;
+  padding: 0 15px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 999px;
+  box-shadow: 0 6px 22px rgba(37,211,102,0.38);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px);
+  transition: opacity .25s ease, transform .25s ease, visibility .25s,
+              gap .25s ease, padding .25s ease;
+}
+.wa-float.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.wa-float svg { flex-shrink: 0; }
+
+.wa-float-label {
+  max-width: 0;
+  opacity: 0;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  overflow: hidden;
+  transition: max-width .25s ease, opacity .2s ease;
+}
+.wa-float:hover { gap: 10px; padding-right: 20px; }
+.wa-float:hover .wa-float-label { max-width: 190px; opacity: 1; }
+
+@media (max-width: 600px) {
+  .wa-float { right: 16px; bottom: 16px; height: 50px; padding: 0 14px; }
+  /* Dar ekranda etiket acilmiyor — sadece ikon, icerigin onune gecmesin */
+  .wa-float:hover { gap: 0; padding-right: 14px; }
+  .wa-float:hover .wa-float-label { max-width: 0; opacity: 0; }
+}

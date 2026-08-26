@@ -129,7 +129,19 @@ Dosya üç iş yapıyor: GA4'ü çalıştırmak, Consent Mode v2 ile çerez onay
 3. `sitemap.xml` — `<loc>` + **gerçek** `<lastmod>`
 4. Mevcut 2-3 yazıya karşılıklı iç link (her yazı en az 2 iç link almalı)
 5. Tarih dört yerde geçer: `datePublished`, `dateModified`, `post-date` satırı, `blog/index.html` kartı. **Yazmadan önce `date` çalıştır** — bu projede üç kez yanlış tarih yazıldı.
-6. `<head>` içinde `<script src="/analytics.js" defer></script>` ve `</main>` sonrasında `<footer class="site-footer">` — ikisi de her sayfada olmalı (yukarıdaki Ölçüm bölümüne bak)
+6. `<head>` içinde `<script src="/analytics.js" defer></script>`, `</main>` sonrasında `<footer class="site-footer">` ve sabit WhatsApp butonu (`#waFloat` + görünürlük script'i) — üçü de her sayfada olmalı. En kolayı mevcut bir yazıyı şablon alıp kopyalamak.
+
+### Yazı sonu CTA'sı
+Her yazının sonunda `.article-cta` kutusu var; içinde **iki** seçenek bulunur (25 Ağustos 2026'da ikinciye çevrildi):
+
+```html
+<div class="article-cta-actions">
+  <a href="/#iletisim" class="article-cta-btn">Ücretsiz Görüşme Planla</a>
+  <a href="https://wa.me/905306771685?text=..." class="article-cta-wa" target="_blank" rel="noopener">…WhatsApp'tan sorun</a>
+</div>
+```
+
+Blog okuyan veli çoğunlukla başvuru aşamasında değil, sorusu var — form yüksek eşikli, WhatsApp tek tık. İkisi eşit ağırlıkta duruyor. Blogdan giden WhatsApp mesajı "sitenizdeki yazıyı okudum" diye başlıyor, böylece hangi kanaldan geldiği belli oluyor.
 
 ### Kırıntı navigasyonu (breadcrumb)
 Her blog yazısında ve araç sayfasında `BreadcrumbList` şeması var (17 Ağustos 2026'da eklendi). Arama sonucunda `ozkanhoca.com › Blog › Yazı` görünümünü sağlıyor.
