@@ -18,6 +18,12 @@
 
 **Veri kuralı:** 2026 taban puanları ve 2025 yüzdelik dilimleri kesin veridir. **2026 yüzdelik dilimleri MEB tarafından açıklanmadı — tahmin yazma.** Açıklandığında `d25` alanlarının yanına `d26` eklenip tablo başlığı güncellenecek. Her yıl yerleştirme sonrası `t26`/`t25` kaydırılarak güncellenmeli.
 
+**Okul okul bölümü (26 Ağustos 2026):** Sayfanın alt yarısında 24 okulun her biri için statik HTML kartı var — `<h3>` başlık, `#okul-slug` anchor, veri tablosu ve okula özgü yorum. Üstündeki araç JS ile çalışıyor; Google JS'i beklemeden içeriği görebilsin diye bu bölüm statik yazıldı.
+
+Sebebi Search Console verisi: veliler tek tek okul adı arayıp bizi buluyor ("eczacı bahattin-sevinç erdinç fen lisesi taban puanı", "ceyhan fen lisesi taban puanı 2025", "bahtiyar vahabzade sosyal bilimler lisesi taban puanı"). Genel `adana lise taban puanları` sorgusunda devlerle yarışamayız ama **tek okul adı** sorgularında rekabet düşük.
+
+`OKULLAR` dizisi güncellenirse alttaki kartlar da elle güncellenmeli — ikisi ayrı yerde duruyor. Yorum metinleri veriye dayalı (puan, yüzdelik, kontenjan, ilçe, yıllık değişim); **okul hakkında doğrulanmamış bilgi yazma** (yurt, kulüp, öğretmen kadrosu vb.).
+
 Blog sayfalarıyla aynı görünüm: `blog.css` + sayfa içi ek stiller. Vanilla JS, kütüphane yok.
 
 ### Branch
