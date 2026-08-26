@@ -124,6 +124,27 @@
       .doc-title { font-size: 20px; }
       .doc-navbar { padding: 12px 20px; }
     }
+
+    /* Sade site footer */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      margin-top: 48px;
+      padding: 28px 24px 40px;
+    }
+    .site-footer-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+    .site-footer-links {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      gap: 8px 20px; margin-bottom: 14px;
+    }
+    .site-footer-links a { font-size: 14px; color: var(--indigo-800); }
+    .site-footer-links a:hover { text-decoration: underline; }
+    .site-footer-copy { font-size: 13px; color: var(--text-light); }
+
+    @media (max-width: 480px) {
+      .site-footer { margin-top: 36px; padding: 24px 18px 32px; }
+      .site-footer-links { gap: 6px 16px; }
+      .site-footer-copy { font-size: 12px; }
+    }
   </style>
 </head>
 <body>
@@ -199,6 +220,20 @@
     </section>
 
   </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-links">
+        <a href="/">Ana Sayfa</a>
+        <a href="/blog">Blog</a>
+        <a href="/adana-lise-taban-puanlari">Taban Puanları</a>
+        <a href="/kvkk">KVKK</a>
+        <a href="/gizlilik">Gizlilik Politikası</a>
+      </div>
+      <div class="site-footer-copy">© 2026 Psk. Dan. İmran Özkan Tekeli · Tüm hakları saklıdır.</div>
+    </div>
+  </footer>
+
 
 </body>
 </html>

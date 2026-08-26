@@ -357,3 +357,40 @@ img { max-width: 100%; display: block; }
   background: var(--indigo-50);
   border-color: var(--indigo-200);
 }
+
+/* ---- Sade site footer (blog, arac sayfalari) ------------------------ */
+/* Ana sayfadaki genis footer'in hafif karsiligi. Yazinin sonunu
+   agirlastirmadan telif satirini ve yasal linkleri her sayfada tutar. */
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 56px;
+  padding: 28px 24px 40px;
+}
+.site-footer-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+.site-footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-bottom: 14px;
+}
+.site-footer-links a {
+  font-size: 14px;
+  color: var(--indigo-500);
+  transition: color 0.15s;
+}
+.site-footer-links a:hover { color: var(--indigo-800); }
+.site-footer-copy {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+@media (max-width: 480px) {
+  .site-footer { margin-top: 40px; padding: 24px 18px 32px; }
+  .site-footer-links { gap: 6px 16px; }
+  .site-footer-copy { font-size: 12px; }
+}
