@@ -2055,7 +2055,7 @@
   <!-- ── NAVBAR ── -->
   <nav class="navbar">
     <div class="navbar-inner">
-      <a href="#" class="nav-logo">
+      <a href="/" class="nav-logo" aria-label="Ana sayfa">
         <div class="nav-logo-mark"><img src="/logo-icon-dark.svg" alt="Özkan Hoca logo" style="width: 40px; height: 40px;" /></div>
         <div>
           <div class="nav-logo-text">Özkan Hoca</div>
@@ -2755,6 +2755,18 @@
       guncelle(); // sayfa ortadan açıldıysa (bağlantıyla) hemen doğru duruma geç
     })();
 
+    // Logo: ana sayfadayken sayfayi yeniden yuklemek yerine en uste don
+    const navLogo = document.querySelector('.nav-logo');
+    if (navLogo) {
+      navLogo.addEventListener('click', function (e) {
+        const anaSayfada = location.pathname === '/' || location.pathname === '/index.html';
+        if (anaSayfada) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+    }
+
     // Hamburger menü
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -2831,7 +2843,11 @@
     // Smooth scroll - navbar yüksekliğini hesaba kat
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
+        // Tek basina "#" gecerli bir CSS secici degil; querySelector('#')
+        // hata firlatiyor. Bu durumda hic dokunmuyoruz.
+        if (!href || href === '#') return;
+        const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
           const navHeight = document.querySelector('.navbar').offsetHeight;
