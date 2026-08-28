@@ -1,7 +1,9 @@
 # Özkan Hoca — LGS Öğrenci Koçluğu Web Sitesi
 
 ## Proje Sahibi
-- **İsim:** Özkan (PDR mezunu, yazılımcı değil)
+- **İsim:** Özkan Hoca — tam adı **Psk. Dan. İmran Özkan Tekeli** (yazılımcı değil)
+- **Eğitim:** Hasan Kalyoncu Üniversitesi, Psikolojik Danışmanlık ve Rehberlik, **2017 mezunu** (lisans; yüksek lisans yok)
+- **Deneyim:** 2026 itibarıyla **7 yıldır** LGS öğrencileriyle çalışıyor — *bu sayı her yıl güncellenmeli*
 - **Konum:** Adana
 - **Hizmet:** LGS 8. sınıf öğrencilerine birebir koçluk
 - **Hedef kitle:** 8. sınıf öğrencisi olan veliler
