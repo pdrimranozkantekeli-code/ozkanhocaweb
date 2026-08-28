@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <title>Adana Liseleri Taban Puanları | Hangi Liseye Girilir?</title>
-  <meta name="description" content="Adana'daki 24 lisenin 2026 ve 2025 taban puanları, yüzdelik dilimleri ve kontenjanları. LGS puanınızı girin, hangi liselere yettiğini görün.">
+  <meta name="description" content="Adana'daki 25 fen, Anadolu ve sosyal bilimler lisesinin 2026 taban puanları, yüzdelik dilimleri ve kontenjanları. Puanınızı girin, hangisine yettiğini görün.">
   <link rel="canonical" href="https://ozkanhoca.com/adana-lise-taban-puanlari" />
   <meta property="og:title" content="Adana Liseleri Taban Puanları | Hangi Liseye Girilir?">
-  <meta property="og:description" content="Adana'daki 24 lisenin 2026 ve 2025 taban puanları, yüzdelik dilimleri ve kontenjanları. LGS puanınızı girin, hangi liselere yettiğini görün.">
+  <meta property="og:description" content="Adana'daki 25 fen, Anadolu ve sosyal bilimler lisesinin 2026 taban puanları, yüzdelik dilimleri ve kontenjanları. Puanınızı girin, hangisine yettiğini görün.">
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ozkanhoca.com/adana-lise-taban-puanlari" />
   <meta property="og:image" content="https://ozkanhoca.com/og-image.png" />
@@ -334,6 +334,43 @@
       .okul-gezinme ul { gap: 5px 7px; }
       .okul-gezinme a { font-size: 12px; padding: 4px 9px; }
     }
+
+    /* Veri kaynağı ve kapsam kutusu — verinin hangi aşamaya ait olduğunu,
+       neyin eksik olduğunu ve ne zaman güncellendiğini açıkça söylüyor. */
+    .veri-kaynak {
+      margin-top: 40px;
+      padding: 22px 24px;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--indigo-400);
+      border-radius: 12px;
+      background: #fcfcff;
+    }
+    .veri-kaynak h2 { margin-top: 0; font-size: 20px; }
+    .veri-liste { list-style: none; padding: 0; margin: 0 0 14px; }
+    .veri-liste li {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text-body);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .veri-liste li:last-child { border-bottom: none; }
+    .veri-uyari {
+      font-size: 13px;
+      color: var(--text-light);
+      margin: 0;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .tablo-not {
+      font-size: 12px;
+      color: var(--text-light);
+      font-weight: 400;
+    }
+    @media (max-width: 600px) {
+      .veri-kaynak { padding: 18px 16px; }
+      .veri-kaynak h2 { font-size: 18px; }
+    }
   </style>
 
   <script type="application/ld+json">
@@ -446,12 +483,26 @@
     </div>
 
     <div class="tool-outro">
-<section class="okul-analiz">
+<section class="veri-kaynak">
+      <h2 id="veri-hakkinda">Bu sayfadaki veri hakkında</h2>
+      <ul class="veri-liste">
+      <li><strong>Kaynak:</strong> MEB 2026 LGS yerleştirme sonuçları.</li>
+      <li><strong>Hangi aşama:</strong> <strong>İlk yerleştirme</strong> (5 Ağustos 2026) verisi. Nakil dönemi 10 ve 14 Ağustos'ta tamamlandı; nakiller sonrasında bazı okulların taban puanı değişmiş olabilir. Bu sayfa nakil sonrası verilerle henüz güncellenmedi.</li>
+      <li><strong>Yüzdelik dilimler:</strong> Tablodaki dilimler <strong>2025</strong> yılına ait. 2026 taban puanları açıklandı ancak MEB okul bazında 2026 yüzdelik dilimlerini yayımlamadı; internette dolaşan 2026 dilimleri <em>tahmindir</em>. Burada tahmin yayımlamıyoruz — resmî veri açıklandığında eklenecek.</li>
+      <li><strong>Kapsam:</strong> Adana'da merkezî sınavla öğrenci alan okul sayısı 55 civarında. Bu sayfada bunların fen, Anadolu ve sosyal bilimler lisesi kategorisindeki <strong>25 tanesi</strong> yer alıyor. Anadolu imam hatip liseleri ile mesleki ve teknik Anadolu liselerinin sınavla öğrenci alan bölümleri bu listede yok.</li>
+      <li><strong>Son güncelleme:</strong> 26 Ağustos 2026.</li>
+      </ul>
+      <p class="veri-uyari">Tercih yaparken tek kaynağa güvenmeyin. Nihai kontrolü MEB'in yayımladığı güncel kılavuzdan ve e-Okul üzerinden yapın.</p>
+      </section>
+      <section class="okul-analiz">
+      <h2 id="yuzdelik-neden">Puana değil, yüzdelik dilime bakın</h2>
+      <p>Taban puanı her yıl sınavın zorluğuna göre oynuyor. Sorular kolay geldiğinde herkesin puanı yükseliyor, zor geldiğinde düşüyor — ama okulun ne kadar zor girildiği aslında değişmiyor. <strong>Yüzdelik dilim bu dalgalanmadan etkilenmiyor</strong>, çünkü puanı değil sıralamayı gösteriyor. MEB de tercih sürecinde yalnızca puana bakılmamasını, yüzdelik dilimin esas alınmasını öneriyor.</p>
+      <p>Aşağıdaki tabloda her okulun 2025 yüzdelik dilimi yer alıyor. Bu dilimler MEB'in açıkladığı kesin verilerdir. Dilimin kaçıncı sıraya denk geldiğini yazmıyoruz, çünkü sınava giren aday sayısı her yıl değişiyor ve bu tür bir çeviri yanıltıcı olabilir.</p>
+      </section>
+      <section class="okul-analiz">
       <h2 id="2026-degisim">2026'da ne değişti?</h2>
-      <p>Bu yılın taban puanlarını geçen yılınkiyle karşılaştırınca ortaya net bir tablo çıkıyor: <strong>üst sıradaki okulların puanı düştü, alt sıradakiler yükseldi.</strong> 8 okulda taban geriledi, 10 okulda yükseldi.</p>
-      <p>Yukarıdaki okullarda düşüş 1-5 puan aralığında ve sınırlı. Asıl hareket listenin alt yarısında: Adana Kız Lisesi 69, Ceyhan Anadolu Lisesi 30, Adana Erkek Anadolu Lisesi 22 puan yükseldi. Yani orta ve alt bantta rekabet belirgin şekilde arttı.</p>
-      <p><strong>Bunun tercih açısından anlamı şu:</strong> geçen yılın taban puanına bakarak "bu okula rahat gireriz" demek artık güvenli değil. Özellikle kontenjanı 60-90 arasında olan okullarda puan yıldan yıla sert oynayabiliyor. Güvenli tercihi geçen yılın puanının birkaç puan üstünden hesaplamak, ve listeye mutlaka bir alt seçenek koymak gerekiyor.</p>
-      <p class="okul-analiz-not">Aşağıdaki listede her okulun 2026 ve 2025 taban puanı, 2025 yüzdelik dilimi ve kontenjanı yer alıyor. 2026 yüzdelik dilimleri MEB tarafından henüz açıklanmadı — açıklandığında bu sayfaya eklenecek.</p>
+      <p>2026 taban puanlarını 2025 ile karşılaştırınca listede iki yönlü bir hareket görünüyor: <strong>8 okulda taban geriledi, 11 okulda yükseldi.</strong> Gerileme listenin üst kısmında ve 1-5 puan aralığında sınırlı kaldı. Yükselişler ise alt yarıda ve çok daha büyük: Adana Kız Lisesi 69, Ceyhan Anadolu Lisesi 30, Adana Erkek Anadolu Lisesi 22 puan.</p>
+      <p>Bu farkların sebebini veriden okumak mümkün değil — kontenjan değişikliği, tercih davranışı, sınavın zorluğu ve başka etkenler aynı anda rol oynayabilir. Kesin olarak söylenebilecek şey şu: <strong>geçen yılın taban puanı, bu yılki sonucu tahmin etmek için tek başına yeterli bir ölçü değil.</strong> Özellikle kontenjanı 60-90 arasında olan okullarda yıllar arası oynama daha belirgin.</p>
       </section>
       <section class="okul-liste-bolum">
       <h2 id="okul-okul">Okul okul taban puanları</h2>
@@ -479,271 +530,283 @@
       <li><a href="#adana-erkek-anadolu-lisesi">Adana Erkek Anadolu Lisesi</a></li>
       <li><a href="#bahtiyar-vahabzade-sosyal-bilimler-lisesi">Bahtiyar Vahabzade Sosyal Bilimler Lisesi</a></li>
       <li><a href="#ceyhan-ticaret-borsasi-sosyal-bilimler-lisesi">Ceyhan Ticaret Borsası Sosyal Bilimler Lisesi</a></li>
+      <li><a href="#karsiyaka-ataturk-anadolu-lisesi">Karşıyaka Atatürk Anadolu Lisesi</a></li>
       <li><a href="#adana-kiz-lisesi">Adana Kız Lisesi</a></li>
       </ul></nav>
       <article class="okul-karti" id="adana-fen-lisesi">
         <h3>Adana Fen Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-fen">Fen Lisesi</span><span class="okul-etiket">Seyhan</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-dustu">▼ 2,9 puan geriledi</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>482,973</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%0,51</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>482,973</td></tr>
           <tr><th>2025 taban puanı</th><td>485,893</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%0,51</td></tr>
           <tr><th>Kontenjan</th><td>120</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Adana'nın en yüksek taban puanlı okulu. 2025'te %0,51'lik dilim gerekiyordu — yani Türkiye genelinde ilk binde olmak. Puan iki yıldır hafif geriliyor ama bu okulun kolaylaştığı anlamına gelmiyor; sıralama şartı hâlâ aynı yerde. 120 kontenjanla Adana'nın en dar kapılarından biri.</p>
+        <p class="okul-yorum">Adana'nın en yüksek taban puanlı okulu. 2025 dilimi %0,51 — listedeki en düşük dilim burada. Taban puanı 2026'da 2,9 puan geriledi. 120 kontenjan.</p>
       </article>
       <article class="okul-karti" id="seyhan-borsa-istanbul-fen-lisesi">
         <h3>Seyhan Borsa İstanbul Fen Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-fen">Fen Lisesi</span><span class="okul-etiket">Seyhan</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-dustu">▼ 5,3 puan geriledi</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>471,055</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%1,13</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>471,055</td></tr>
           <tr><th>2025 taban puanı</th><td>476,402</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%1,13</td></tr>
           <tr><th>Kontenjan</th><td>120</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Adana'nın ikinci fen lisesi. %1,13'lük dilim, yani ilk yüzde birin hemen altı. 2026'da taban 5 puan geriledi — bu, Adana Fen Lisesi'ni hedefleyip tutturamayan öğrencilerin ikinci tercihi olmasıyla ilgili olabilir. Fen lisesi hedefi olan ama ilk sırayı zorlayamayacak öğrenci için gerçekçi bir hedef.</p>
+        <p class="okul-yorum">Adana'nın ikinci fen lisesi. 2025 dilimi %1,13. Taban puanı 2026'da 5,3 puan geriledi. 120 kontenjan.</p>
       </article>
       <article class="okul-karti" id="adana-anadolu-lisesi">
         <h3>Adana Anadolu Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-anadolu">Anadolu Lisesi</span><span class="okul-etiket">Çukurova</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-dustu">▼ 4,6 puan geriledi</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>460,621</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%2,09</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>460,621</td></tr>
           <tr><th>2025 taban puanı</th><td>465,237</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%2,09</td></tr>
           <tr><th>Kontenjan</th><td>180</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Anadolu liseleri arasında en yüksek taban. %2,09'luk dilim gerekiyor. Çukurova'da, ulaşımı merkezî. Fen lisesi istemeyen ama akademik olarak güçlü bir ortam arayan öğrenciler için ilk sırada geliyor. 180 kontenjanla fen liselerine göre daha geniş bir kapı.</p>
+        <p class="okul-yorum">Anadolu liseleri arasında en yüksek taban puanı burada. 2025 dilimi %2,09. Çukurova'da, 180 kontenjanla fen liselerinden daha geniş bir kadro.</p>
       </article>
       <article class="okul-karti" id="ceas-anadolu-lisesi">
         <h3>ÇEAS Anadolu Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-anadolu">Anadolu Lisesi</span><span class="okul-etiket">Çukurova</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-dustu">▼ 2,8 puan geriledi</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>450,120</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%3,35</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>450,120</td></tr>
           <tr><th>2025 taban puanı</th><td>452,965</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%3,35</td></tr>
           <tr><th>Kontenjan</th><td>180</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Çukurova'da, Adana Anadolu Lisesi'nin hemen altında. Aradaki fark 10 puan — yani deneme netlerinde 2-3 soruluk bir mesafe. %3,35'lik dilim gerekiyor. 180 kontenjan, bu puan aralığındaki en geniş kadrolardan biri.</p>
+        <p class="okul-yorum">Çukurova'da. Adana Anadolu Lisesi ile arasındaki fark 10,5 puan. 2025 dilimi %3,35. 180 kontenjan.</p>
       </article>
       <article class="okul-karti" id="ismail-safa-ozler-anadolu-lisesi">
         <h3>İsmail Safa Özler Anadolu Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-anadolu">Anadolu Lisesi</span><span class="okul-etiket">Çukurova</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-sabit">Geçen yılla aynı seviyede</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>446,603</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%3,89</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>446,603</td></tr>
           <tr><th>2025 taban puanı</th><td>448,235</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%3,89</td></tr>
           <tr><th>Kontenjan</th><td>90</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Çukurova'da, İngilizce bölümü. %3,89'luk dilim. Taban puanı iki yıldır neredeyse sabit — bu, okulun tercih edilme düzeyinin oturduğunu gösteriyor, sürpriz sıçrama beklenmiyor. 90 kontenjanla nispeten dar.</p>
+        <p class="okul-yorum">Çukurova'da, İngilizce bölümü. 2025 dilimi %3,89. Taban puanı iki yıldır 1,6 puan içinde kaldı. 90 kontenjan.</p>
       </article>
       <article class="okul-karti" id="ismail-safa-ozler-anadolu-lisesi-almanca">
         <h3>İsmail Safa Özler Anadolu Lisesi — Almanca Bölümü</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-anadolu">Anadolu Lisesi</span><span class="okul-etiket">Çukurova</span><span class="okul-etiket">Almanca</span><span class="okul-etiket okul-sabit">Geçen yılla aynı seviyede</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>445,269</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%4,05</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>445,269</td></tr>
           <tr><th>2025 taban puanı</th><td>446,788</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%4,05</td></tr>
           <tr><th>Kontenjan</th><td>30</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Aynı okulun Almanca bölümü. Taban puanı İngilizce bölümünden yalnızca 1,3 puan düşük ama kontenjan 30 — çok dar. Almanca öğrenmek isteyen ve bunu bilinçli tercih eden öğrenci için anlamlı; sırf puan daha düşük diye seçilecek bir bölüm değil.</p>
+        <p class="okul-yorum">Aynı okulun Almanca bölümü. Taban puanı İngilizce bölümünden 1,3 puan düşük, kontenjan 30. Yabancı dil tercihi dört yıl boyunca sürecek bir seçim — puan farkından çok bu yönüyle değerlendirilmesi gereken bir bölüm.</p>
       </article>
       <article class="okul-karti" id="piri-reis-anadolu-lisesi">
         <h3>Piri Reis Anadolu Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-anadolu">Anadolu Lisesi</span><span class="okul-etiket">Çukurova</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-dustu">▼ 2,7 puan geriledi</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>436,188</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%5,02</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>436,188</td></tr>
           <tr><th>2025 taban puanı</th><td>438,869</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%5,02</td></tr>
           <tr><th>Kontenjan</th><td>180</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Çukurova'da, %5,02'lik dilim. 180 kontenjanla geniş bir kadro. 436 puan bandı, Adana'da 'iyi anadolu lisesi' aralığının ortası sayılabilir. Puanı bu civarda olan öğrenci için güvenli-hedef arası bir tercih.</p>
+        <p class="okul-yorum">Çukurova'da. 2025 dilimi %5,02. 180 kontenjanla bu puan aralığındaki en geniş kadrolardan biri.</p>
       </article>
       <article class="okul-karti" id="kozan-fen-lisesi">
         <h3>Kozan Fen Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-fen">Fen Lisesi</span><span class="okul-etiket">Kozan</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-dustu">▼ 3,4 puan geriledi</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>435,939</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%4,96</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>435,939</td></tr>
           <tr><th>2025 taban puanı</th><td>439,375</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%4,96</td></tr>
           <tr><th>Kontenjan</th><td>120</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Kozan'daki fen lisesi. %4,96'lık dilim — merkez fen liselerinden belirgin biçimde düşük. Kozan ve çevresinde oturan, fen lisesi hedefleyen öğrenci için merkeze gitmeden ulaşılabilir bir seçenek. Merkezden ulaşım zor olduğu için tercih ederken konumu mutlaka hesaba katın.</p>
+        <p class="okul-yorum">Kozan'daki fen lisesi. 2025 dilimi %4,96 — merkez fen liselerinden belirgin şekilde düşük. Merkezden uzak olduğu için ulaşım, tercih kararında puandan bağımsız bir değişken.</p>
       </article>
       <article class="okul-karti" id="adana-ticaret-odasi-anadolu-lisesi">
         <h3>Adana Ticaret Odası Anadolu Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-anadolu">Anadolu Lisesi</span><span class="okul-etiket">Sarıçam</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-dustu">▼ 2,3 puan geriledi</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>425,252</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%6,55</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>425,252</td></tr>
           <tr><th>2025 taban puanı</th><td>427,598</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%6,55</td></tr>
           <tr><th>Kontenjan</th><td>150</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Sarıçam'da, %6,55'lik dilim. 150 kontenjan. 425 puan bandı, Adana'da orta-üst anadolu lisesi aralığı. Puanı 430 civarında olan öğrenci için güvenli tercih sayılabilir.</p>
+        <p class="okul-yorum">Sarıçam'da. 2025 dilimi %6,55. Taban puanı 2026'da 2,3 puan geriledi. Bir alttaki Sungurbey Anadolu Lisesi ile arasında 1,7 puan var. 150 kontenjan.</p>
       </article>
       <article class="okul-karti" id="sungurbey-anadolu-lisesi">
         <h3>Sungurbey Anadolu Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-anadolu">Anadolu Lisesi</span><span class="okul-etiket">Çukurova</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-sabit">Geçen yılla aynı seviyede</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>423,516</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%6,95</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>423,516</td></tr>
           <tr><th>2025 taban puanı</th><td>424,658</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%6,95</td></tr>
           <tr><th>Kontenjan</th><td>150</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Çukurova'da, %6,95'lik dilim. Taban puanı iki yıldır sabit — oturmuş bir tercih profili var. 150 kontenjanla makul genişlikte. ÇEAS ve Piri Reis'i tutturamayan öğrenciler için aynı ilçede alternatif.</p>
+        <p class="okul-yorum">Çukurova'da. 2025 dilimi %6,95. Taban puanı iki yıldır 1,1 puan içinde kaldı. 150 kontenjan.</p>
       </article>
       <article class="okul-karti" id="eczaci-bahattin-sevinc-erdinc-fen-lisesi">
         <h3>Eczacı Bahattin-Sevinç Erdinç Fen Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-fen">Fen Lisesi</span><span class="okul-etiket">Ceyhan</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-dustu">▼ 4,7 puan geriledi</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>413,938</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%7,81</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>413,938</td></tr>
           <tr><th>2025 taban puanı</th><td>418,653</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%7,81</td></tr>
           <tr><th>Kontenjan</th><td>120</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Ceyhan'daki fen lisesi. %7,81'lik dilim — Adana'daki dört fen lisesi içinde en ulaşılabilir olanı. 2026'da taban 4,7 puan geriledi. Ceyhan ve çevresinde oturup fen lisesi hedefleyen öğrenci için en gerçekçi seçenek; merkezden gidecekler için günlük yol süresi ciddi bir kısıt.</p>
+        <p class="okul-yorum">Ceyhan'daki fen lisesi. 2025 dilimi %7,81 — Adana'daki dört fen lisesi içinde en düşük dilim burada. 2026'da taban 4,7 puan geriledi. Merkezden gidecekler için günlük yol süresi hesaba katılmalı.</p>
       </article>
       <article class="okul-karti" id="seyhan-rotary-anadolu-lisesi">
         <h3>Seyhan Rotary Anadolu Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-anadolu">Anadolu Lisesi</span><span class="okul-etiket">Yüreğir</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-sabit">Geçen yılla aynı seviyede</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>413,677</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%8,71</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>413,677</td></tr>
           <tr><th>2025 taban puanı</th><td>412,736</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%8,71</td></tr>
           <tr><th>Kontenjan</th><td>150</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Yüreğir'de, %8,71'lik dilim. Taban puanı iki yıldır sabit seyrediyor. 413 puan bandında üç okul birbirine çok yakın duruyor (Rotary, Gazi ve Eczacı Bahattin) — aralarındaki fark 1 puanın altında, yani tercih sırası konuma ve okul tipine göre belirlenmeli.</p>
+        <p class="okul-yorum">Yüreğir'de. 2025 dilimi %8,71. 413 puan bandında üç okul 1 puanın içinde toplanmış (Rotary, Gazi, Eczacı Bahattin) — bu üçü arasında puan neredeyse ayırt edici değil.</p>
       </article>
       <article class="okul-karti" id="gazi-anadolu-lisesi">
         <h3>Gazi Anadolu Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-anadolu">Anadolu Lisesi</span><span class="okul-etiket">Seyhan</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-sabit">Geçen yılla aynı seviyede</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>413,221</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%8,84</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>413,221</td></tr>
           <tr><th>2025 taban puanı</th><td>411,871</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%8,84</td></tr>
           <tr><th>Kontenjan</th><td>150</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Seyhan'da, merkezî konumda. %8,84'lük dilim. 150 kontenjan. Seyhan Rotary ile taban puanı neredeyse aynı; ikisi arasında seçim yaparken puandan çok ulaşım ve okul ortamı belirleyici olmalı.</p>
+        <p class="okul-yorum">Seyhan'da, merkezî konumda. 2025 dilimi %8,84. Seyhan Rotary ile taban puanı arasında yarım puan var. 150 kontenjan.</p>
       </article>
       <article class="okul-karti" id="seyhan-danisment-gazi-anadolu-lisesi">
         <h3>Seyhan Danişment Gazi Anadolu Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-anadolu">Anadolu Lisesi</span><span class="okul-etiket">Seyhan</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-yukseldi">▲ 2,6 puan yükseldi</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>405,726</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%10,24</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>405,726</td></tr>
           <tr><th>2025 taban puanı</th><td>403,080</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%10,24</td></tr>
           <tr><th>Kontenjan</th><td>150</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Seyhan'da, %10,24'lük dilim. 2026'da taban 2,6 puan yükseldi — talep artıyor. 405 puan bandı, Adana'da orta seviye anadolu liseleri aralığının başlangıcı. 150 kontenjan.</p>
+        <p class="okul-yorum">Seyhan'da. 2025 dilimi %10,24. Taban puanı 2026'da 2,6 puan yükseldi. 405 puan bandında listede tek başına duruyor; bir üstündeki ve bir altındaki okulla arasında 6'şar puan var. 150 kontenjan.</p>
       </article>
       <article class="okul-karti" id="75-yil-anadolu-lisesi">
         <h3>75. Yıl Anadolu Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-anadolu">Anadolu Lisesi</span><span class="okul-etiket">Yüreğir</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-yukseldi">▲ 2,1 puan yükseldi</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>399,092</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%11,23</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>399,092</td></tr>
           <tr><th>2025 taban puanı</th><td>397,025</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%11,23</td></tr>
           <tr><th>Kontenjan</th><td>120</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Yüreğir'de, %11,23'lük dilim. Taban puanı yükseliş eğiliminde. 120 kontenjanla bu puan aralığındaki okullara göre biraz daha dar. Puanı 400 civarında olan öğrenci için hedef tercih.</p>
+        <p class="okul-yorum">Yüreğir'de. 2025 dilimi %11,23. Taban puanı 2026'da 2,1 puan yükseldi. 120 kontenjanla bu puan aralığındaki okulların çoğundan biraz daha dar.</p>
       </article>
       <article class="okul-karti" id="fatih-anadolu-lisesi">
         <h3>Fatih Anadolu Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-anadolu">Anadolu Lisesi</span><span class="okul-etiket">Kozan</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-sabit">Geçen yılla aynı seviyede</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>393,662</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%11,76</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>393,662</td></tr>
           <tr><th>2025 taban puanı</th><td>393,851</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%11,76</td></tr>
           <tr><th>Kontenjan</th><td>150</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Kozan'da, %11,76'lık dilim. Taban puanı iki yıldır sabit. Kozan'da oturan ve fen lisesi puanını tutturamayan öğrenciler için ilçedeki temel anadolu lisesi seçeneği. 150 kontenjan.</p>
+        <p class="okul-yorum">Kozan'da. 2025 dilimi %11,76. Taban puanı iki yıldır neredeyse aynı (0,2 puan fark). 150 kontenjan.</p>
       </article>
       <article class="okul-karti" id="yuregir-halicilar-anadolu-lisesi">
         <h3>Yüreğir Halıcılar Anadolu Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-anadolu">Anadolu Lisesi</span><span class="okul-etiket">Yüreğir</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-yukseldi">▲ 2,4 puan yükseldi</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>389,616</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%12,9</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>389,616</td></tr>
           <tr><th>2025 taban puanı</th><td>387,169</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%12,9</td></tr>
           <tr><th>Kontenjan</th><td>150</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Yüreğir'de, %12,90'lık dilim. 2026'da taban 2,4 puan yükseldi. 389 puan bandı Yüreğir'de üç okulun sıkıştığı aralık — tercih listesinde bu üçünü birlikte değerlendirmek gerekiyor.</p>
+        <p class="okul-yorum">Yüreğir'de. 2025 dilimi %12,90. Taban 2026'da 2,4 puan yükseldi. 389 puan bandında iki okul yan yana duruyor; ikisi arasındaki fark yarım puanın altında.</p>
       </article>
       <article class="okul-karti" id="sehit-zeynep-sagir-anadolu-lisesi">
         <h3>Şehit Zeynep Sağır Anadolu Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-anadolu">Anadolu Lisesi</span><span class="okul-etiket">Ceyhan</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-yukseldi">▲ 13,5 puan yükseldi</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>389,152</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%14,94</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>389,152</td></tr>
           <tr><th>2025 taban puanı</th><td>375,692</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%14,94</td></tr>
           <tr><th>Kontenjan</th><td>90</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Ceyhan'da. 2026'da taban <strong>13,5 puan birden yükseldi</strong> — listedeki en dikkat çekici sıçramalardan biri. Geçen yılın puanına bakıp tercih yapan aileler bu yıl açıkta kalmış olabilir. 90 kontenjanla dar; bu okulu hedefleyenlerin güvenli bir alt tercih koyması şart.</p>
+        <p class="okul-yorum">Ceyhan'da. Taban puanı 2026'da <strong>13,5 puan yükseldi</strong> (375,7 → 389,2). 2025 dilimi %14,94 idi; bu sıçramadan sonra dilimin de yukarı çıkmış olması bekleniyor. 90 kontenjan.</p>
       </article>
       <article class="okul-karti" id="toki-koprulu-anadolu-lisesi">
         <h3>TOKİ Köprülü Anadolu Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-anadolu">Anadolu Lisesi</span><span class="okul-etiket">Yüreğir</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-yukseldi">▲ 4,2 puan yükseldi</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>384,124</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%14,17</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>384,124</td></tr>
           <tr><th>2025 taban puanı</th><td>379,948</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%14,17</td></tr>
           <tr><th>Kontenjan</th><td>150</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Yüreğir'de, %14,17'lik dilim. 2026'da taban 4,2 puan yükseldi. 150 kontenjan. 384 puan bandı, Adana'da orta seviye anadolu lisesi aralığı.</p>
+        <p class="okul-yorum">Yüreğir'de. 2025 dilimi %14,17. Taban 2026'da 4,2 puan yükseldi. Yüreğir'deki dört okuldan taban puanı en düşük olanı. 150 kontenjan.</p>
       </article>
       <article class="okul-karti" id="ceyhan-anadolu-lisesi">
         <h3>Ceyhan Anadolu Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-anadolu">Anadolu Lisesi</span><span class="okul-etiket">Ceyhan</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-yukseldi">▲ 29,7 puan yükseldi</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>367,710</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%22,43</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>367,710</td></tr>
           <tr><th>2025 taban puanı</th><td>337,992</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%22,43</td></tr>
           <tr><th>Kontenjan</th><td>90</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Ceyhan'ın merkez anadolu lisesi. 2026'da taban <strong>29,7 puan yükseldi</strong> — 338'den 368'e. Bu, listedeki en büyük ikinci sıçrama. Geçen yılın verisine güvenerek tercih yapmanın neden riskli olduğunun açık örneği. 90 kontenjanla dar bir kapı.</p>
+        <p class="okul-yorum">Ceyhan'ın merkez anadolu lisesi. Taban puanı 2026'da <strong>29,7 puan yükseldi</strong> (338,0 → 367,7) — listedeki en büyük ikinci değişim. 2025 dilimi %22,43. 90 kontenjan.</p>
       </article>
       <article class="okul-karti" id="adana-erkek-anadolu-lisesi">
         <h3>Adana Erkek Anadolu Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-anadolu">Anadolu Lisesi</span><span class="okul-etiket">Seyhan</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-yukseldi">▲ 22,2 puan yükseldi</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>367,494</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%20,86</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>367,494</td></tr>
           <tr><th>2025 taban puanı</th><td>345,319</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%20,86</td></tr>
           <tr><th>Kontenjan</th><td>60</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Seyhan'da, köklü bir okul. 2026'da taban <strong>22,2 puan yükseldi</strong> (345 → 367). 60 kontenjanla listedeki en dar kadro — az kontenjan, puanın hızlı oynamasının başlıca sebebi. Hedefleyenlerin mutlaka güvenli alt tercih koyması gerekiyor.</p>
+        <p class="okul-yorum">Seyhan'da. Taban puanı 2026'da <strong>22,2 puan yükseldi</strong> (345,3 → 367,5). 2025 dilimi %20,86. 60 kontenjanla listedeki en dar kadro — kontenjanı dar okullarda taban puanı yıldan yıla daha çok oynuyor.</p>
       </article>
       <article class="okul-karti" id="bahtiyar-vahabzade-sosyal-bilimler-lisesi">
         <h3>Bahtiyar Vahabzade Sosyal Bilimler Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-sosyal">Sosyal Bilimler Lisesi</span><span class="okul-etiket">Sarıçam</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-yukseldi">▲ 4,5 puan yükseldi</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>355,540</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%19,69</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>355,540</td></tr>
           <tr><th>2025 taban puanı</th><td>351,080</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%19,69</td></tr>
           <tr><th>Kontenjan</th><td>120</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Sarıçam'daki sosyal bilimler lisesi. %19,69'luk dilim. Taban 2026'da 4,5 puan yükseldi. Sosyal bilimler liseleri sözel alana yönelmek isteyen öğrenciler için; hukuk, edebiyat, tarih gibi hedefleri olan öğrenciye uygun. Sayısal alana gitmeyi düşünen öğrenci için doğru tercih değil.</p>
+        <p class="okul-yorum">Sarıçam'daki sosyal bilimler lisesi. 2025 dilimi %19,69. Taban 2026'da 4,5 puan yükseldi. Sosyal bilimler liseleri sözel alana yönelen öğrenciler için tasarlanmış okullar; alan tercihi puandan önce gelen bir karar. 120 kontenjan.</p>
       </article>
       <article class="okul-karti" id="ceyhan-ticaret-borsasi-sosyal-bilimler-lisesi">
         <h3>Ceyhan Ticaret Borsası Sosyal Bilimler Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-sosyal">Sosyal Bilimler Lisesi</span><span class="okul-etiket">Ceyhan</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-yukseldi">▲ 18,1 puan yükseldi</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>332,078</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%27,96</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>332,078</td></tr>
           <tr><th>2025 taban puanı</th><td>313,967</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%27,96</td></tr>
           <tr><th>Kontenjan</th><td>90</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Ceyhan'daki sosyal bilimler lisesi. %27,96'lık dilim — Adana'da sosyal bilimler lisesine en ulaşılabilir giriş. 2026'da taban 18,1 puan yükseldi, yani talep hızla artıyor. 90 kontenjan.</p>
+        <p class="okul-yorum">Ceyhan'daki sosyal bilimler lisesi. 2025 dilimi %27,96 — Adana'daki iki sosyal bilimler lisesinden dilimi düşük olanı. Taban 2026'da 18,1 puan yükseldi. 90 kontenjan.</p>
+      </article>
+      <article class="okul-karti" id="karsiyaka-ataturk-anadolu-lisesi">
+        <h3>Karşıyaka Atatürk Anadolu Lisesi</h3>
+        <div class="okul-etiketler"><span class="okul-etiket okul-tur-anadolu">Anadolu Lisesi</span><span class="okul-etiket">Yüreğir</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-yukseldi">▲ 11,9 puan yükseldi</span></div>
+        <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%32,6</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>307,819</td></tr>
+          <tr><th>2025 taban puanı</th><td>295,898</td></tr>
+          <tr><th>Kontenjan</th><td>120</td></tr>
+        </tbody></table></div>
+        <p class="okul-yorum">Yüreğir'de. 2025 dilimi %32,60. Taban puanı 2026'da 11,9 puan yükseldi (295,9 → 307,8). 120 kontenjan.</p>
       </article>
       <article class="okul-karti" id="adana-kiz-lisesi">
         <h3>Adana Kız Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-anadolu">Anadolu Lisesi</span><span class="okul-etiket">Çukurova</span><span class="okul-etiket">İngilizce</span><span class="okul-etiket okul-yukseldi">▲ 69,1 puan yükseldi</span></div>
         <div class="tablo-sarmal"><table class="okul-tablo"><tbody>
-          <tr><th>2026 taban puanı</th><td><strong>239,203</strong></td></tr>
+          <tr><th>2025 yüzdelik dilimi <span class="tablo-not">(sıralama ölçüsü)</span></th><td><strong>%94,59</strong></td></tr>
+          <tr><th>2026 taban puanı <span class="tablo-not">(ilk yerleştirme)</span></th><td>239,203</td></tr>
           <tr><th>2025 taban puanı</th><td>170,061</td></tr>
-          <tr><th>2025 yüzdelik dilimi</th><td>%94,59</td></tr>
           <tr><th>Kontenjan</th><td>90</td></tr>
         </tbody></table></div>
-        <p class="okul-yorum">Listedeki en dramatik değişim burada. 2025'te 170 puanla girilebilen okul, 2026'da <strong>239 puan</strong> istedi — tam <strong>69 puanlık</strong> bir sıçrama. Bu ölçüde bir hareket genellikle kontenjan ya da tercih davranışındaki bir değişimi işaret eder. Bu okulu düşünen ailelerin 2027 için eski puana değil, güncel duruma bakması gerekiyor.</p>
+        <p class="okul-yorum">Listedeki en büyük değişim burada: taban puanı 170,1'den 239,2'ye çıktı — <strong>69,1 puanlık</strong> bir fark. Aynı dönemde kontenjan 150'den 90'a indi. 2025 dilimi %94,59 idi. Bu ölçüde bir hareketin sebebini veriden okumak mümkün değil; tercih ederken güncel duruma bakmak gerekiyor.</p>
       </article>
       </section>
 
@@ -805,6 +868,7 @@
       { ad:"Adana Erkek Anadolu Lisesi", ilce:"Seyhan", tur:"anadolu", dil:"İngilizce", t26:367.494, t25:345.319, d25:20.86, kont:60 },
       { ad:"Bahtiyar Vahabzade Sosyal Bilimler Lisesi", ilce:"Sarıçam", tur:"sosyal", dil:"İngilizce", t26:355.540, t25:351.080, d25:19.69, kont:120 },
       { ad:"Ceyhan Ticaret Borsası Sosyal Bilimler Lisesi", ilce:"Ceyhan", tur:"sosyal", dil:"İngilizce", t26:332.078, t25:313.967, d25:27.96, kont:90 },
+      { ad:"Karşıyaka Atatürk Anadolu Lisesi", ilce:"Yüreğir", tur:"anadolu", dil:"İngilizce", t26:307.819, t25:295.898, d25:32.60, kont:120 },
       { ad:"Adana Kız Lisesi", ilce:"Çukurova", tur:"anadolu", dil:"İngilizce", t26:239.203, t25:170.061, d25:94.59, kont:90 }
     ];
 
