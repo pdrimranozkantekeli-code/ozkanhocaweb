@@ -195,11 +195,18 @@
     (function () {
       var btn = document.getElementById('waFloat');
       if (!btn) return;
+      var bekliyor = false, sonDurum = null;
       function guncelle() {
-        if (window.scrollY > 400) btn.classList.add('is-visible');
-        else btn.classList.remove('is-visible');
+        var gorunsun = window.scrollY > 400;
+        if (gorunsun !== sonDurum) {          // sadece degisince DOM'a dokun
+          btn.classList.toggle('is-visible', gorunsun);
+          sonDurum = gorunsun;
+        }
+        bekliyor = false;
       }
-      window.addEventListener('scroll', guncelle, { passive: true });
+      window.addEventListener('scroll', function () {
+        if (!bekliyor) { bekliyor = true; requestAnimationFrame(guncelle); }
+      }, { passive: true });
       guncelle();
     })();
   </script>

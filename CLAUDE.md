@@ -168,6 +168,15 @@ Yapı: `Ana Sayfa` (url'li) → `Blog` (url'li) → yazı adı (**url'siz**, son
 ### Yazı içi tablo
 `blog.css`'te tablo stili var. Kullanımı: `<div class="tablo-sarmal"><table>…</table></div>`. Sarmal, dar ekranda yatay kaydırma sağlıyor — tablosuz kullanma.
 
+### WhatsApp buton rengi
+Butonlar **#0F7C6F** (hover **#0B655A**). WhatsApp'ın bilinen parlak yeşili `#25D366` **kullanılmıyor** — beyaz metinle kontrast oranı 1,98 çıkıyor ve WCAG AA sınırı olan 4,5'in çok altında kalıyor. Lighthouse 28 Ağustos 2026'da bunu hata olarak işaretledi. Yeni yeşil 5,08 veriyor.
+
+### Hız — bilinenler
+- `analytics.js` içindeki `gtag.js` **`load` olayından sonra** yükleniyor. 163 KB'lık bu dosya sayfayla birlikte inince LCP geciktiriyordu. Erken yüklemeye geri çevirme.
+- Sabit WhatsApp butonunun kaydırma kodu `requestAnimationFrame` kullanır ve **yalnızca durum değiştiğinde** `classList` yazar. Her kaydırmada DOM'a yazmak Lighthouse'ta 93 ms'lik zorunlu yeniden düzenlemeye yol açıyordu.
+- 28 Ağustos 2026 ölçümü (mobil): Performans **78** · Erişilebilirlik 94 · En İyi Uygulamalar 100 · SEO 100 · FCP 3,0 sn · LCP 4,6 sn · TBT 50 ms · CLS 0.
+- Kalan darboğaz: `index.html` ~107 KB (43 KB'ı sayfa içi CSS) ve Google Fonts'un harici sunucudan gelmesi. Fontları kendi sitemize taşımak sıradaki adım olabilir.
+
 ### İkonlar — emoji kullanma
 Ana sayfadaki 22 ikon, 8 Ağustos 2026'da emojiden SVG'ye çevrildi. Emoji her cihazda farklı görünüyor ve marka paletiyle uyumsuz duruyordu.
 

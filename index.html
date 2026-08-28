@@ -139,7 +139,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #25D366;
+      background: #0F7C6F;
       color: #fff;
       font-size: 14px;
       font-weight: 500;
@@ -147,9 +147,9 @@
       border-radius: var(--radius-sm);
       cursor: pointer;
       transition: background 0.2s, transform 0.15s;
-      box-shadow: 0 4px 18px rgba(37,211,102,0.3);
+      box-shadow: 0 4px 18px rgba(15,124,111,0.32);
     }
-    .btn-wa:hover { background: #1ebe5d; transform: translateY(-1px); }
+    .btn-wa:hover { background: #0B655A; transform: translateY(-1px); }
 
     .btn-ghost {
       display: inline-flex;
@@ -1291,7 +1291,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #25D366;
+      background: #0F7C6F;
       color: #fff;
       font-size: 14px;
       font-weight: 500;
@@ -1299,9 +1299,9 @@
       border-radius: var(--radius-sm);
       margin-top: 28px;
       transition: background 0.2s, transform 0.15s;
-      box-shadow: 0 4px 18px rgba(37,211,102,0.3);
+      box-shadow: 0 4px 18px rgba(15,124,111,0.32);
     }
-    .contact-wa-btn:hover { background: #1ebe5d; transform: translateY(-1px); }
+    .contact-wa-btn:hover { background: #0B655A; transform: translateY(-1px); }
 
     .form-card {
       background: var(--white);
@@ -1455,11 +1455,11 @@
       font-weight: 500;
       padding: 9px 18px;
       border-radius: 8px;
-      background: #25D366;
+      background: #0F7C6F;
       color: #fff;
       transition: background 0.15s;
     }
-    .form-error-wa:hover { background: #1da851; }
+    .form-error-wa:hover { background: #0B655A; }
 
     /* ── FOOTER ───────────────────────────────────────── */
     .footer {
@@ -1640,10 +1640,10 @@
       gap: 0;
       height: 56px;
       padding: 0 15px;
-      background: #25D366;
+      background: #0F7C6F;
       color: var(--white);
       border-radius: 999px;
-      box-shadow: 0 6px 22px rgba(37,211,102,0.38);
+      box-shadow: 0 6px 22px rgba(15,124,111,0.32);
       text-decoration: none;
       overflow: hidden;
       opacity: 0;
@@ -2536,7 +2536,7 @@
       <div class="reviews-score">
         <div class="reviews-score-num">5,0</div>
         <div class="reviews-score-side">
-          <div class="reviews-stars" aria-label="5 üzerinden 5 yıldız">
+          <div class="reviews-stars" role="img" aria-label="5 üzerinden 5 yıldız">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -2731,10 +2731,17 @@
 
       var esik = 520;      // bu kadar kaydırılınca görünsün
       var bekliyor = false;
+      var sonDurum = null;
 
       function guncelle() {
         var gorunsun = window.scrollY > esik;
-        wa.classList.toggle('is-visible', gorunsun);
+        // Sadece durum DEGISTIGINDE DOM'a dokunuyoruz. Her kaydirmada
+        // classList yazmak stilleri gereksiz yere gecersiz kiliyor ve
+        // tarayiciyi yeniden duzenlemeye zorluyordu (Lighthouse: 93 ms).
+        if (gorunsun !== sonDurum) {
+          wa.classList.toggle('is-visible', gorunsun);
+          sonDurum = gorunsun;
+        }
         bekliyor = false;
       }
 
