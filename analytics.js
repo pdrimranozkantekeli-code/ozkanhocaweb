@@ -43,11 +43,24 @@
   gtag('js', new Date());
   gtag('config', OLCUM_ID, { 'anonymize_ip': true });
 
-  // gtag.js dosyasini yukle
-  var s = document.createElement('script');
-  s.async = true;
-  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + OLCUM_ID;
-  document.head.appendChild(s);
+  /* gtag.js yaklasik 100 KB. Sayfa cizilmeden once indirilirse ana is parcacigini
+     mesgul edip LCP'yi (sayfanin "yuklendi" hissettigi an) geciktiriyor.
+     Bu yuzden 'load' olayindan SONRA yukluyoruz.
+
+     Olcum kaybi olmuyor: yukaridaki gtag() cagrilari dataLayer'a birikiyor,
+     gtag.js yuklendiginde hepsi sirayla isleniyor. Sadece birkac yuz milisaniye
+     gecikmeyle gonderiliyorlar. */
+  function gtagYukle() {
+    if (window.__gtagYuklendi) return;      // iki kez cagrilmasin
+    window.__gtagYuklendi = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + OLCUM_ID;
+    document.head.appendChild(s);
+  }
+
+  if (document.readyState === 'complete') gtagYukle();
+  else window.addEventListener('load', gtagYukle);
 
   /* ---- 2. Kayitli onayi uygula ----------------------------------------- */
 

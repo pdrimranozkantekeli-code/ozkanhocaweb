@@ -2071,7 +2071,7 @@
         <a href="/blog">Blog</a>
         <a href="#iletisim" class="nav-cta">Başvuru Formu</a>
       </div>
-      <div class="hamburger" id="hamburger" aria-label="Menüyü aç" role="button" tabindex="0">
+      <div class="hamburger" id="hamburger" aria-label="Menüyü aç" aria-expanded="false" aria-controls="mobile-menu" role="button" tabindex="0">
         <span></span><span></span><span></span>
       </div>
     </div>
@@ -2141,7 +2141,7 @@
         <div class="hero-avatar">
           <picture>
             <source srcset="/ozkan-profil.webp" type="image/webp" />
-            <img src="/ozkan-profil.jpg" alt="Özkan Hoca - LGS Öğrenci Koçu, Adana" width="90" height="90" loading="eager" />
+            <img src="/ozkan-profil.jpg" alt="Özkan Hoca - LGS Öğrenci Koçu, Adana" width="90" height="90" loading="eager" fetchpriority="high" decoding="async" />
           </picture>
         </div>
         <div class="hero-card-name">Özkan Hoca</div>
@@ -2468,7 +2468,7 @@
         <div class="about-photo-wrap">
           <picture>
             <source srcset="/ozkan-profil.webp" type="image/webp" />
-            <img src="/ozkan-profil.jpg" alt="Özkan Hoca - PDR mezunu LGS öğrenci koçu" width="160" height="160" loading="lazy" />
+            <img src="/ozkan-profil.jpg" alt="Özkan Hoca - PDR mezunu LGS öğrenci koçu" width="160" height="160" loading="lazy" decoding="async" />
           </picture>
         </div>
         <div class="about-name">Özkan Hoca</div>
@@ -2753,7 +2753,10 @@
     const mobileMenu = document.getElementById('mobile-menu');
 
     hamburger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
+      const acik = mobileMenu.classList.toggle('open');
+      // Ekran okuyucu menunun durumunu bilsin
+      hamburger.setAttribute('aria-expanded', acik ? 'true' : 'false');
+      hamburger.setAttribute('aria-label', acik ? 'Menüyü kapat' : 'Menüyü aç');
     });
 
     hamburger.addEventListener('keydown', (e) => {
