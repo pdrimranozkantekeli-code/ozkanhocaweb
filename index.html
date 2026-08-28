@@ -1580,7 +1580,7 @@
       .footer-inner { flex-direction: column; text-align: center; }
 
       .hero { padding: 48px 24px 40px; }
-      .services-section, .process-section, .package-section, .about-section, .form-section, .reviews-section, .blog-teaser { padding: 48px 24px; }
+      .services-section, .process-section, .package-section, .about-section, .form-section, .reviews-section, .blog-teaser, .takip-section { padding: 48px 24px; }
       .pain-section { padding: 40px 24px; }
 
       .package-header { flex-direction: column; align-items: flex-start; gap: 10px; }
@@ -1789,6 +1789,55 @@
       color: var(--text-light);
       margin-top: 2px;
       margin-bottom: 10px;
+    }
+
+    /* ── TAKİP BÖLÜMÜ ─────────────────────────────────── */
+    .takip-section {
+      background: var(--indigo-50);
+      padding: 72px 32px;
+    }
+    .takip-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .takip-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 34px;
+      text-align: left;
+    }
+    .takip-card {
+      background: var(--white);
+      border: 1px solid rgba(127,119,221,0.18);
+      border-radius: 14px;
+      padding: 24px 22px;
+    }
+    .takip-card-baslik {
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.35;
+      color: var(--indigo-800);
+      margin-bottom: 12px;
+    }
+    .takip-card p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: var(--text-mid);
+    }
+    .takip-not {
+      margin-top: 26px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-mid);
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 900px) {
+      .takip-grid { grid-template-columns: 1fr; gap: 14px; }
     }
   </style>
 
@@ -2178,6 +2227,36 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ── TAKİP NASIL İŞLİYOR ──
+       "Takip ediyoruz" demek yeterli degil; veli mekanizmayi gormek istiyor.
+       Buradaki uc madde gercek calisma bicimini anlatir — abartma yok. -->
+  <section class="takip-section" id="takip">
+    <div class="takip-inner">
+      <div class="section-label">Takip</div>
+      <h2 class="section-title">Peki pratikte ne oluyor?</h2>
+      <p class="section-sub">"Takip ediyoruz" demek kolay. Aşağıda süreç gerçekte nasıl işliyorsa o yazıyor.</p>
+
+      <div class="takip-grid">
+        <div class="takip-card">
+          <div class="takip-card-baslik">Program haftalık seansta gözden geçiriliyor</div>
+          <p>Her seansın ilk bölümü geçen haftaya ayrılır. Planda ne yapıldı, ne yapılmadı, nerede zorlanıldı — tek tek konuşuyoruz. Gelecek haftanın planı buna göre şekilleniyor. Gerektiğinde hafta içinde kısa kontrol görüşmeleri de yapıyoruz.</p>
+        </div>
+
+        <div class="takip-card">
+          <div class="takip-card-baslik">Aksama olduğunda önce sebebini konuşuyoruz</div>
+          <p>Bir hafta planın aksaması tek başına sorun değil; önemli olan sebebi. Yorgunluk mu, program mı ağır geldi, başka bir şey mi var — önce öğrenciyle konuşuyorum. Ama aksama tekrar ediyorsa veliyi bilgilendiriyorum, çünkü o noktada birlikte hareket etmek gerekiyor.</p>
+        </div>
+
+        <div class="takip-card">
+          <div class="takip-card-baslik">Veliye ayda bir yazılı rapor</div>
+          <p>Her ay bir bilgilendirme raporu paylaşıyorum: o ay neler çalışıldı, denemelerdeki net değişimi, üzerinde durduğumuz psikolojik konular ve bir sonraki ayın planı. Arada önemli bir gelişme olursa rapor gününü beklemeden haber veriyorum.</p>
+        </div>
+      </div>
+
+      <p class="takip-not">Dürüst olmak gerekirse bu, günlük kontrol listesi doldurtan bir sistem değil. Haftada bir oturup öğrenciyle gerçekten konuşmayı, aradaki günlerde de ulaşılabilir olmayı tercih ediyorum.</p>
     </div>
   </section>
 
