@@ -68,6 +68,15 @@ Depoda hâlâ atıl bir `main` var (6 Haziran'da "Add files via upload" ile donm
 - Veliye konuşur (öğrenciye değil)
 - Pazarlama dili yok, net konuşur
 - **Asla kullanma:** "Garanti başarı", "En iyi koç", abartılı vaatler
+
+### ⚠️ Unvan kullanımı
+Özkan **PDR lisans mezunu**. Yüksek lisansı ve koçluk sertifikası **yok**.
+
+**Kullanılacak:** "PDR mezunu", "PDR kökenli", "Psikolojik Danışman", "PDR mezunu bir koç olarak", "psikolojik danışmanlık ve rehberlik eğitimimden yola çıkarak"
+
+**Kullanılmayacak:** "PDR uzmanı", "PDR Uzmanlığı", "Sertifikalı koç", "uzman koç" — Türkiye'de "uzman" unvanı yüksek lisans çağrıştırıyor, doğrulanamayan bir iddia olur. 26 Ağustos 2026'da sitedeki 10 kullanım temizlendi.
+
+İstisna: başka kişilerden ("bir uzmandan destek almak", "kısa bir sertifika programı bitirmiş biri") söz ederken bu kelimeler serbest — kastedilen Özkan değil.
 - **Tek cümle marka:** "Akademik + psikolojik + takip — üçü bir arada"
 
 ## Sayfa Yapısı
