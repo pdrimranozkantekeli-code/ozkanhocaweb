@@ -174,8 +174,20 @@ Butonlar **#0F7C6F** (hover **#0B655A**). WhatsApp'ın bilinen parlak yeşili `#
 ### Hız — bilinenler
 - `analytics.js` içindeki `gtag.js` **`load` olayından sonra** yükleniyor. 163 KB'lık bu dosya sayfayla birlikte inince LCP geciktiriyordu. Erken yüklemeye geri çevirme.
 - Sabit WhatsApp butonunun kaydırma kodu `requestAnimationFrame` kullanır ve **yalnızca durum değiştiğinde** `classList` yazar. Her kaydırmada DOM'a yazmak Lighthouse'ta 93 ms'lik zorunlu yeniden düzenlemeye yol açıyordu.
-- 28 Ağustos 2026 ölçümü (mobil): Performans **78** · Erişilebilirlik 94 · En İyi Uygulamalar 100 · SEO 100 · FCP 3,0 sn · LCP 4,6 sn · TBT 50 ms · CLS 0.
-- Kalan darboğaz: `index.html` ~107 KB (43 KB'ı sayfa içi CSS) ve Google Fonts'un harici sunucudan gelmesi. Fontları kendi sitemize taşımak sıradaki adım olabilir.
+**Ölçüm geçmişi (mobil, Moto G Power / yavaş 4G):**
+
+| Tarih | Perf. | Erişil. | FCP | LCP | TBT | SI |
+|---|---|---|---|---|---|---|
+| 28 Ağu 18:08 | 78 | 94 | 3,0 sn | 4,6 sn | 50 ms | 3,5 sn |
+| **29 Ağu 12:24** | **89** | **100** | **2,9 sn** | **3,0 sn** | **10 ms** | **2,9 sn** |
+
+Aradaki değişiklikler: `gtag.js` ertelendi, WhatsApp buton rengi düzeltildi, yıldızlara `role="img"`, kaydırma kodu yalnızca durum değişince DOM'a yazıyor. **LCP 1,6 saniye, TBT 40 ms düştü; erişilebilirlik 100'e çıktı.**
+
+**Masaüstü (29 Ağu):** Performans 99 · Erişilebilirlik 97 · En İyi Uygulamalar 100 · SEO 100 · FCP/LCP/SI 0,8 sn · TBT 10 ms.
+
+⚠️ Masaüstünde bir kontrast uyarısı kalmış (mobilde yok). Paylaşılan PDF'te "Başarısız Öğeler" listesi açık olmadığı için hangi öğe olduğu tespit edilemedi. Navbar renkleri elle hesaplandı, hepsi geçiyor (en düşüğü 6,93). Bir sonraki ölçümde o bölüm açılıp bakılmalı.
+
+- Kalan darboğaz: `index.html` ~107 KB (43 KB'ı sayfa içi CSS) ve Google Fonts'un harici sunucudan gelmesi. LCP'yi 2,5 sn altına indirmek için fontları kendi sitemize taşımak gerekebilir — 89 puan zaten iyi, bu iş isteğe bağlı.
 
 ### İkonlar — emoji kullanma
 Ana sayfadaki 22 ikon, 8 Ağustos 2026'da emojiden SVG'ye çevrildi. Emoji her cihazda farklı görünüyor ve marka paletiyle uyumsuz duruyordu.

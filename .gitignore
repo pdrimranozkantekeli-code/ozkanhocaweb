@@ -1,2 +1,5 @@
 .vercel
 .env*
+
+# macOS klasor meta dosyasi — depoda islenmemeli
+.DS_Store
