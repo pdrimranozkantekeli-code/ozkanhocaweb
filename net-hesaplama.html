@@ -267,6 +267,9 @@
   <!-- Olcum, cerez onayi ve donusum takibi — tum sayfalarda ayni dosya.
        Icerik ve aciklamalar: /analytics.js -->
   <script src="/analytics.js" defer></script>
+
+  <!-- Menudeki "Araclar" acilir listesi. Icerik: /nav.js -->
+  <script src="/nav.js" defer></script>
 </head>
 <body>
 
@@ -278,7 +281,13 @@
       </a>
       <div class="blog-nav-links">
         <a href="/">Ana Sayfa</a>
-        <a href="/adana-lise-taban-puanlari">Taban Puanları</a>
+        <div class="nav-arac">
+          <button type="button" class="nav-arac-btn" aria-expanded="false" aria-haspopup="true">Araçlar</button>
+          <div class="nav-arac-menu">
+            <a href="/net-hesaplama">Net Hesaplama</a>
+            <a href="/adana-lise-taban-puanlari">Taban Puanları</a>
+          </div>
+        </div>
         <a href="/blog">Blog</a>
         <a href="/#iletisim" class="blog-nav-cta">Başvuru</a>
       </div>

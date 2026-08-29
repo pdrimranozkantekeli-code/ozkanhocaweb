@@ -228,6 +228,74 @@
     }
     .nav-links a:hover { color: var(--white); }
 
+    /* ── ARAÇLAR AÇILIR MENÜSÜ ──
+       Davranışı /nav.js yönetiyor. Dokunmatik ekranda hover olmadığı için
+       sadece :hover ile açılmıyor. Mobilde bu menü gizleniyor, yerine
+       hamburger menüsündeki "Araçlar" grubu çalışıyor. */
+    .nav-arac { position: relative; }
+    .nav-arac-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--sans);
+      font-size: 13px;
+      line-height: 1;
+      color: var(--indigo-100);
+      background: none;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .nav-arac-btn::after {
+      content: "";
+      width: 0; height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid currentColor;
+      transition: transform 0.2s;
+    }
+    .nav-arac-btn:hover { color: var(--white); }
+    .nav-arac.acik .nav-arac-btn { color: var(--white); }
+    .nav-arac.acik .nav-arac-btn::after { transform: rotate(180deg); }
+    .nav-arac-btn.active { color: var(--white); }
+    .nav-arac-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 0;
+      min-width: 178px;
+      padding: 6px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 30px rgba(26,22,69,0.18);
+      z-index: 60;
+    }
+    .nav-arac.acik .nav-arac-menu { display: block; }
+    .nav-links .nav-arac-menu a {
+      display: block;
+      padding: 10px 12px;
+      font-size: 13px;
+      line-height: 1.3;
+      color: var(--text-mid);
+      border-radius: var(--radius-sm);
+    }
+    .nav-links .nav-arac-menu a:hover { background: var(--indigo-50); color: var(--indigo-800); }
+    .nav-links .nav-arac-menu a.active { background: var(--indigo-50); color: var(--indigo-800); font-weight: 500; }
+
+    /* Hamburger menüsündeki "Araçlar" grubu */
+    .mobile-menu-grup {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--indigo-400);
+      padding: 6px 0 0;
+    }
+    .mobile-menu a.mobile-menu-alt { padding-left: 14px; }
+    .mobile-menu a.active { color: var(--white); }
+
     .nav-cta {
       font-size: 13px;
       font-weight: 500;
@@ -1911,6 +1979,9 @@
        Icerik ve aciklamalar: /analytics.js -->
   <script src="/analytics.js" defer></script>
 
+  <!-- Menudeki "Araclar" acilir listesi. Icerik: /nav.js -->
+  <script src="/nav.js" defer></script>
+
   <!-- ── SCHEMA.ORG STRUCTURED DATA ── -->
 
   <!-- 1. LocalBusiness — Adana'da hizmet veren koçluk -->
@@ -2079,7 +2150,13 @@
         <a href="#paket">Paket</a>
         <a href="#sss">SSS</a>
         <a href="#hakkimda">Hakkımda</a>
-        <a href="/adana-lise-taban-puanlari">Taban Puanları</a>
+        <div class="nav-arac">
+          <button type="button" class="nav-arac-btn" aria-expanded="false" aria-haspopup="true">Araçlar</button>
+          <div class="nav-arac-menu">
+            <a href="/net-hesaplama">Net Hesaplama</a>
+            <a href="/adana-lise-taban-puanlari">Taban Puanları</a>
+          </div>
+        </div>
         <a href="/blog">Blog</a>
         <a href="#iletisim">İletişim</a>
         <a href="#iletisim" class="nav-cta">Başvuru Formu</a>
@@ -2093,7 +2170,9 @@
       <a href="#paket" onclick="closeMobileMenu()">Paket</a>
       <a href="#sss" onclick="closeMobileMenu()">SSS</a>
       <a href="#hakkimda" onclick="closeMobileMenu()">Hakkımda</a>
-      <a href="/adana-lise-taban-puanlari">Taban Puanları</a>
+      <div class="mobile-menu-grup">Araçlar</div>
+      <a href="/net-hesaplama" class="mobile-menu-alt">Net Hesaplama</a>
+      <a href="/adana-lise-taban-puanlari" class="mobile-menu-alt">Taban Puanları</a>
       <a href="/blog">Blog</a>
       <a href="#iletisim" onclick="closeMobileMenu()">İletişim</a>
       <a href="tel:+905306771685">+90 530 677 16 85</a>
