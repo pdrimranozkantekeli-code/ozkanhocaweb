@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>LGS Net Hesaplama | Deneme Netini Hesapla · Özkan Hoca</title>
+  <meta name="description" content="Doğru ve yanlış sayını gir, ders ders ve toplam LGS netini gör. Sözel ve sayısal bölüm ayrı ayrı hesaplanır, yanlışların kaç net götürdüğünü gösterir.">
+  <link rel="canonical" href="https://ozkanhoca.com/net-hesaplama" />
+  <meta property="og:title" content="LGS Net Hesaplama | Deneme Netini Hesapla · Özkan Hoca">
+  <meta property="og:description" content="Doğru ve yanlış sayını gir, ders ders ve toplam LGS netini gör. Sözel ve sayısal bölüm ayrı ayrı hesaplanır, yanlışların kaç net götürdüğünü gösterir.">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ozkanhoca.com/net-hesaplama" />
+  <meta property="og:image" content="https://ozkanhoca.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LGS Net Hesaplama | Deneme Netini Hesapla · Özkan Hoca">
+  <meta name="twitter:image" content="https://ozkanhoca.com/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="/blog/blog.css" />
+
+  <style>
+    .tool-wrap { padding-bottom: 60px; }
+    .tool-header { max-width: 780px; margin: 0 auto; padding: 40px 24px 0; }
+    .tool-title {
+      font-family: var(--serif);
+      font-size: clamp(26px, 4vw, 38px);
+      line-height: 1.25;
+      color: var(--indigo-800);
+      margin-bottom: 14px;
+    }
+    .tool-intro { font-size: 16px; color: var(--text-mid); line-height: 1.75; }
+    .tool-intro p + p { margin-top: 12px; }
+
+    .calc { max-width: 780px; margin: 28px auto 0; padding: 0 24px; }
+
+    .calc-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 8px 20px 20px;
+    }
+
+    .calc-bolum {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--indigo-400);
+      padding: 20px 0 10px;
+    }
+
+    .calc-basliklar {
+      display: grid;
+      grid-template-columns: 1fr 84px 84px 62px 74px;
+      gap: 10px;
+      padding: 0 0 8px;
+      font-size: 12px;
+      color: var(--text-light);
+      border-bottom: 1px solid var(--border);
+    }
+    .calc-basliklar span:not(:first-child) { text-align: center; }
+
+    .calc-satir {
+      display: grid;
+      grid-template-columns: 1fr 84px 84px 62px 74px;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(127,119,221,0.1);
+    }
+    .calc-ders { font-size: 15px; color: var(--text-dark); font-weight: 500; }
+    .calc-soru { display: block; font-size: 12px; color: var(--text-light); font-weight: 400; margin-top: 2px; }
+
+    .calc-giris {
+      width: 100%;
+      padding: 10px 8px;
+      font-family: var(--sans);
+      font-size: 16px;
+      text-align: center;
+      color: var(--text-dark);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      -moz-appearance: textfield;
+    }
+    .calc-giris::-webkit-outer-spin-button,
+    .calc-giris::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .calc-giris:focus { outline: 2px solid var(--indigo-400); outline-offset: -1px; }
+    .calc-satir.hatali .calc-giris { border-color: #C0392B; background: #FDF3F2; }
+
+    .calc-bos, .calc-net { text-align: center; font-size: 15px; color: var(--text-mid); }
+    .calc-net { font-weight: 600; color: var(--indigo-800); }
+
+    .calc-uyari {
+      display: none;
+      grid-column: 1 / -1;
+      font-size: 13px;
+      color: #C0392B;
+      padding-top: 6px;
+    }
+    .calc-satir.hatali .calc-uyari { display: block; }
+
+    .calc-arabaslik {
+      display: grid;
+      grid-template-columns: 1fr 74px;
+      gap: 10px;
+      padding: 12px 0 2px;
+      font-size: 14px;
+      color: var(--text-mid);
+    }
+    .calc-arabaslik b { text-align: center; color: var(--indigo-800); font-weight: 600; }
+
+    .calc-toplam {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 20px;
+      padding: 20px;
+      background: var(--indigo-50);
+      border-radius: 14px;
+    }
+    .calc-toplam-etiket { font-size: 15px; color: var(--text-mid); }
+    .calc-toplam-deger {
+      font-family: var(--serif);
+      font-size: 40px;
+      line-height: 1;
+      color: var(--indigo-800);
+    }
+    .calc-toplam-deger span { font-family: var(--sans); font-size: 16px; color: var(--text-light); }
+
+    .calc-kayip {
+      margin-top: 14px;
+      padding: 14px 18px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-mid);
+    }
+    .calc-kayip b { color: var(--indigo-800); }
+
+    .calc-sifirla {
+      margin-top: 16px;
+      padding: 11px 22px;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--indigo-500);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background .2s ease;
+    }
+    .calc-sifirla:hover { background: var(--indigo-50); }
+
+    .tool-body { max-width: 780px; margin: 44px auto 0; padding: 0 24px; }
+    .tool-body h2 {
+      font-family: var(--serif);
+      font-size: clamp(21px, 3vw, 26px);
+      color: var(--indigo-800);
+      margin: 34px 0 12px;
+      line-height: 1.3;
+    }
+    .tool-body p { font-size: 16px; line-height: 1.8; color: var(--text-body); margin-bottom: 14px; }
+    .tool-body a { color: var(--indigo-500); text-decoration: underline; }
+
+    @media (max-width: 620px) {
+      .calc-basliklar { display: none; }
+      .calc-satir {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px 10px;
+        padding: 14px 0;
+      }
+      .calc-ders { grid-column: 1 / -1; }
+      .calc-giris-sar { position: relative; }
+      .calc-giris-sar::before {
+        content: attr(data-etiket);
+        display: block;
+        font-size: 11px;
+        color: var(--text-light);
+        margin-bottom: 4px;
+        text-align: center;
+      }
+      /* Sabit WhatsApp butonu sag altta duruyor; toplam neti sola yaslayip
+         alta indiriyoruz ki buton buyuk sayinin ustune binmesin. */
+      .calc-toplam {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        padding-right: 76px;
+      }
+      .calc-bos, .calc-net { padding-top: 4px; font-size: 14px; }
+      .calc-bos::before { content: "Boş: "; color: var(--text-light); }
+      .calc-net::before { content: "Net: "; color: var(--text-light); font-weight: 400; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "LGS Net Hesaplama",
+    "url": "https://ozkanhoca.com/net-hesaplama",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "tr",
+    "description": "LGS deneme sınavlarında doğru ve yanlış sayısından ders bazlı ve toplam net hesaplayan ücretsiz araç.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
+    "publisher": { "@id": "https://ozkanhoca.com/#business" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://ozkanhoca.com/" },
+      { "@type": "ListItem", "position": 2, "name": "LGS Net Hesaplama" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "LGS net nasıl hesaplanır?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Her ders için net = doğru sayısı - (yanlış sayısı / 3). Üç yanlış bir doğruyu götürür. Boş bırakılan sorular nete etki etmez."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "LGS'de hangi dersten kaç soru var?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Toplam 90 soru vardır. Sözel bölümde Türkçe 20, T.C. İnkılap Tarihi ve Atatürkçülük 10, Din Kültürü ve Ahlak Bilgisi 10, Yabancı Dil 10 soru; sayısal bölümde Matematik 20 ve Fen Bilimleri 20 soru sorulur."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Netten LGS puanı hesaplanabilir mi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sınav öncesinde kesin olarak hesaplanamaz. LGS puanı, her dersin ham puanının o yıl sınava giren tüm öğrencilerin ortalaması ve standart sapmasıyla standart puana çevrilmesiyle bulunur. Bu istatistikler sınav sonrasında açıklandığı için, öncesinde yapılan tüm puan hesaplamaları geçmiş yılların verilerine dayanan tahminlerdir."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Olcum, cerez onayi ve donusum takibi — tum sayfalarda ayni dosya.
+       Icerik ve aciklamalar: /analytics.js -->
+  <script src="/analytics.js" defer></script>
+</head>
+<body>
+
+  <nav class="blog-navbar">
+    <div class="blog-navbar-inner">
+      <a href="/" class="blog-nav-brand">
+        <img src="/logo-icon-dark.svg" alt="Özkan Hoca logo" />
+        <span>Özkan Hoca</span>
+      </a>
+      <div class="blog-nav-links">
+        <a href="/">Ana Sayfa</a>
+        <a href="/adana-lise-taban-puanlari">Taban Puanları</a>
+        <a href="/blog">Blog</a>
+        <a href="/#iletisim" class="blog-nav-cta">Başvuru</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="tool-wrap">
+
+    <div class="tool-header">
+      <div class="blog-label">Ücretsiz Araç</div>
+      <h1 class="tool-title">LGS net hesaplama</h1>
+      <div class="tool-intro">
+        <p>Deneme sınavındaki doğru ve yanlış sayılarını gir; ders ders ve toplam netini aşağıda görürsün. Boş soruları yazmana gerek yok, kendisi hesaplıyor.</p>
+        <p>Formül basit: <strong>net = doğru − yanlış ÷ 3</strong>. Üç yanlış bir doğruyu götürüyor, boşlar nete dokunmuyor.</p>
+      </div>
+    </div>
+
+    <div class="calc">
+      <form class="calc-card" id="netForm" autocomplete="off">
+
+        <div class="calc-bolum">Sözel bölüm · 50 soru</div>
+        <div class="calc-basliklar" aria-hidden="true">
+          <span>Ders</span><span>Doğru</span><span>Yanlış</span><span>Boş</span><span>Net</span>
+        </div>
+        <div id="sozelSatirlar"></div>
+        <div class="calc-arabaslik">Sözel bölüm neti<b id="sozelNet">0,00</b></div>
+
+        <div class="calc-bolum">Sayısal bölüm · 40 soru</div>
+        <div class="calc-basliklar" aria-hidden="true">
+          <span>Ders</span><span>Doğru</span><span>Yanlış</span><span>Boş</span><span>Net</span>
+        </div>
+        <div id="sayisalSatirlar"></div>
+        <div class="calc-arabaslik">Sayısal bölüm neti<b id="sayisalNet">0,00</b></div>
+
+        <div class="calc-toplam">
+          <span class="calc-toplam-etiket">Toplam net</span>
+          <span class="calc-toplam-deger" id="toplamNet" aria-live="polite">0,00 <span>/ 90</span></span>
+        </div>
+
+        <div class="calc-kayip" id="kayipKutu">Doğru ve yanlış sayılarını girdiğinde sonuç burada görünür.</div>
+
+        <button type="button" class="calc-sifirla" id="sifirlaBtn">Sıfırla</button>
+      </form>
+    </div>
+
+    <div class="tool-body">
+      <h2>Neden burada LGS puanı yazmıyor?</h2>
+      <p>Dürüst olmak gerekirse: sınav öncesinde kimse senin LGS puanını kesin olarak hesaplayamaz. Ben de hesaplayamam.</p>
+      <p>Sebebi şu. LGS puanı, netten doğrudan çıkan bir sayı değil. Her dersin ham puanı önce o yıl sınava giren <strong>bütün öğrencilerin ortalaması ve standart sapması</strong> kullanılarak standart puana çevriliyor, sonra ders katsayılarıyla ağırlıklandırılıyor. O ortalama ve standart sapma ise ancak sınav yapıldıktan sonra belli oluyor.</p>
+      <p>Yani "netini gir, puanını söyleyeyim" diyen her araç aslında geçmiş yılların verisine bakarak tahmin yürütüyor. Tahmin yürütmek yanlış değil, ama bunu kesin bir sayı gibi göstermek yanlış. Aynı net, sınavın zorluğuna göre yıldan yıla farklı puana denk geliyor.</p>
+      <p>Bu yüzden burada sana sadece netini veriyorum — bu kısım matematiksel ve tartışmasız. Netinin hangi liselere yetebileceği konusunda fikir edinmek istersen <a href="/adana-lise-taban-puanlari">Adana liseleri taban puanları sayfasına</a> bakabilirsin; orada geçen yılın gerçek taban puanları ve yüzdelik dilimleri var.</p>
+
+      <h2>Netini hesapladın, peki sonra ne olacak?</h2>
+      <p>Bir denemenin asıl değeri çıkan sayıda değil, o sayının nereden geldiğinde. 50 net yapan iki öğrenciden biri konuyu bilmediği için, diğeri dikkatsizlikten kaybediyor olabilir — ve bu ikisinin çözümü tamamen farklı.</p>
+      <p>Yukarıda yanlışlarının kaç net götürdüğünü de gösteriyorum, çünkü çoğu öğrencinin en hızlı kazanacağı yer orası. Her yanlışın yanına tek kelimeyle sebebini yaz: "konu", "dikkat", "süre". Üç denemede bir hangisinin ağır bastığına bak.</p>
+      <p>Bu yöntemi <a href="/blog/cocugum-calisiyor-ama-netleri-artmiyor">çalıştığı hâlde netleri artmayan öğrenciler</a> ve <a href="/blog/lgs-nasil-calisilir">deneme analizinin nasıl yapılacağı</a> üzerine yazdığım yazılarda ayrıntılı anlattım.</p>
+
+      <h2>LGS'de hangi dersten kaç soru var?</h2>
+      <p>Sınav iki oturumdan oluşuyor, toplam 90 soru. Sözel bölümde Türkçe 20, T.C. İnkılap Tarihi ve Atatürkçülük 10, Din Kültürü ve Ahlak Bilgisi 10, Yabancı Dil 10 soru var. Sayısal bölümde Matematik 20 ve Fen Bilimleri 20 soru soruluyor.</p>
+      <p>Puan hesabında Türkçe, Matematik ve Fen Bilimleri'nin ağırlığı diğer üç dersin dört katı. Yani netini artıracak bir yer arıyorsan, bu üç ders diğerlerinden daha çok iş görüyor.</p>
+    </div>
+
+    <div class="article-cta" style="max-width:780px;margin:44px auto 0;">
+      <div class="article-cta-title">Netlerini birlikte okuyalım</div>
+      <div class="article-cta-sub">Deneme sonuçlarını gönder, nerede net kaybettiğini konuşalım. İlk keşif görüşmesi ücretsiz — 30 dakika sürer, hiçbir bağlayıcılığı yoktur.</div>
+      <div class="article-cta-actions">
+        <a href="/#iletisim" class="article-cta-btn">Ücretsiz Görüşme Planla</a>
+        <a href="https://wa.me/905306771685?text=Merhaba%2C%20deneme%20netlerimi%20de%C4%9Ferlendirmenizi%20istiyorum." class="article-cta-wa" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp'tan sorun</a>
+      </div>
+    </div>
+
+    <div class="author-box" style="max-width:780px;margin:28px auto 0;">
+      <div class="author-avatar"><img src="/logo-icon-dark.svg" alt="" /></div>
+      <div>
+        <div class="author-name">Özkan Hoca</div>
+        <div class="author-role">Psikolojik Danışmanlık ve Rehberlik · LGS Öğrenci Koçu · Adana</div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-links">
+        <a href="/">Ana Sayfa</a>
+        <a href="/blog">Blog</a>
+        <a href="/adana-lise-taban-puanlari">Taban Puanları</a>
+        <a href="/net-hesaplama">Net Hesaplama</a>
+        <a href="/kvkk">KVKK</a>
+        <a href="/gizlilik">Gizlilik Politikası</a>
+      </div>
+      <div class="site-footer-copy">© 2026 Psk. Dan. İmran Özkan Tekeli · Tüm hakları saklıdır.</div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/905306771685?text=Merhaba%2C%20deneme%20netlerimi%20de%C4%9Ferlendirmenizi%20istiyorum."
+     class="wa-float" id="waFloat" target="_blank" rel="noopener"
+     aria-label="WhatsApp'tan yazın">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="wa-float-label">WhatsApp'tan yazın</span>
+  </a>
+
+  <script>
+  (function () {
+    'use strict';
+
+    // LGS 2026-2027: toplam 90 soru. Sozel 50, sayisal 40.
+    var DERSLER = [
+      { id: 'turkce',  ad: 'Türkçe',                            soru: 20, bolum: 'sozel'   },
+      { id: 'inkilap', ad: 'T.C. İnkılap Tarihi ve Atatürkçülük', soru: 10, bolum: 'sozel'   },
+      { id: 'din',     ad: 'Din Kültürü ve Ahlak Bilgisi',       soru: 10, bolum: 'sozel'   },
+      { id: 'ingilizce', ad: 'Yabancı Dil',                      soru: 10, bolum: 'sozel'   },
+      { id: 'matematik', ad: 'Matematik',                        soru: 20, bolum: 'sayisal' },
+      { id: 'fen',     ad: 'Fen Bilimleri',                      soru: 20, bolum: 'sayisal' }
+    ];
+
+    function sayiyaCevir(deger) {
+      var s = String(deger).replace(/\D/g, '');   // sadece rakam
+      if (s === '') return 0;
+      return parseInt(s, 10);
+    }
+
+    // Turkce yazim: ondalik ayirici virgul.
+    function bicimle(sayi) {
+      return sayi.toFixed(2).replace('.', ',');
+    }
+
+    function satirKur(ders) {
+      var d = document.createElement('div');
+      d.className = 'calc-satir';
+      d.id = 'satir-' + ders.id;
+      d.innerHTML =
+        '<label class="calc-ders" for="' + ders.id + '-d">' + ders.ad +
+          '<span class="calc-soru">' + ders.soru + ' soru</span></label>' +
+        '<span class="calc-giris-sar" data-etiket="Doğru">' +
+          '<input class="calc-giris" type="number" inputmode="numeric" min="0" max="' + ders.soru + '" ' +
+          'id="' + ders.id + '-d" data-ders="' + ders.id + '" data-tur="dogru" ' +
+          'aria-label="' + ders.ad + ' doğru sayısı" placeholder="0" /></span>' +
+        '<span class="calc-giris-sar" data-etiket="Yanlış">' +
+          '<input class="calc-giris" type="number" inputmode="numeric" min="0" max="' + ders.soru + '" ' +
+          'id="' + ders.id + '-y" data-ders="' + ders.id + '" data-tur="yanlis" ' +
+          'aria-label="' + ders.ad + ' yanlış sayısı" placeholder="0" /></span>' +
+        '<span class="calc-bos" id="' + ders.id + '-bos">' + ders.soru + '</span>' +
+        '<span class="calc-net" id="' + ders.id + '-net">0,00</span>' +
+        '<span class="calc-uyari">Doğru ve yanlış toplamı ' + ders.soru + ' soruyu geçemez.</span>';
+      return d;
+    }
+
+    var sozelKap   = document.getElementById('sozelSatirlar');
+    var sayisalKap = document.getElementById('sayisalSatirlar');
+    DERSLER.forEach(function (ders) {
+      (ders.bolum === 'sozel' ? sozelKap : sayisalKap).appendChild(satirKur(ders));
+    });
+
+    function hesapla() {
+      var sozel = 0, sayisal = 0, toplamYanlis = 0, girisVar = false, hataVar = false;
+
+      DERSLER.forEach(function (ders) {
+        var dEl = document.getElementById(ders.id + '-d');
+        var yEl = document.getElementById(ders.id + '-y');
+        var dogru  = sayiyaCevir(dEl.value);
+        var yanlis = sayiyaCevir(yEl.value);
+
+        // Tek bir derste soru sayisini asmak, tum tabloyu bozmasin diye
+        // sadece o satiri isaretliyoruz; hesap yine de yapiliyor.
+        var satir = document.getElementById('satir-' + ders.id);
+        var asim = (dogru + yanlis) > ders.soru;
+        satir.classList.toggle('hatali', asim);
+        if (asim) hataVar = true;
+        if (dEl.value !== '' || yEl.value !== '') girisVar = true;
+
+        var bos = ders.soru - dogru - yanlis;
+        document.getElementById(ders.id + '-bos').textContent = bos < 0 ? '—' : String(bos);
+
+        // Net eksiye dusebilir (cok yanlis, az dogru). Deneme karnelerinde de
+        // boyle gosteriliyor; sifira yuvarlamak gercegi gizler.
+        var net = dogru - (yanlis / 3);
+        document.getElementById(ders.id + '-net').textContent = bicimle(net);
+
+        if (ders.bolum === 'sozel') sozel += net; else sayisal += net;
+        toplamYanlis += yanlis;
+      });
+
+      document.getElementById('sozelNet').textContent   = bicimle(sozel);
+      document.getElementById('sayisalNet').textContent = bicimle(sayisal);
+      document.getElementById('toplamNet').innerHTML    =
+        bicimle(sozel + sayisal) + ' <span>/ 90</span>';
+
+      var kutu = document.getElementById('kayipKutu');
+      if (!girisVar) {
+        kutu.innerHTML = 'Doğru ve yanlış sayılarını girdiğinde sonuç burada görünür.';
+      } else if (hataVar) {
+        kutu.innerHTML = 'Kırmızı ile işaretlenen derste doğru ve yanlış toplamı soru sayısını geçiyor. ' +
+                         'Düzeltirsen toplam doğru çıkar.';
+      } else if (toplamYanlis === 0) {
+        kutu.innerHTML = 'Hiç yanlışın yok — bu netin tamamı doğrudan geliyor.';
+      } else {
+        kutu.innerHTML = '<b>' + toplamYanlis + ' yanlış</b>, sana <b>' + bicimle(toplamYanlis / 3) +
+                         ' net</b> kaybettirdi. Her yanlışın yanına sebebini tek kelimeyle yaz: ' +
+                         'konu, dikkat ya da süre. En hızlı kazanç genelde "dikkat" yazdığın sorularda.';
+      }
+    }
+
+    document.getElementById('netForm').addEventListener('input', hesapla);
+    document.getElementById('netForm').addEventListener('submit', function (e) { e.preventDefault(); });
+    document.getElementById('sifirlaBtn').addEventListener('click', function () {
+      Array.prototype.forEach.call(document.querySelectorAll('.calc-giris'), function (el) { el.value = ''; });
+      hesapla();
+      document.getElementById('turkce-d').focus();
+    });
+
+    hesapla();
+
+    // Sabit WhatsApp butonu — sayfa kaydirilinca beliriyor.
+    var btn = document.getElementById('waFloat');
+    if (btn) {
+      var bekliyor = false, sonDurum = null;
+      var guncelle = function () {
+        var gorunsun = window.scrollY > 400;
+        if (gorunsun !== sonDurum) { btn.classList.toggle('is-visible', gorunsun); sonDurum = gorunsun; }
+        bekliyor = false;
+      };
+      window.addEventListener('scroll', function () {
+        if (!bekliyor) { bekliyor = true; requestAnimationFrame(guncelle); }
+      }, { passive: true });
+      guncelle();
+    }
+  })();
+  </script>
+
+</body>
+</html>
