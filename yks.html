@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>Adana YKS Öğrenci Koçluğu | 12. Sınıf ve Mezunlar · Özkan Hoca</title>
+  <meta name="description" content="12. sınıf ve mezun adaylar için YKS öğrenci koçluğu. PDR kökenli bir koçtan çalışma sistemi, süre yönetimi ve sınav psikolojisi desteği. Adana'da yüz yüze, Türkiye'nin her yerinden online.">
+  <link rel="canonical" href="https://ozkanhoca.com/yks" />
+  <meta property="og:title" content="Adana YKS Öğrenci Koçluğu | 12. Sınıf ve Mezunlar · Özkan Hoca">
+  <meta property="og:description" content="12. sınıf ve mezun adaylar için YKS öğrenci koçluğu. PDR kökenli bir koçtan çalışma sistemi, süre yönetimi ve sınav psikolojisi desteği.">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ozkanhoca.com/yks" />
+  <meta property="og:image" content="https://ozkanhoca.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Adana YKS Öğrenci Koçluğu | 12. Sınıf ve Mezunlar · Özkan Hoca">
+  <meta name="twitter:image" content="https://ozkanhoca.com/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="/blog/blog.css" />
+
+  <style>
+    .tool-wrap { padding-bottom: 60px; }
+    .yks-header { max-width: 780px; margin: 0 auto; padding: 40px 24px 0; }
+    .yks-title {
+      font-family: var(--serif);
+      font-size: clamp(27px, 4.2vw, 40px);
+      line-height: 1.22;
+      color: var(--indigo-800);
+      margin-bottom: 16px;
+    }
+    .yks-intro { font-size: 16.5px; color: var(--text-mid); line-height: 1.8; }
+    .yks-intro p + p { margin-top: 13px; }
+
+    .yks-body { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+    .yks-body h2 {
+      font-family: var(--serif);
+      font-size: clamp(21px, 3vw, 27px);
+      color: var(--indigo-800);
+      margin: 40px 0 14px;
+      line-height: 1.3;
+    }
+    .yks-body h3 {
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--indigo-800);
+      margin: 22px 0 6px;
+    }
+    .yks-body p { font-size: 16px; line-height: 1.8; color: var(--text-body); margin-bottom: 14px; }
+    .yks-body a { color: var(--indigo-500); text-decoration: underline; }
+    .yks-body ul { margin: 0 0 16px; padding-left: 20px; }
+    .yks-body li { font-size: 16px; line-height: 1.8; color: var(--text-body); margin-bottom: 7px; }
+
+    .yks-kimler {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 22px 0 8px;
+    }
+    .yks-kart {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .yks-kart-baslik {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--indigo-800);
+      margin-bottom: 8px;
+    }
+    .yks-kart p { font-size: 14.5px; line-height: 1.7; color: var(--text-mid); margin: 0; }
+
+    .yks-durust {
+      background: var(--indigo-50);
+      border-radius: 14px;
+      padding: 22px 24px;
+      margin: 24px 0 8px;
+    }
+    .yks-durust p { margin-bottom: 10px; }
+    .yks-durust p:last-child { margin-bottom: 0; }
+
+    .yks-sss-oge {
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+    .yks-sss-oge:last-child { border-bottom: 0; }
+    .yks-sss-soru {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--indigo-800);
+      margin-bottom: 7px;
+    }
+    .yks-sss-oge p { margin-bottom: 0; font-size: 15.5px; }
+
+    @media (max-width: 620px) {
+      .yks-kimler { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "YKS Öğrenci Koçluğu",
+    "serviceType": "Öğrenci koçluğu",
+    "url": "https://ozkanhoca.com/yks",
+    "description": "12. sınıf ve mezun adaylar için YKS öğrenci koçluğu: çalışma sistemi kurma, süre ve deneme yönetimi, sınav psikolojisi desteği.",
+    "provider": { "@id": "https://ozkanhoca.com/#business" },
+    "areaServed": [
+      { "@type": "City", "name": "Adana" },
+      { "@type": "Country", "name": "Türkiye" }
+    ],
+    "audience": {
+      "@type": "EducationalAudience",
+      "educationalRole": "student",
+      "audienceType": "12. sınıf öğrencileri ve mezun adaylar"
+    },
+    "availableChannel": [
+      { "@type": "ServiceChannel", "serviceLocation": { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "Adana", "addressCountry": "TR" } } },
+      { "@type": "ServiceChannel", "serviceUrl": "https://ozkanhoca.com/yks", "name": "Online görüşme" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://ozkanhoca.com/" },
+      { "@type": "ListItem", "position": 2, "name": "YKS Öğrenci Koçluğu" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "YKS koçluğu özel ders midir?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Hayır. Koçlukta ders anlatılmaz. Neyi, ne zaman, hangi sırayla çalışacağına dair bir sistem kurulur; bu sistem haftalık olarak takip edilir ve sonuçlara göre güncellenir. Konu eksiği varsa öğretmen ya da kaynak yönlendirmesi yapılır." }
+      },
+      {
+        "@type": "Question",
+        "name": "Mezun adaylarla da çalışıyor musunuz?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Evet. Mezun adaylar bu hizmetin ana hedef kitlesinden biri. İkinci yıl, birinci yıldan farklı bir süreç: okul rutini olmadığı için günü kendi kuran, motivasyonu kendi taşıyan bir öğrenci gerekiyor. Koçluğun en çok fark yarattığı yer de burası." }
+      },
+      {
+        "@type": "Question",
+        "name": "Görüşmeler online mı yüz yüze mi?",
+        "acceptedAnswer": { "@type": "Answer", "text": "İkisi de mümkün. Adana'da yüz yüze görüşülebiliyor; Türkiye'nin her yerinden online çalışılıyor. Online görüşmelerin yüz yüzeden ölçülebilir bir farkı olmuyor, çünkü işin özü konuşma ve takip." }
+      },
+      {
+        "@type": "Question",
+        "name": "Sınava az kaldıysa başlamak mantıklı mı?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Kalan süreye göre değişir ve bunu ilk görüşmede açıkça konuşuyorum. Birkaç hafta kalmışsa koçluk yerine mevcut planı sadeleştirmek daha doğru olabilir — bu durumda bunu söylüyorum. Aylar varsa kurulacak sistemin etkisini görmek için yeterli zaman var." }
+      },
+      {
+        "@type": "Question",
+        "name": "Puan garantisi veriyor musunuz?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Hayır. Sınav sonucu öğrencinin çalışmasına, başlangıç seviyesine ve o yılki sınav koşullarına bağlı; hiçbiri tek başına koçun kontrolünde değil. Garanti veren bir hizmetten uzak durmanızı öneririm." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Olcum, cerez onayi ve donusum takibi — tum sayfalarda ayni dosya.
+       Icerik ve aciklamalar: /analytics.js -->
+  <script src="/analytics.js" defer></script>
+
+  <!-- Menudeki "Araclar" acilir listesi. Icerik: /nav.js -->
+  <script src="/nav.js" defer></script>
+</head>
+<body>
+
+  <nav class="blog-navbar">
+    <div class="blog-navbar-inner">
+      <a href="/" class="blog-nav-brand">
+        <img src="/logo-icon-dark.svg" alt="Özkan Hoca logo" />
+        <span>Özkan Hoca</span>
+      </a>
+      <div class="blog-nav-links">
+        <a href="/">Ana Sayfa</a>
+        <a href="/yks" class="active">YKS</a>
+        <div class="nav-arac">
+          <button type="button" class="nav-arac-btn" aria-expanded="false" aria-haspopup="true">Araçlar</button>
+          <div class="nav-arac-menu">
+            <a href="/net-hesaplama">Net Hesaplama</a>
+            <a href="/adana-lise-taban-puanlari">Taban Puanları</a>
+          </div>
+        </div>
+        <a href="/blog">Blog</a>
+        <a href="/#iletisim" class="blog-nav-cta">Başvuru</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="tool-wrap">
+
+    <div class="yks-header">
+      <div class="blog-label">YKS Öğrenci Koçluğu · Adana</div>
+      <h1 class="yks-title">12. sınıf ve mezun adaylar için YKS koçluğu</h1>
+      <div class="yks-intro">
+        <p>"Sabahtan akşama masadayım ama net artmıyor. Neyi yanlış yapıyorum bilmiyorum."</p>
+        <p>YKS'ye hazırlanan öğrencilerden en sık duyduğum cümle bu. Ve genellikle doğru söylüyorlar — çalışıyorlar. Eksik olan çalışma değil, çalışmayı yöneten sistem.</p>
+        <p>Ben Psikolojik Danışmanlık ve Rehberlik mezunuyum. Öğrenci koçluğunda yaptığım iş ders anlatmak değil; öğrencinin haftasını kurmak, sonucu ölçmek ve tıkandığı yeri birlikte açmak.</p>
+      </div>
+    </div>
+
+    <div class="yks-body">
+
+      <h2>Kimlerle çalışıyorum</h2>
+      <div class="yks-kimler">
+        <div class="yks-kart">
+          <div class="yks-kart-baslik">12. sınıf öğrencileri</div>
+          <p>Okul, deneme ve YKS hazırlığını aynı takvime sığdırmak zorunda olanlar. Burada asıl mesele zaman değil, zamanın nereye gittiğini görebilmek.</p>
+        </div>
+        <div class="yks-kart">
+          <div class="yks-kart-baslik">Mezun adaylar</div>
+          <p>İkinci yılına giren, günü kendi kurmak zorunda olan adaylar. Okul rutini ortadan kalkınca yapı da kayboluyor; koçluğun en çok fark yarattığı yer burası.</p>
+        </div>
+      </div>
+      <p>Alan ayrımı yapmıyorum — sayısal, eşit ağırlık ve sözel öğrencileriyle çalışıyorum. TYT ve AYT tarafı birlikte planlanıyor, çünkü ikisinin dengesi kişiden kişiye değişiyor ve yıl içinde de değişiyor.</p>
+
+      <h2>Koçluk nedir, ne değildir</h2>
+      <p>Bunu baştan netleştirmek ikimizin de vaktini kazandırıyor.</p>
+      <h3>Ne değil</h3>
+      <p>Özel ders değil. Konu anlatmıyorum, soru çözdürmüyorum. Bir dersten temel eksiğin varsa bunu tespit edip doğru kaynağa ya da öğretmene yönlendiririm, ama o boşluğu ben doldurmam.</p>
+      <h3>Ne</h3>
+      <ul>
+        <li>Haftalık çalışma planı — dersin değil, senin haftana göre kurulmuş</li>
+        <li>Deneme sonuçlarının analizi: net nerede kayboluyor, konu mu, dikkat mi, süre mi</li>
+        <li>Süre yönetimi — özellikle TYT'de netlerin en çok yendiği yer</li>
+        <li>Düzenli görüşme ve hesap verilebilirlik: planın yapılıp yapılmadığının takibi</li>
+        <li>Sınav kaygısı, motivasyon dalgalanması ve tükenmişlikle çalışma — PDR tarafım burada devreye giriyor</li>
+      </ul>
+
+      <h2>Süreç nasıl işliyor</h2>
+      <h3>1. Keşif görüşmesi — ücretsiz, 30 dakika</h3>
+      <p>Nerede olduğunu, ne denediğini ve neyin tıkandığını konuşuyoruz. Bu görüşmenin sonunda birlikte çalışmaya karar vermek zorunda değilsin; uygun olmadığını düşünürsem bunu ben söylüyorum.</p>
+      <h3>2. Başlangıç tablosu</h3>
+      <p>Son denemeler, ders bazlı netler, günlük gerçek çalışma süresi ve uyku düzeni. Buradaki amaç bir hedef puan belirlemek değil, başlangıç noktasını dürüstçe görmek.</p>
+      <h3>3. Haftalık sistem</h3>
+      <p>Hafta hafta plan, sonrasında görüşme. Planın tutmadığı yer önemli bilgi — o yüzden "yapamadım" cümlesi bu görüşmelerde sorun değil, veri.</p>
+      <h3>4. Ölçüm ve düzeltme</h3>
+      <p>Denemeler geldikçe plan değişiyor. Aynı planla bütün yılı geçirmek, planın hiç işe yaramadığının işareti.</p>
+
+      <h2>YKS koçluğu, LGS koçluğundan neden farklı</h2>
+      <p>Bu siteye LGS koçluğuyla başladım ve iki sürecin aynı olmadığını söylemem gerekiyor.</p>
+      <p>LGS'de karşımda çoğunlukla veli var; çalışma düzenini kuran da büyük ölçüde aile. YKS'de muhatabım doğrudan öğrenci. 17-19 yaşındaki biriyle çalışırken plan dayatmak işe yaramıyor — kendi kurduğu, gerekçesini anladığı bir sistem gerekiyor. Görüşmelerin tonu da buna göre değişiyor.</p>
+      <p>İkincisi, YKS çok daha uzun bir maraton ve tükenmişlik gerçek bir risk. Kasımda günde on saat çalışıp martta masaya oturamayan öğrenci, her yıl gördüğüm bir tablo. Sürdürülebilir tempo burada bir tercih değil, zorunluluk.</p>
+      <p>Üçüncüsü mezun adaylar. İkinci yıl, akademik olduğu kadar psikolojik bir süreç: çevrenin beklentisi, geçen yılın hayal kırıklığı ve yapısız bir günün ağırlığı bir arada geliyor. Bu tarafta PDR geçmişim bana gerçekten yardımcı oluyor.</p>
+
+      <div class="yks-durust">
+        <p><strong>Dürüst olmam gereken kısım.</strong> Bu siteyi LGS koçluğu üzerine kurdum ve yazdığım her şey oraya dair. YKS tarafında da deneyimim var, ama internette benim adıma konuşan bir YKS içerik arşivim henüz yok.</p>
+        <p>Bu yüzden beni burada okuyup karar vermeni beklemiyorum. Keşif görüşmesi tam olarak bunun için: 30 dakika konuşalım, nasıl çalıştığımı gör, sonra karar ver. Uygun olmadığımı düşünürsem bunu sana söylerim.</p>
+      </div>
+
+      <h2>Ne vaat etmiyorum</h2>
+      <p>Puan garantisi vermiyorum. Sınav sonucu senin çalışmana, başladığın seviyeye ve o yılki sınav koşullarına bağlı; üçü de tek başına benim kontrolümde değil. Garanti veren bir hizmet görürsen ondan uzak durmanı öneririm.</p>
+      <p>"Şu kadar günde şu kadar net" tablosu da vermiyorum. Bu tablolar satış aracı; gerçek hazırlıkta netler doğrusal artmıyor, platolar ve düşüşler oluyor.</p>
+      <p>Söz verebileceğim şey şu: her hafta ne yapacağını bileceksin, her denemeden sonra sonucun neden o çıktığını konuşacağız, ve tıkandığında yalnız kalmayacaksın.</p>
+
+      <h2>Sık sorulanlar</h2>
+      <div class="yks-sss-oge">
+        <div class="yks-sss-soru">Koçluk özel ders midir?</div>
+        <p>Hayır. Ders anlatılmaz. Neyi, ne zaman, hangi sırayla çalışacağına dair bir sistem kurulur ve haftalık takip edilir. Konu eksiği için kaynak ya da öğretmen yönlendirmesi yapılır.</p>
+      </div>
+      <div class="yks-sss-oge">
+        <div class="yks-sss-soru">Mezunlarla da çalışıyor musunuz?</div>
+        <p>Evet, mezun adaylar bu hizmetin ana hedef kitlesinden biri. İkinci yıl birinci yıldan farklı bir süreç ve koçluğun en çok fark yarattığı yerlerden biri.</p>
+      </div>
+      <div class="yks-sss-oge">
+        <div class="yks-sss-soru">Online mı, yüz yüze mi?</div>
+        <p>İkisi de. Adana'da yüz yüze görüşebiliyoruz, Türkiye'nin her yerinden online çalışıyorum. İşin özü konuşma ve takip olduğu için ikisi arasında ölçülebilir bir fark görmüyorum.</p>
+      </div>
+      <div class="yks-sss-oge">
+        <div class="yks-sss-soru">Sınava az kaldıysa başlamak mantıklı mı?</div>
+        <p>Kalan süreye bağlı ve bunu ilk görüşmede açıkça konuşuyorum. Birkaç hafta kalmışsa koçluk yerine mevcut planı sadeleştirmek daha doğru olabilir — öyleyse bunu söylerim. Aylar varsa kurulacak sistemin etkisini görmeye zaman var.</p>
+      </div>
+      <div class="yks-sss-oge">
+        <div class="yks-sss-soru">Veliyle mi öğrenciyle mi görüşülüyor?</div>
+        <p>Görüşmeler öğrenciyle. Veli isterse süreç hakkında düzenli bilgilendiriliyor, ama planı öğrenciyle kuruyorum — bu yaşta işleyen tek yol bu.</p>
+      </div>
+      <div class="yks-sss-oge">
+        <div class="yks-sss-soru">Ücret ne kadar?</div>
+        <p>Görüşme sıklığına ve sürece göre değişiyor, o yüzden site üzerinde tek bir rakam yazmıyorum. Keşif görüşmesinde net olarak konuşuyoruz; o görüşme ücretsiz ve hiçbir bağlayıcılığı yok.</p>
+      </div>
+    </div>
+
+    <div class="article-cta" style="max-width:780px;margin:44px auto 0;">
+      <div class="article-cta-title">Nerede tıkandığını birlikte bulalım</div>
+      <div class="article-cta-sub">İlk keşif görüşmesi ücretsiz — 30 dakika sürer, hiçbir bağlayıcılığı yoktur.</div>
+      <div class="article-cta-actions">
+        <a href="/#iletisim" class="article-cta-btn">Ücretsiz Görüşme Planla</a>
+        <a href="https://wa.me/905306771685?text=Merhaba%2C%20YKS%20ko%C3%A7lu%C4%9Fu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="article-cta-wa" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp'tan sorun</a>
+      </div>
+    </div>
+
+    <div class="author-box" style="max-width:780px;margin:28px auto 0;">
+      <div class="author-avatar"><img src="/logo-icon-dark.svg" alt="" /></div>
+      <div>
+        <div class="author-name">Özkan Hoca</div>
+        <div class="author-role">Psikolojik Danışmanlık ve Rehberlik · Öğrenci Koçu · Adana</div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-links">
+        <a href="/">Ana Sayfa</a>
+        <a href="/yks">YKS Koçluğu</a>
+        <a href="/blog">Blog</a>
+        <a href="/adana-lise-taban-puanlari">Taban Puanları</a>
+        <a href="/net-hesaplama">Net Hesaplama</a>
+        <a href="/kvkk">KVKK</a>
+        <a href="/gizlilik">Gizlilik Politikası</a>
+      </div>
+      <div class="site-footer-copy">© 2026 Psk. Dan. İmran Özkan Tekeli · Tüm hakları saklıdır.</div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/905306771685?text=Merhaba%2C%20YKS%20ko%C3%A7lu%C4%9Fu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+     class="wa-float" id="waFloat" target="_blank" rel="noopener"
+     aria-label="WhatsApp'tan yazın">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="wa-float-label">WhatsApp'tan yazın</span>
+  </a>
+
+  <script>
+    // Buton en ustte gizli, biraz asagi inilince geliyor.
+    (function () {
+      var btn = document.getElementById('waFloat');
+      if (!btn) return;
+      var bekliyor = false, sonDurum = null;
+      function guncelle() {
+        var gorunsun = window.scrollY > 400;
+        if (gorunsun !== sonDurum) { btn.classList.toggle('is-visible', gorunsun); sonDurum = gorunsun; }
+        bekliyor = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!bekliyor) { bekliyor = true; requestAnimationFrame(guncelle); }
+      }, { passive: true });
+      guncelle();
+    })();
+  </script>
+
+</body>
+</html>

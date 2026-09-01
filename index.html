@@ -1061,6 +1061,33 @@
     .about-text p + p { margin-top: 16px; }
 
     /* ── BLOGDAN SON YAZILAR ──────────────────────────── */
+    .yks-band {
+      padding: 60px 24px;
+      background: var(--indigo-50);
+    }
+    .yks-band-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .yks-band-inner .section-sub {
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 26px;
+    }
+    .yks-band-btn {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--white);
+      background: var(--indigo-500);
+      padding: 13px 28px;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s;
+    }
+    .yks-band-btn:hover { background: var(--indigo-800); }
+
     .blog-teaser {
       padding: 72px 24px;
     }
@@ -2150,6 +2177,7 @@
         <a href="#paket">Paket</a>
         <a href="#sss">SSS</a>
         <a href="#hakkimda">Hakkımda</a>
+        <a href="/yks">YKS Koçluğu</a>
         <div class="nav-arac">
           <button type="button" class="nav-arac-btn" aria-expanded="false" aria-haspopup="true">Araçlar</button>
           <div class="nav-arac-menu">
@@ -2170,6 +2198,7 @@
       <a href="#paket" onclick="closeMobileMenu()">Paket</a>
       <a href="#sss" onclick="closeMobileMenu()">SSS</a>
       <a href="#hakkimda" onclick="closeMobileMenu()">Hakkımda</a>
+      <a href="/yks">YKS Koçluğu</a>
       <div class="mobile-menu-grup">Araçlar</div>
       <a href="/net-hesaplama" class="mobile-menu-alt">Net Hesaplama</a>
       <a href="/adana-lise-taban-puanlari" class="mobile-menu-alt">Taban Puanları</a>
@@ -2584,6 +2613,18 @@
     </div>
   </section>
 
+  <!-- ── YKS BANDI ──
+       LGS ikna akisini bolmemesi icin hakkimda'dan SONRA duruyor.
+       Hedef: 8. sinif velisinin ayni evdeki lise cagindaki cocugu. -->
+  <section class="yks-band">
+    <div class="yks-band-inner">
+      <div class="section-label">Yeni</div>
+      <h2 class="section-title">Lisede bir çocuğunuz da mı var?</h2>
+      <p class="section-sub">12. sınıf öğrencileri ve mezun adaylar için YKS öğrenci koçluğu da veriyorum. Aynı yaklaşım, aynı sistem — sınav değişiyor, çalışma düzeni kurma işi değişmiyor.</p>
+      <a href="/yks" class="yks-band-btn">YKS koçluğunu inceleyin</a>
+    </div>
+  </section>
+
   <!-- ── BLOGDAN SON YAZILAR ── -->
   <section class="blog-teaser">
     <div class="blog-teaser-inner">
@@ -2781,6 +2822,7 @@
       </div>
       <div class="footer-links">
         <a href="https://www.instagram.com/ozkanhocalgs" target="_blank" rel="noopener">Instagram</a>
+        <a href="/yks">YKS Koçluğu</a>
         <a href="/net-hesaplama">Net Hesaplama</a>
         <a href="/kvkk">KVKK</a>
         <a href="/gizlilik">Gizlilik Politikası</a>
