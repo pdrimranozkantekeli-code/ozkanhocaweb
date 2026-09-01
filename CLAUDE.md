@@ -184,7 +184,19 @@ Her yazının sonunda `.article-cta` kutusu var; içinde **iki** seçenek bulunu
 </div>
 ```
 
-Blog okuyan veli çoğunlukla başvuru aşamasında değil, sorusu var — form yüksek eşikli, WhatsApp tek tık. İkisi eşit ağırlıkta duruyor. Blogdan giden WhatsApp mesajı "sitenizdeki yazıyı okudum" diye başlıyor, böylece hangi kanaldan geldiği belli oluyor.
+Blog okuyan veli çoğunlukla başvuru aşamasında değil, sorusu var — form yüksek eşikli, WhatsApp tek tık. İkisi eşit ağırlıkta duruyor.
+
+**WhatsApp ön dolgu mesajı sayfa bağlamına göre değişir** — böylece gelen mesaja bakınca ziyaretçinin nereden geldiği belli oluyor. Yeni sayfa eklerken o sayfaya uygun bir metin yaz, gelişigüzel kopyalama:
+
+| Sayfa | Mesaj |
+|---|---|
+| Ana sayfa | "…öğrenci koçluğu hakkında bilgi almak istiyorum." (SSS bölümünde "…bir sorum var.") |
+| Blog yazıları | "…sitenizdeki yazıyı okudum ve bir sorum var." |
+| `/yks` | "…YKS koçluğu hakkında bilgi almak istiyorum." |
+| `/net-hesaplama` | "…deneme netlerimi değerlendirmenizi istiyorum." |
+| `/adana-lise-taban-puanlari` | "…Adana liseleri ve tercih hakkında bir sorum var." |
+
+Ana sayfadaki mesaj 29 Ağustos 2026'da "LGS koçluğu"ndan "öğrenci koçluğu"na çevrildi — site artık YKS de veriyor, mesajın ziyaretçiyi tek sınava hapsetmemesi gerekiyor. Metin `text=` parametresinde **URL kodlu** durur; elle yazarken Türkçe karakterleri kodlamayı unutma.
 
 ### Kırıntı navigasyonu (breadcrumb)
 Her blog yazısında ve araç sayfasında `BreadcrumbList` şeması var (17 Ağustos 2026'da eklendi). Arama sonucunda `ozkanhoca.com › Blog › Yazı` görünümünü sağlıyor.
