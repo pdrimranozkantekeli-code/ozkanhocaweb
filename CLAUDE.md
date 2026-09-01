@@ -13,7 +13,8 @@
 - **Repo:** pdrimranozkantekeli-code/ozkanhocaweb
 - **Hosting:** Vercel (production branch: master, otomatik deploy)
 - **Mimari:** Statik HTML/CSS/JS — framework yok, derleme adımı yok
-- **Dosyalar:** `index.html` (ana sayfa) · `adana-lise-taban-puanlari.html` (araç sayfası) · `kvkk.html` · `gizlilik.html` · `blog/index.html` (liste) · `blog/*.html` (13 yazı) · `blog/blog.css`
+- **Dosyalar:** `index.html` (ana sayfa) · `yks.html` (YKS hizmet sayfası) · `adana-lise-taban-puanlari.html` ve `net-hesaplama.html` (araç sayfaları) · `kvkk.html` · `gizlilik.html` · `blog/index.html` (liste) · `blog/*.html` (14 yazı) · `blog/blog.css`
+- **Ortak script'ler:** `analytics.js` (ölçüm + çerez + dönüşüm) · `nav.js` (menüdeki Araçlar açılır listesi). İkisi de **tüm sayfalarda** `defer` ile yüklenir; koda dokunulunca dosya düzenlenir, sayfalara kopyalanmaz.
 
 ### Adana lise taban puanları sayfası
 `/adana-lise-taban-puanlari` — veli LGS puanını girer, hangi liselerin ulaşılabilir olduğunu görür. 24 okul (fen, Anadolu, sosyal bilimler). Veri sayfanın içindeki `OKULLAR` dizisinde, ayrı dosya yok.
@@ -27,6 +28,27 @@ Sebebi Search Console verisi: veliler tek tek okul adı arayıp bizi buluyor ("e
 `OKULLAR` dizisi güncellenirse alttaki kartlar da elle güncellenmeli — ikisi ayrı yerde duruyor. Yorum metinleri veriye dayalı (puan, yüzdelik, kontenjan, ilçe, yıllık değişim); **okul hakkında doğrulanmamış bilgi yazma** (yurt, kulüp, öğretmen kadrosu vb.).
 
 Blog sayfalarıyla aynı görünüm: `blog.css` + sayfa içi ek stiller. Vanilla JS, kütüphane yok.
+
+### LGS net hesaplama sayfası
+`/net-hesaplama` (29 Ağustos 2026) — doğru/yanlış girilir, ders ders ve toplam net çıkar. Sözel (50 soru) ve sayısal (40 soru) ayrı hesaplanır, toplam 90.
+
+**Formül:** `net = doğru − yanlış/3`. Ders listesi sayfa içindeki `DERSLER` dizisinde; soru sayıları toplamı 90 olmalı.
+
+**Negatif net gizlenmiyor** — 2 doğru 9 yanlış = −1 net. Deneme karneleri de böyle gösteriyor; sıfıra yuvarlamak gerçeği saklar. Bunu "düzeltmeye" kalkma.
+
+**LGS puanı hesaplanmıyor ve bu bilinçli.** Puan, ham puanın o yılki Türkiye ortalaması ve standart sapmasıyla standart puana çevrilmesiyle bulunuyor; bu istatistikler sınavdan sonra açıklanıyor. Sayfada "Neden burada LGS puanı yazmıyor?" başlığıyla açıkça anlatılıyor. **Puan ya da yüzdelik dilim tahmini ekleme.**
+
+### YKS hizmet sayfası
+`/yks` (29 Ağustos 2026) — 12. sınıf ve mezun adaylara yönelik hizmet sayfası. Site LGS ana kimliğini koruyor; YKS ikinci hizmet. Ana sayfada "Lisede bir çocuğunuz da mı var?" bandı **hakkımda bölümünden sonra** duruyor, LGS ikna akışını bölmesin diye — yerini değiştirme.
+
+### Menü: Araçlar açılır listesi
+Menüde `Ana Sayfa · YKS · Araçlar · Blog · Başvuru` var. "Araçlar" altında net hesaplama ve taban puanları duruyor. Davranışı `nav.js` yönetiyor: tıklamayla açılır (dokunmatik ekranda hover yok), Escape ve dışarı tıklama kapatır, klavyeyle gezilir.
+
+**Bulunulan sayfa kendiliğinden işaretleniyor** — `nav.js` içindeki `ARAC_YOLLARI` listesine bakarak. Yani 20 sayfada aynı menü işaretlemesi durur, sayfalara elle `class="active"` yazılmaz.
+
+**Yeni araç eklerken iki yer:** `nav.js` içindeki `ARAC_YOLLARI` dizisi + sayfalardaki `.nav-arac-menu` bloğu.
+
+**KVKK ve gizlilik sayfalarının menüsü farklı** (`doc-navbar`, sadece "Ana Sayfa"). Toplu menü değişikliği yaparken bu ikisi eşleşmez; 29 Ağustos'ta bir toplu değişiklik menüyü bulamayıp bu iki sayfanın **footer'ına** yazdı. Menü işlemlerinden sonra "açılır menü sadece `<nav>` içinde mi" diye kontrol et.
 
 ### Branch
 Çalışılan branch **`master`** — 6 Ağustos 2026'da GitHub'da varsayılan branch de `master` yapıldı, artık temiz bir clone doğru yere düşer.
@@ -88,10 +110,13 @@ Depoda hâlâ atıl bir `main` var (6 Haziran'da "Add files via upload" ile donm
 4. **Trust bar** — PDR / 1:1 / Adana / Sınırlı kontenjan
 5. **Hizmetler** — Akademik + Psikolojik + Takip (3 kart)
 6. **Süreç** — 5 adım (Keşif → Plan → Seans → Rapor → LGS)
-7. **Paket** — Tek paket: "LGS Öğrenci Koçluğu — Tam Destek"
+7. **Paket** — Tek paket: "LGS ve YKS Öğrenci Koçluğu — Tam Destek"
 8. **Hakkımda** — Profil + biyografi
-9. **Başvuru formu** — Formspree entegrasyonlu
-10. **Footer**
+9. **YKS bandı** — `/yks` sayfasına yönlendiren şerit (hakkımda'dan sonra, bilinçli)
+10. **Blogdan son yazılar** — üç kart
+11. **Veli yorumları**
+12. **Başvuru formu** — Formspree entegrasyonlu
+13. **Footer**
 
 ## İş Akışı
 - **Strateji & tasarım:** Claude.ai project'te (ozkanhocaweb)
@@ -140,13 +165,14 @@ Dosya üç iş yapıyor: GA4'ü çalıştırmak, Consent Mode v2 ile çerez onay
 
 Ölçüm koduna dokunulduğunda `analytics.js` düzenlenir — sayfalara kod kopyalanmaz.
 
-### Yeni blog yazısı — 6 yer güncellenir
+### Yeni blog yazısı — 7 yer güncellenir
 1. Yazının kendi dosyası (`blog/<slug>.html`) — içinde **iki** JSON-LD bloğu olmalı: `BlogPosting` + `BreadcrumbList`
 2. `blog/index.html` — kart + `ItemList` şeması (yeni yazı 1. sıraya, diğerlerinin `position` değeri birer kayar)
 3. `sitemap.xml` — `<loc>` + **gerçek** `<lastmod>`
 4. Mevcut 2-3 yazıya karşılıklı iç link (her yazı en az 2 iç link almalı)
 5. Tarih dört yerde geçer: `datePublished`, `dateModified`, `post-date` satırı, `blog/index.html` kartı. **Yazmadan önce `date` çalıştır** — bu projede üç kez yanlış tarih yazıldı.
-6. `<head>` içinde `<script src="/analytics.js" defer></script>`, `</main>` sonrasında `<footer class="site-footer">` ve sabit WhatsApp butonu (`#waFloat` + görünürlük script'i) — üçü de her sayfada olmalı. En kolayı mevcut bir yazıyı şablon alıp kopyalamak.
+6. `<head>` içinde `<script src="/analytics.js" defer></script>` **ve** `<script src="/nav.js" defer></script>`; `</main>` sonrasında `<footer class="site-footer">` ve sabit WhatsApp butonu (`#waFloat` + görünürlük script'i). Menüde Araçlar bloğu (`.nav-arac`) bulunmalı. En kolayı mevcut bir yazıyı şablon alıp kopyalamak.
+7. Kontrol: `.html` uzantılı iç link kalmadı mı, JSON-LD blokları geçerli mi, sitemap'te gelecek tarihli `lastmod` var mı.
 
 ### Yazı sonu CTA'sı
 Her yazının sonunda `.article-cta` kutusu var; içinde **iki** seçenek bulunur (25 Ağustos 2026'da ikinciye çevrildi):
@@ -205,9 +231,11 @@ Yeni ikon eklerken: `class="ikon"`, 24×24 viewBox, `fill="none" stroke="current
 ## Yapılacaklar Listesi
 - [x] Gerçek fotoğraf ekleme ("Hakkımda" bölümüne) — `ozkan-profil.webp`
 - [x] KVKK ve Gizlilik Politikası sayfaları
-- [x] Instagram entegrasyonu — @ozkanhocalgs
+- [x] Instagram entegrasyonu — @ozkanhocalgsyks
 - [x] SSS bölümü
-- [x] Blog bölümü (SEO için) — 10 yazı
+- [x] Blog bölümü (SEO için) — 14 yazı
+- [x] Ücretsiz araçlar — taban puanları, net hesaplama
+- [x] YKS hizmet sayfası — `/yks`
 - [ ] Sayfa hızı optimizasyonu
 - [ ] Dış bağlantı çalışması — asıl SEO darboğazı (Google Business Profile, Adana yerel dizinleri, okul rehberlik servisleri)
 - [ ] Adana odaklı içeriği artırma — `adana öğrenci koçluğu` en çok gösterim alan sorgu
