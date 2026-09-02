@@ -59,7 +59,9 @@ Depoda hâlâ atıl bir `main` var (6 Haziran'da "Add files via upload" ile donm
 `vercel.json` içinde `"cleanUrls": true`. İç linkler **asla `.html` uzantılı olmayacak** — `/kvkk` doğru, `/kvkk.html` yönlendirmeye takılır ve Search Console'da "Yönlendirmeli sayfa" olarak birikir.
 
 ## Entegrasyonlar
-- **Form:** Formspree (ID: `mnjyjldp`) — form doldurulunca mail gelir
+- **Form:** Formspree (ID: `mnjyjldp`) — form doldurulunca mail gelir. Teslim adresi Formspree panelinde ayarlı, kodda değil.
+- **Telefon:** `0540 677 16 85` (`+905406771685`) — işletme hattı, 2 Eylül 2026'da geçildi. Kişisel numara `0530...` sitede geçmez.
+- **E-posta:** `ozkanhocalgsyks@gmail.com`
 - **WhatsApp:** `+90 540 677 16 85` — `wa.me/905406771685` linki
 - **Google Analytics:** `G-T5M63NSF2L` (aktif)
 - **Google Search Console:** doğrulandı, sitemap gönderildi
@@ -128,6 +130,7 @@ Depoda hâlâ atıl bir `main` var (6 Haziran'da "Add files via upload" ile donm
 - Mevcut tasarım sistemine sadık kal (renkler, fontlar, boşluklar)
 - Form doğrulama JS ile, sunucu gerektirmez (Formspree zaten halleder)
 - Asla `<form action>` URL'ini değiştirme (Formspree ID sabit: mnjyjldp)
+- **Formspree tuzağı:** formun mesajları hangi adrese düştüğü **Formspree hesabının ayarında** tutuluyor, kodda değil. Sitedeki e-postayı değiştirmek başvuruların yeni kutuya düşmesini sağlamaz — Özkan'ın panelden teslim adresini de değiştirmesi gerekir. E-posta değişikliğinde mutlaka hatırlat.
 - Yeni özellik eklerken mobile responsive olduğundan emin ol
 - 768px ve 480px breakpoint'leri kullan
 
