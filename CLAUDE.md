@@ -157,7 +157,11 @@ Commit'e hazır olunca Özkan'a terminal komutu yazdırma. `../../05-operasyon/C
 Başka bir işlem gerekiyorsa bu dosyaya mod ekle, yeni dosya açma. Değişiklik sonrası `chmod +x` gerekir.
 
 ### Depoda git yazma komutu çalıştırma
-Sandbox'ın `.git/` altına yazma izni yok. `git add`, `commit`, `remote set-head` gibi komutlar yarım kalıp `.git/index.lock` bırakıyor ve sandbox onu silemediği için sonraki bütün git işlemleri kilitleniyor. Okuma komutları (`git log`, `git status`, `git diff`) sorunsuz. Yazma işleri `.command` script'i üzerinden gider.
+Sandbox'ın `.git/` altına yazma izni yok. `git add`, `commit`, `remote set-head` gibi komutlar yarım kalıp `.git/index.lock` bırakıyor ve sandbox onu silemediği için sonraki bütün git işlemleri kilitleniyor. Yazma işleri `.command` script'i üzerinden gider.
+
+**Her okuma komutu masum değil.** `git log`, `git status --porcelain`, `git diff` güvenli. Ama **indeksi tazeleyen** komutlar da lock bırakıyor — 2 Eylül 2026'da `git rev-parse --short HEAD origin/master` bunu yaptı. Durum kontrolü için `git status -sb` yeterli, `rev-parse` ile karşılaştırma yapma.
+
+Lock kalırsa panik yok: `COMMIT-AT.command` çalışırken başta kilidi kendisi temizliyor. Yani bir sonraki commit'te sorun kendiliğinden kapanıyor.
 
 ### Ölçüm — `analytics.js`
 Google Analytics, çerez onayı ve dönüşüm ölçümü tek dosyada: **`/analytics.js`**. Her sayfanın `<head>` bölümünde şu satır bulunmalı:
