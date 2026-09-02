@@ -60,7 +60,7 @@ Depoda hâlâ atıl bir `main` var (6 Haziran'da "Add files via upload" ile donm
 
 ## Entegrasyonlar
 - **Form:** Formspree (ID: `mnjyjldp`) — form doldurulunca mail gelir
-- **WhatsApp:** `+90 530 677 16 85` — `wa.me/905306771685` linki
+- **WhatsApp:** `+90 540 677 16 85` — `wa.me/905406771685` linki
 - **Google Analytics:** `G-T5M63NSF2L` (aktif)
 - **Google Search Console:** doğrulandı, sitemap gönderildi
 - **E-posta:** ozkan@ozkanhoca.com
@@ -180,7 +180,7 @@ Her yazının sonunda `.article-cta` kutusu var; içinde **iki** seçenek bulunu
 ```html
 <div class="article-cta-actions">
   <a href="/#iletisim" class="article-cta-btn">Ücretsiz Görüşme Planla</a>
-  <a href="https://wa.me/905306771685?text=..." class="article-cta-wa" target="_blank" rel="noopener">…WhatsApp'tan sorun</a>
+  <a href="https://wa.me/905406771685?text=..." class="article-cta-wa" target="_blank" rel="noopener">…WhatsApp'tan sorun</a>
 </div>
 ```
 
