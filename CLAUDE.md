@@ -13,7 +13,7 @@
 - **Repo:** pdrimranozkantekeli-code/ozkanhocaweb
 - **Hosting:** Vercel (production branch: master, otomatik deploy)
 - **Mimari:** Statik HTML/CSS/JS — framework yok, derleme adımı yok
-- **Dosyalar:** `index.html` (ana sayfa) · `yks.html` (YKS hizmet sayfası) · `adana-lise-taban-puanlari.html` ve `net-hesaplama.html` (araç sayfaları) · `kvkk.html` · `gizlilik.html` · `blog/index.html` (liste) · `blog/*.html` (14 yazı) · `blog/blog.css`
+- **Dosyalar:** `index.html` (ana sayfa) · `yks.html` (YKS hizmet sayfası) · `adana-lise-taban-puanlari.html` ve `net-hesaplama.html` (araç sayfaları) · `kvkk.html` · `gizlilik.html` · `blog/index.html` (liste) · `blog/*.html` (15 yazı) · `blog/blog.css`
 - **Ortak script'ler:** `analytics.js` (ölçüm + çerez + dönüşüm) · `nav.js` (menüdeki Araçlar açılır listesi). İkisi de **tüm sayfalarda** `defer` ile yüklenir; koda dokunulunca dosya düzenlenir, sayfalara kopyalanmaz.
 
 ### Adana lise taban puanları sayfası
@@ -39,7 +39,13 @@ Blog sayfalarıyla aynı görünüm: `blog.css` + sayfa içi ek stiller. Vanilla
 **LGS puanı hesaplanmıyor ve bu bilinçli.** Puan, ham puanın o yılki Türkiye ortalaması ve standart sapmasıyla standart puana çevrilmesiyle bulunuyor; bu istatistikler sınavdan sonra açıklanıyor. Sayfada "Neden burada LGS puanı yazmıyor?" başlığıyla açıkça anlatılıyor. **Puan ya da yüzdelik dilim tahmini ekleme.**
 
 ### YKS hizmet sayfası
-`/yks` (29 Ağustos 2026) — 12. sınıf ve mezun adaylara yönelik hizmet sayfası. Site LGS ana kimliğini koruyor; YKS ikinci hizmet. Ana sayfada "Lisede bir çocuğunuz da mı var?" bandı **hakkımda bölümünden sonra** duruyor, LGS ikna akışını bölmesin diye — yerini değiştirme.
+`/yks` (29 Ağustos 2026) — 12. sınıf ve mezun adaylara yönelik hizmet sayfası. Site LGS ana kimliğini koruyor; YKS ikinci hizmet.
+
+**Blogdaki YKS yazısı (2 Eylül 2026):** `/blog/mezun-olarak-yks-hazirligi`. Blogun tek YKS yazısı ve **doğrudan öğrenciye hitap eden tek yazı** — diğer 14'ü veliye yazılmış. Bu bilinçli: YKS'de kararı da koç aramasını da adayın kendisi yapıyor, `/yks` sayfası da aynı sesle yazılmıştı. Yeni YKS yazılarında bu sesi koru, veliye çevirme.
+
+Yazı `/yks` sayfasına iç link veriyor, `/yks` de ona ("YKS koçluğu, LGS koçluğundan neden farklı" bölümü). Bu karşılıklı bağ `/yks`'in blogdan aldığı tek link — yeni yazı eklerken bozma. Etiketi **"YKS Rehberi"**, blogda ilk kez bu yazıyla kullanıldı.
+
+Blog liste sayfasının başlığı bu yazıyla birlikte "LGS ve YKS Blog" olarak genişletildi (H1: "LGS ve YKS yolculuğunda rehberiniz"). Ana sayfada "Lisede bir çocuğunuz da mı var?" bandı **hakkımda bölümünden sonra** duruyor, LGS ikna akışını bölmesin diye — yerini değiştirme.
 
 ### Menü: Araçlar açılır listesi
 Menüde `Ana Sayfa · YKS · Araçlar · Blog · Başvuru` var. "Araçlar" altında net hesaplama ve taban puanları duruyor. Davranışı `nav.js` yönetiyor: tıklamayla açılır (dokunmatik ekranda hover yok), Escape ve dışarı tıklama kapatır, klavyeyle gezilir.
@@ -248,7 +254,7 @@ Yeni ikon eklerken: `class="ikon"`, 24×24 viewBox, `fill="none" stroke="current
 - [x] KVKK ve Gizlilik Politikası sayfaları
 - [x] Instagram entegrasyonu — @ozkanhocalgsyks
 - [x] SSS bölümü
-- [x] Blog bölümü (SEO için) — 14 yazı
+- [x] Blog bölümü (SEO için) — 15 yazı (14 LGS + 1 YKS)
 - [x] Ücretsiz araçlar — taban puanları, net hesaplama
 - [x] YKS hizmet sayfası — `/yks`
 - [ ] Sayfa hızı optimizasyonu
