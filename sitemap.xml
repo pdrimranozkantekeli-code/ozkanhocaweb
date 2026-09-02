@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://ozkanhoca.com/blog</loc>
-    <lastmod>2026-08-29</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -38,13 +38,13 @@
   </url>
   <url>
     <loc>https://ozkanhoca.com/blog/cocugum-calisiyor-ama-netleri-artmiyor</loc>
-    <lastmod>2026-08-29</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ozkanhoca.com/blog/sinav-kaygisi-nedir-nasil-yonetilir</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -110,8 +110,14 @@
   </url>
   <url>
     <loc>https://ozkanhoca.com/yks</loc>
-    <lastmod>2026-08-29</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ozkanhoca.com/blog/mezun-olarak-yks-hazirligi</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
