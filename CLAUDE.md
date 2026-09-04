@@ -159,9 +159,9 @@ Başka bir işlem gerekiyorsa bu dosyaya mod ekle, yeni dosya açma. Değişikli
 ### Depoda git yazma komutu çalıştırma
 Sandbox'ın `.git/` altına yazma izni yok. `git add`, `commit`, `remote set-head` gibi komutlar yarım kalıp `.git/index.lock` bırakıyor ve sandbox onu silemediği için sonraki bütün git işlemleri kilitleniyor. Yazma işleri `.command` script'i üzerinden gider.
 
-**Her okuma komutu masum değil.** `git log`, `git status --porcelain`, `git diff` güvenli. Ama **indeksi tazeleyen** komutlar da lock bırakıyor — 2 Eylül 2026'da `git rev-parse --short HEAD origin/master` bunu yaptı. Durum kontrolü için `git status -sb` yeterli, `rev-parse` ile karşılaştırma yapma.
+**`.git/index.lock` sandbox'ta sürekli görünür — bu normal.** `git status` ve `git diff` gibi okuma komutları bile indeksi tazelemek için lock dosyası açıyor; sandbox onu oluşturabiliyor ama silme izni olmadığı için geride kalıyor. Yani "LOCK VAR" çıktısı bir arıza belirtisi değil, sandbox'ın kendi izin kısıtı.
 
-Lock kalırsa panik yok: `COMMIT-AT.command` çalışırken başta kilidi kendisi temizliyor. Yani bir sonraki commit'te sorun kendiliğinden kapanıyor.
+Sonuç olarak: **lock dosyasını sorun sanıp Özkan'a iş çıkarma.** `COMMIT-AT.command` her çalıştığında başta kilidi temizliyor, commit'ler sorunsuz gidiyor. Gerçek arıza belirtisi lock dosyasının varlığı değil, commit'in başarısız olması.
 
 ### Ölçüm — `analytics.js`
 Google Analytics, çerez onayı ve dönüşüm ölçümü tek dosyada: **`/analytics.js`**. Her sayfanın `<head>` bölümünde şu satır bulunmalı:
