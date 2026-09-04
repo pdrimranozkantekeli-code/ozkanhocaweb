@@ -117,14 +117,34 @@ Depoda hâlâ atıl bir `main` var (6 Haziran'da "Add files via upload" ile donm
 3. **Sorunlar** — "Tanıdık geliyor mu?" 6 sorun kartı
 4. **Trust bar** — PDR / 1:1 / Adana / Sınırlı kontenjan
 5. **Hizmetler** — Akademik + Psikolojik + Takip (3 kart)
-6. **Süreç** — 5 adım (Keşif → Plan → Seans → Rapor → LGS)
-7. **Paket** — Tek paket: "LGS ve YKS Öğrenci Koçluğu — Tam Destek"
-8. **Hakkımda** — Profil + biyografi
-9. **YKS bandı** — `/yks` sayfasına yönlendiren şerit (hakkımda'dan sonra, bilinçli)
-10. **Blogdan son yazılar** — üç kart
-11. **Veli yorumları**
-12. **Başvuru formu** — Formspree entegrasyonlu
-13. **Footer**
+6. **YKS bandı** — `/yks` sayfasına yönlendiren şerit
+7. **Süreç** — 5 adım (Keşif → Plan → Seans → Rapor → Sınav)
+8. **Takip** — Takip nasıl işliyor
+9. **Paket** — Tek paket: "LGS ve YKS Öğrenci Koçluğu — Tam Destek"
+10. **SSS**
+11. **Hakkımda** — Profil + biyografi
+12. **Blogdan son yazılar** — üç kart
+13. **Veli yorumları**
+14. **Başvuru formu** — Formspree entegrasyonlu
+15. **Footer**
+
+### YKS bandı neden Hizmetler'in hemen altında?
+4 Eylül 2026'da hakkımda'dan buraya taşındı. Gerekçe: ziyaretçi "bu adam ne yapıyor"
+sorusunun cevabını yeni okumuş oluyor; YKS'yi tam orada duyunca arkasından gelen
+Süreç / Takip / Paket bölümlerini kendisi için de geçerli sayıyor. Paketin hemen
+üstüne konmadı — orası ikna akışının en kritik yeri, araya girmek satışı böler.
+Metin de aynı tarihte değişti: eskiden LGS velisine çapraz satış yapıyordu
+("Lisede bir çocuğunuz da mı var?"), şimdi doğrudan YKS adayına/velisine hitap ediyor.
+
+### ⚠️ Marka adı — NAP tutarlılığı
+Google İşletme Profili'ndeki ad: **"Özkan Hoca Öğrenci Koçluğu"** (içinde sınav adı yok, bilinçli).
+Sitedeki marka satırları bununla aynı olmalı — 4 Eylül 2026'da hizalandı:
+- Navbar `.nav-logo-sub` → "Öğrenci Koçluğu · Adana"
+- Footer `.footer-logo span` → "Öğrenci Koçluğu · Adana"
+- `og:image:alt` → "Özkan Hoca · Öğrenci Koçluğu · Adana"
+
+Buralara "LGS" veya "YKS" geri eklenmeyecek. Sınav adları başlık, meta ve içerik
+metinlerinde geçer; marka satırında geçmez.
 
 ## İş Akışı
 - **Strateji & tasarım:** Claude.ai project'te (ozkanhocaweb)
