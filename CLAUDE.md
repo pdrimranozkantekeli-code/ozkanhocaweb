@@ -186,6 +186,20 @@ Commit'e hazır olunca Özkan'a terminal komutu yazdırma. `../../05-operasyon/C
 
 Başka bir işlem gerekiyorsa bu dosyaya mod ekle, yeni dosya açma. Değişiklik sonrası `chmod +x` gerekir.
 
+#### ⚠️ Her turun sonunda commit hatırlatması — zorunlu
+Özkan'ın açık isteği (6 Eylül 2026): **depoda commit'lenmemiş değişiklik bıraktığın her turda,
+cevabının sonunda ona commit etmesini hatırlat.** Sadece "commit mesajı hazır" demek yeterli değil;
+bunu üç kez yaptım ve sonucunda kimin ne zaman commit ettiğini takip edemez hale geldik.
+
+Turu bitirmeden önce:
+1. `git --no-optional-locks status --short` çalıştır.
+2. Çıktı boşsa "bekleyen değişiklik yok" de — bu da bilgi, sessiz kalma.
+3. Çıktı doluysa: kaç dosya değiştiğini, `VARSAYILAN_MESAJ`'a ne yazdığını ve
+   **`05-operasyon/COMMIT-AT.command` dosyasına çift tıklaması gerektiğini** açıkça yaz.
+
+Özkan bazen turlar arasında kendi başına commit ediyor; bu yüzden "bir önceki turda bıraktığım
+değişiklik hâlâ duruyordur" diye varsayma, her seferinde `status`'a bak.
+
 ### Depoda git yazma komutu çalıştırma
 Sandbox'ın `.git/` altına yazma izni yok. `git add`, `commit`, `remote set-head` gibi komutlar yarım kalıp `.git/index.lock` bırakıyor ve sandbox onu silemediği için sonraki bütün git işlemleri kilitleniyor. Yazma işleri `.command` script'i üzerinden gider.
 
