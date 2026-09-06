@@ -111,6 +111,16 @@ Depoda hâlâ atıl bir `main` var (6 Haziran'da "Add files via upload" ile donm
 İstisna: başka kişilerden ("bir uzmandan destek almak", "kısa bir sertifika programı bitirmiş biri") söz ederken bu kelimeler serbest — kastedilen Özkan değil.
 - **Tek cümle marka:** "Akademik + psikolojik + takip — üçü bir arada"
 
+### Yazar kutusu — sabit metin
+Blog yazılarının ve iç sayfaların altındaki `.author-role` satırı **17 dosyada birebir aynı olmalı**:
+
+```
+Psikolojik Danışmanlık ve Rehberlik · LGS ve YKS Öğrenci Koçu · Adana
+```
+
+6 Eylül 2026'da hizalandı (15 dosyada "LGS Öğrenci Koçu", 2 dosyada "Öğrenci Koçu" yazıyordu).
+Yeni sayfa açarken bu satırı olduğu gibi kopyala; sınav adlarını sayfaya göre değiştirme.
+
 ## Sayfa Yapısı
 1. **Navbar** — Logo + menü + "Başvuru Formu" CTA
 2. **Hero** — Başlık + alt mesaj + WhatsApp/Form butonları + profil kartı
