@@ -1,4 +1,4 @@
-# Özkan Hoca — LGS Öğrenci Koçluğu Web Sitesi
+# Özkan Hoca — Öğrenci Koçluğu Web Sitesi (LGS + YKS)
 
 ## Proje Sahibi
 - **İsim:** Özkan Hoca — tam adı **Psk. Dan. İmran Özkan Tekeli** (yazılımcı değil)
@@ -272,6 +272,10 @@ Yeni ikon eklerken: `class="ikon"`, 24×24 viewBox, `fill="none" stroke="current
 - `og:image` PNG olacak, **SVG kabul edilmiyor** (`og-image.png`, 1200×630)
 - Title yazarken sayfanın gerçekten karşılamadığı vaatte bulunma
 - `kvkk.html` ve `gizlilik.html`'de `noindex` var — kasıtlı, kaldırma
+- **Ana sayfa title/description (6 Eylül 2026'da değişti, deneme aşamasında):**
+  `Adana LGS ve YKS Koçluğu | Psikolojik Danışman Özkan Hoca` (57) ·
+  açıklama ücretsiz görüşmeyle **başlıyor** (Google sonu keser diye). Eylül sonu ölçümünden önce
+  tekrar değiştirme — yoksa neyin işe yaradığını ayıramayız.
 
 ## Yapılacaklar Listesi
 - [x] Gerçek fotoğraf ekleme ("Hakkımda" bölümüne) — `ozkan-profil.webp`
