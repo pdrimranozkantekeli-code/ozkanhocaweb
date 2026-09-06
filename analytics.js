@@ -113,6 +113,7 @@
         if (link.classList.contains('wa-float'))        konum = 'sabit-buton';
         else if (link.classList.contains('btn-wa'))      konum = 'hero';
         else if (link.classList.contains('contact-wa-btn')) konum = 'iletisim';
+        else if (link.classList.contains('donem-duyuru-btn')) konum = 'donem-duyuru';
         else if (link.closest('.faq-section'))           konum = 'sss';
         else if (link.closest('.site-footer'))           konum = 'footer';
         else if (link.closest('.article-cta'))           konum = 'yazi-sonu';

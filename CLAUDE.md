@@ -124,19 +124,33 @@ Yeni sayfa açarken bu satırı olduğu gibi kopyala; sınav adlarını sayfaya 
 ## Sayfa Yapısı
 1. **Navbar** — Logo + menü + "Başvuru Formu" CTA
 2. **Hero** — Başlık + alt mesaj + WhatsApp/Form butonları + profil kartı
-3. **Sorunlar** — "Tanıdık geliyor mu?" 6 sorun kartı
-4. **Trust bar** — PDR / 1:1 / Adana / Sınırlı kontenjan
-5. **Hizmetler** — Akademik + Psikolojik + Takip (3 kart)
-6. **YKS bandı** — `/yks` sayfasına yönlendiren şerit
-7. **Süreç** — 5 adım (Keşif → Plan → Seans → Rapor → Sınav)
-8. **Takip** — Takip nasıl işliyor
-9. **Paket** — Tek paket: "LGS ve YKS Öğrenci Koçluğu — Tam Destek"
-10. **SSS**
-11. **Hakkımda** — Profil + biyografi
-12. **Blogdan son yazılar** — üç kart
-13. **Veli yorumları**
-14. **Başvuru formu** — Formspree entegrasyonlu
-15. **Footer**
+3. **Dönem duyurusu** — ⏳ mevsimlik şerit, aşağıdaki nota bak
+4. **Sorunlar** — "Tanıdık geliyor mu?" 6 sorun kartı
+5. **Trust bar** — PDR / 1:1 / Adana / Sınırlı kontenjan
+6. **Hizmetler** — Akademik + Psikolojik + Takip (3 kart)
+7. **YKS bandı** — `/yks` sayfasına yönlendiren şerit
+8. **Süreç** — 5 adım (Keşif → Plan → Seans → Rapor → Sınav)
+9. **Takip** — Takip nasıl işliyor
+10. **Paket** — Tek paket: "LGS ve YKS Öğrenci Koçluğu — Tam Destek"
+11. **SSS**
+12. **Hakkımda** — Profil + biyografi
+13. **Blogdan son yazılar** — üç kart
+14. **Veli yorumları**
+15. **Başvuru formu** — Formspree entegrasyonlu
+16. **Footer**
+
+### ⏳ Dönem duyurusu — MEVSİMLİK, kaldırılacak
+6 Eylül 2026'da eklendi, okul açılışına yönelik. **Yaklaşık ekim ortasında kaldırılmalı** —
+"Okullar 14 Eylül'de açılıyor" cümlesi kasımda sitede durursa, mevsimini geçirmiş bir yazı gibi
+zarar verir (aynı hatayı `lgs-sonrasi-yeni-8-sinif-baslangic-zamani` yazısında yaşadık).
+
+Kaldırmak için **üç yer**:
+1. `index.html` — `<!-- ── DÖNEM DUYURUSU ── -->` markup bloğu (hero'dan hemen sonra)
+2. `index.html` — `/* ── DÖNEM DUYURUSU ── */` CSS bloğu (`.pain-section` CSS'inden hemen önce)
+3. `analytics.js` — `donem-duyuru-btn` satırı
+
+Ölçüm: WhatsApp tıklamaları GA4'e `konum: donem-duyuru` olarak gidiyor. Kaldırmadan önce bak —
+işe yaradıysa, gelecek yıl aynı şeriti yeniden kurmak mantıklı olur.
 
 ### YKS bandı neden Hizmetler'in hemen altında?
 4 Eylül 2026'da hakkımda'dan buraya taşındı. Gerekçe: ziyaretçi "bu adam ne yapıyor"
