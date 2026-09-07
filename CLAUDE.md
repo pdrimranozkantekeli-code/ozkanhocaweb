@@ -245,6 +245,25 @@ Dosya üç iş yapıyor: GA4'ü çalıştırmak, Consent Mode v2 ile çerez onay
 6. `<head>` içinde `<script src="/analytics.js" defer></script>` **ve** `<script src="/nav.js" defer></script>`; `</main>` sonrasında `<footer class="site-footer">` ve sabit WhatsApp butonu (`#waFloat` + görünürlük script'i). Menüde Araçlar bloğu (`.nav-arac`) bulunmalı. En kolayı mevcut bir yazıyı şablon alıp kopyalamak.
 7. Kontrol: `.html` uzantılı iç link kalmadı mı, JSON-LD blokları geçerli mi, sitemap'te gelecek tarihli `lastmod` var mı.
 
+### Blog listesi düzeni — iki sütun
+7 Eylül 2026'da tek sütundan iki sütuna geçildi (masaüstü). Sayfa yüksekliği ~3.700px'ten
+~2.500px'e indi. Mobil ve 820px altı tek sütun kalır.
+
+- `blog/index.html` → `<main class="blog-wrap blog-liste">`, kartlar `<div class="post-grid">` içinde
+- `blog.css` → `.blog-liste` (max-width 1060), `.post-grid`, `820px` altında tek sütuna düşüyor
+- ⚠️ **`.blog-wrap` yazı sayfalarında da kullanılıyor** — genişletme bilerek `.blog-liste`'ye bağlandı.
+  Yazı sayfaları 760px kalmalı, yoksa satırlar okunmayacak kadar uzar. `.blog-wrap`'in
+  `max-width`'ini değiştirme.
+
+### ⏳ Kategori filtresi — henüz değil
+`ogrencikocuadana.com/blog` sayısı gösteren kategori çubuğu kullanıyor (77 yazı: YKS 46, LGS 10…).
+Bizde 15 yazı var ve dağılım dengesiz: Çalışma Stratejisi 6 · Veli Rehberi 4 · YKS Rehberi 1 ·
+Tercih Rehberi 1 · Sınav Psikolojisi 1 · Online Koçluk 1 · LGS Sistemi 1.
+
+Filtre çubuğu bugün eklenirse "YKS Rehberi 1" gibi rozetler içeriğin inceliğini ilan eder.
+**Eşik: her kategoride en az 4-5 yazı olunca eklenir.** O güne kadar yeni kategori açma,
+mevcutları besle. Üç sütunlu ızgara da aynı sebeple ertelendi — 15 kartla seyrek durur.
+
 ### Yazı sonu CTA'sı
 Her yazının sonunda `.article-cta` kutusu var; içinde **iki** seçenek bulunur (25 Ağustos 2026'da ikinciye çevrildi):
 
