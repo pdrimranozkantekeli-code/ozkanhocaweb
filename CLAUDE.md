@@ -13,7 +13,7 @@
 - **Repo:** pdrimranozkantekeli-code/ozkanhocaweb
 - **Hosting:** Vercel (production branch: master, otomatik deploy)
 - **Mimari:** Statik HTML/CSS/JS — framework yok, derleme adımı yok
-- **Dosyalar:** `index.html` (ana sayfa) · `yks.html` (YKS hizmet sayfası) · `adana-lise-taban-puanlari.html` ve `net-hesaplama.html` (araç sayfaları) · `kvkk.html` · `gizlilik.html` · `blog/index.html` (liste) · `blog/*.html` (15 yazı) · `blog/blog.css`
+- **Dosyalar:** `index.html` (ana sayfa) · `yks.html` (YKS hizmet sayfası) · `adana-lise-taban-puanlari.html` ve `net-hesaplama.html` (araç sayfaları) · `kvkk.html` · `gizlilik.html` · `blog/index.html` (liste) · `blog/*.html` (16 yazı) · `blog/blog.css`
 - **Ortak script'ler:** `analytics.js` (ölçüm + çerez + dönüşüm) · `nav.js` (menüdeki Araçlar açılır listesi). İkisi de **tüm sayfalarda** `defer` ile yüklenir; koda dokunulunca dosya düzenlenir, sayfalara kopyalanmaz.
 
 ### Adana lise taban puanları sayfası
@@ -257,7 +257,7 @@ Dosya üç iş yapıyor: GA4'ü çalıştırmak, Consent Mode v2 ile çerez onay
 
 ### ⏳ Kategori filtresi — henüz değil
 `ogrencikocuadana.com/blog` sayısı gösteren kategori çubuğu kullanıyor (77 yazı: YKS 46, LGS 10…).
-Bizde 15 yazı var ve dağılım dengesiz: Çalışma Stratejisi 6 · Veli Rehberi 4 · YKS Rehberi 1 ·
+Bizde 16 yazı var ve dağılım dengesiz: Çalışma Stratejisi 7 · Veli Rehberi 4 · YKS Rehberi 1 ·
 Tercih Rehberi 1 · Sınav Psikolojisi 1 · Online Koçluk 1 · LGS Sistemi 1.
 
 Filtre çubuğu bugün eklenirse "YKS Rehberi 1" gibi rozetler içeriğin inceliğini ilan eder.
@@ -339,7 +339,7 @@ Yeni ikon eklerken: `class="ikon"`, 24×24 viewBox, `fill="none" stroke="current
 - [x] KVKK ve Gizlilik Politikası sayfaları
 - [x] Instagram entegrasyonu — @ozkanhocalgsyks
 - [x] SSS bölümü
-- [x] Blog bölümü (SEO için) — 15 yazı (14 LGS + 1 YKS)
+- [x] Blog bölümü (SEO için) — 16 yazı (15 LGS + 1 YKS)
 - [x] Ücretsiz araçlar — taban puanları, net hesaplama
 - [x] YKS hizmet sayfası — `/yks`
 - [ ] Sayfa hızı optimizasyonu
