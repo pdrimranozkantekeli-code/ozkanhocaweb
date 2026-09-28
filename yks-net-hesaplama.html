@@ -4,18 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <title>LGS Net Hesaplama | Deneme Netini Hesapla · Özkan Hoca</title>
-  <meta name="description" content="Doğru ve yanlış sayını gir, ders ders ve toplam LGS netini gör. Sözel ve sayısal bölüm ayrı ayrı hesaplanır, yanlışların kaç net götürdüğünü gösterir.">
-  <link rel="canonical" href="https://ozkanhoca.com/net-hesaplama" />
-  <meta property="og:title" content="LGS Net Hesaplama | Deneme Netini Hesapla · Özkan Hoca">
-  <meta property="og:description" content="Doğru ve yanlış sayını gir, ders ders ve toplam LGS netini gör. Sözel ve sayısal bölüm ayrı ayrı hesaplanır, yanlışların kaç net götürdüğünü gösterir.">
+  <title>YKS Net Hesaplama | TYT ve AYT Neti · Özkan Hoca</title>
+  <meta name="description" content="TYT, AYT ve YDT netini test test hesapla. Doğru ve yanlış sayını gir; dört yanlışın kaç net götürdüğünü de gösterir. Ücretsiz, üyelik istemez.">
+  <link rel="canonical" href="https://ozkanhoca.com/yks-net-hesaplama" />
+  <meta property="og:title" content="YKS Net Hesaplama | TYT ve AYT Neti · Özkan Hoca">
+  <meta property="og:description" content="TYT, AYT ve YDT netini test test hesapla. Doğru ve yanlış sayını gir; dört yanlışın kaç net götürdüğünü de gösterir. Ücretsiz, üyelik istemez.">
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ozkanhoca.com/net-hesaplama" />
+  <meta property="og:url" content="https://ozkanhoca.com/yks-net-hesaplama" />
   <meta property="og:image" content="https://ozkanhoca.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="LGS Net Hesaplama | Deneme Netini Hesapla · Özkan Hoca">
+  <meta name="twitter:title" content="YKS Net Hesaplama | TYT ve AYT Neti · Özkan Hoca">
   <meta name="twitter:image" content="https://ozkanhoca.com/og-image.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -205,18 +205,39 @@
       .calc-bos::before { content: "Boş: "; color: var(--text-light); }
       .calc-net::before { content: "Net: "; color: var(--text-light); font-weight: 400; }
     }
+    /* ── YKS'ye ozel ─────────────────────────────────────────
+       AYT dort testten olusuyor ve her testin kendi alt dersleri
+       var; LGS'deki duz listeden farkli olarak iki kademeli bir
+       baslik duzeni gerekiyor. .calc-bolum = oturum (TYT/AYT/YDT),
+       .calc-grup = o oturumun icindeki test. */
+    .calc-grup {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+      text-transform: uppercase; color: var(--indigo-500);
+      margin: 20px 0 6px; padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+    .calc-grup:first-of-type { padding-top: 0; border-top: none; }
+    .calc-not {
+      font-size: 13.5px; color: var(--text-light);
+      line-height: 1.65; margin: 6px 0 14px;
+    }
+    .ders-tablo { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 15px; }
+    .ders-tablo th, .ders-tablo td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); }
+    .ders-tablo td:last-child, .ders-tablo th:last-child { text-align: right; white-space: nowrap; }
+    .ders-tablo thead th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-light); font-weight: 600; }
+    .ders-tablo .grup-satir td { font-weight: 500; color: var(--indigo-800); background: var(--indigo-50); }
   </style>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "LGS Net Hesaplama",
-    "url": "https://ozkanhoca.com/net-hesaplama",
+    "name": "YKS Net Hesaplama",
+    "url": "https://ozkanhoca.com/yks-net-hesaplama",
     "applicationCategory": "EducationalApplication",
     "operatingSystem": "Web",
     "inLanguage": "tr",
-    "description": "LGS deneme sınavlarında doğru ve yanlış sayısından ders bazlı ve toplam net hesaplayan ücretsiz araç.",
+    "description": "TYT, AYT ve YDT deneme sınavlarında doğru ve yanlış sayısından test bazlı net hesaplayan ücretsiz araç.",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
     "publisher": { "@id": "https://ozkanhoca.com/#business" }
   }
@@ -227,7 +248,7 @@
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://ozkanhoca.com/" },
-      { "@type": "ListItem", "position": 2, "name": "LGS Net Hesaplama" }
+      { "@type": "ListItem", "position": 2, "name": "YKS Net Hesaplama" }
     ]
   }
   </script>
@@ -238,30 +259,29 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "LGS net nasıl hesaplanır?",
+        "name": "YKS net nasıl hesaplanır?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Her ders için net = doğru sayısı - (yanlış sayısı / 3). Üç yanlış bir doğruyu götürür. Boş bırakılan sorular nete etki etmez."
+          "text": "Her test için net = doğru sayısı - (yanlış sayısı / 4). YKS'de dört yanlış bir doğruyu götürür. Boş bırakılan sorular nete etki etmez. LGS'de bu oran üçtür, ikisi karıştırılmamalıdır."
         }
       },
       {
         "@type": "Question",
-        "name": "LGS'de hangi dersten kaç soru var?",
+        "name": "TYT ve AYT'de hangi testten kaç soru var?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Toplam 90 soru vardır. Sözel bölümde Türkçe 20, T.C. İnkılap Tarihi ve Atatürkçülük 10, Din Kültürü ve Ahlak Bilgisi 10, Yabancı Dil 10 soru; sayısal bölümde Matematik 20 ve Fen Bilimleri 20 soru sorulur."
+          "text": "TYT 120 sorudur: Türkçe 40, Sosyal Bilimler 20, Temel Matematik 40, Fen Bilimleri 20. AYT 160 sorudur ve dört testten oluşur: Matematik 40; Fen Bilimleri 40 (Fizik 14, Kimya 13, Biyoloji 13); Türk Dili ve Edebiyatı - Sosyal Bilimler-1 40 (Edebiyat 24, Tarih-1 10, Coğrafya-1 6); Sosyal Bilimler-2 40 (Tarih-2 11, Coğrafya-2 11, Felsefe Grubu 12, Din Kültürü 6). YDT 80 sorudur."
         }
       },
       {
         "@type": "Question",
-        "name": "Netten LGS puanı hesaplanabilir mi?",
+        "name": "Netten YKS puanı hesaplanabilir mi?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sınav öncesinde kesin olarak hesaplanamaz. LGS puanı, her dersin ham puanının o yıl sınava giren tüm öğrencilerin ortalaması ve standart sapmasıyla standart puana çevrilmesiyle bulunur. Bu istatistikler sınav sonrasında açıklandığı için, öncesinde yapılan tüm puan hesaplamaları geçmiş yılların verilerine dayanan tahminlerdir."
+          "text": "Sınav öncesinde kesin olarak hesaplanamaz. YKS puanı ham puandan doğrudan çıkmaz; her testin ham puanı o yıl sınava giren adayların ortalaması ve standart sapmasıyla standart puana çevrilir, ardından katsayılarla ağırlıklandırılır ve ortaöğretim başarı puanı eklenir. Bu istatistikler sınav sonrasında belli olduğu için öncesinde yapılan tüm puan hesaplamaları tahmindir."
         }
       }
     ]
-  }
   </script>
 
   <!-- Olcum, cerez onayi ve donusum takibi — tum sayfalarda ayni dosya.
@@ -300,34 +320,16 @@
 
     <div class="tool-header">
       <div class="blog-label">Ücretsiz Araç</div>
-      <h1 class="tool-title">LGS net hesaplama</h1>
+      <h1 class="tool-title">YKS net hesaplama</h1>
       <div class="tool-intro">
-        <p>Deneme sınavındaki doğru ve yanlış sayılarını gir; ders ders ve toplam netini aşağıda görürsün. Boş soruları yazmana gerek yok, kendisi hesaplıyor.</p>
-        <p>Formül basit: <strong>net = doğru − yanlış ÷ 3</strong>. Üç yanlış bir doğruyu götürüyor, boşlar nete dokunmuyor.</p>
+        <p>Deneme sınavındaki doğru ve yanlış sayılarını gir; TYT, AYT ve YDT netini test test aşağıda görürsün. Boş soruları yazmana gerek yok, kendisi hesaplıyor.</p>
+        <p>Formül: <strong>net = doğru − yanlış ÷ 4</strong>. YKS'de dört yanlış bir doğruyu götürüyor — LGS'deki üç değil. Boşlar nete dokunmuyor.</p>
       </div>
     </div>
 
     <div class="calc">
       <form class="calc-card" id="netForm" autocomplete="off">
-
-        <div class="calc-bolum">Sözel bölüm · 50 soru</div>
-        <div class="calc-basliklar" aria-hidden="true">
-          <span>Ders</span><span>Doğru</span><span>Yanlış</span><span>Boş</span><span>Net</span>
-        </div>
-        <div id="sozelSatirlar"></div>
-        <div class="calc-arabaslik">Sözel bölüm neti<b id="sozelNet">0,00</b></div>
-
-        <div class="calc-bolum">Sayısal bölüm · 40 soru</div>
-        <div class="calc-basliklar" aria-hidden="true">
-          <span>Ders</span><span>Doğru</span><span>Yanlış</span><span>Boş</span><span>Net</span>
-        </div>
-        <div id="sayisalSatirlar"></div>
-        <div class="calc-arabaslik">Sayısal bölüm neti<b id="sayisalNet">0,00</b></div>
-
-        <div class="calc-toplam">
-          <span class="calc-toplam-etiket">Toplam net</span>
-          <span class="calc-toplam-deger" id="toplamNet" aria-live="polite">0,00 <span>/ 90</span></span>
-        </div>
+        <div id="bolumler"></div>
 
         <div class="calc-kayip" id="kayipKutu">Doğru ve yanlış sayılarını girdiğinde sonuç burada görünür.</div>
 
@@ -336,28 +338,47 @@
     </div>
 
     <div class="tool-body">
-      <h2>Neden burada LGS puanı yazmıyor?</h2>
-      <p>Dürüst olmak gerekirse: sınav öncesinde kimse senin LGS puanını kesin olarak hesaplayamaz. Ben de hesaplayamam.</p>
-      <p>Sebebi şu. LGS puanı, netten doğrudan çıkan bir sayı değil. Her dersin ham puanı önce o yıl sınava giren <strong>bütün öğrencilerin ortalaması ve standart sapması</strong> kullanılarak standart puana çevriliyor, sonra ders katsayılarıyla ağırlıklandırılıyor. O ortalama ve standart sapma ise ancak sınav yapıldıktan sonra belli oluyor.</p>
-      <p>Yani "netini gir, puanını söyleyeyim" diyen her araç aslında geçmiş yılların verisine bakarak tahmin yürütüyor. Tahmin yürütmek yanlış değil, ama bunu kesin bir sayı gibi göstermek yanlış. Aynı net, sınavın zorluğuna göre yıldan yıla farklı puana denk geliyor.</p>
-      <p>Bu yüzden burada sana sadece netini veriyorum — bu kısım matematiksel ve tartışmasız. Netinin hangi liselere yetebileceği konusunda fikir edinmek istersen <a href="/adana-lise-taban-puanlari">Adana liseleri taban puanları sayfasına</a> bakabilirsin; orada geçen yılın gerçek taban puanları ve yüzdelik dilimleri var.</p>
+      <h2>Neden tek bir "toplam net" yok?</h2>
+      <p>Çünkü kimse 360 sorunun hepsini çözmüyor. TYT herkesin girdiği ortak oturum; AYT'de ise kendi alanının testlerini çözüyorsun. Sayısalcı Matematik ve Fen'i, eşit ağırlıkçı Matematik ve Edebiyat-Sosyal 1'i, sözelci Edebiyat-Sosyal 1 ve Sosyal 2'yi yapıyor.</p>
+      <p>Bu yüzden burada her oturumun ve her testin neti ayrı gösteriliyor. Bunları toplayıp tek bir sayı vermek, karşılığı olmayan bir rakam üretmek olurdu.</p>
+
+      <h2>Neden burada YKS puanı yazmıyor?</h2>
+      <p>Dürüst cevap: sınav öncesinde kimse senin YKS puanını kesin olarak hesaplayamaz. Ben de hesaplayamam.</p>
+      <p>Sebebi şu. YKS puanı netten doğrudan çıkan bir sayı değil. Her testin ham puanı önce o yıl sınava giren <strong>bütün adayların ortalaması ve standart sapması</strong> kullanılarak standart puana çevriliyor, sonra alan katsayılarıyla ağırlıklandırılıyor, üzerine <strong>ortaöğretim başarı puanı</strong> ekleniyor. O ortalama ve standart sapma ise ancak sınav yapıldıktan sonra belli oluyor.</p>
+      <p>Yani "netini gir, puanını söyleyeyim" diyen her araç geçmiş yılların verisine bakarak tahmin yürütüyor. Tahmin yürütmek yanlış değil; yanlış olan, tahmini kesin bir sayı gibi göstermek. Aynı net, sınavın zorluğuna göre yıldan yıla farklı puana denk geliyor.</p>
+      <p>Bu yüzden burada sana sadece netini veriyorum — bu kısım matematiksel ve tartışmasız. Bölüm taban puanları için <a href="https://yokatlas.yok.gov.tr" target="_blank" rel="noopener">YÖK Atlas</a>'a bakabilirsin; orada her programa en son yerleşen adayın puanı ve başarı sırası resmî olarak yayımlanıyor.</p>
+
+      <h2>TYT, AYT ve YDT'de hangi testten kaç soru var?</h2>
+      <table class="ders-tablo">
+        <thead><tr><th>Test</th><th>Soru</th></tr></thead>
+        <tbody>
+          <tr class="grup-satir"><td>TYT — Temel Yeterlilik Testi</td><td>120</td></tr>
+          <tr><td>Türkçe</td><td>40</td></tr>
+          <tr><td>Sosyal Bilimler</td><td>20</td></tr>
+          <tr><td>Temel Matematik</td><td>40</td></tr>
+          <tr><td>Fen Bilimleri</td><td>20</td></tr>
+          <tr class="grup-satir"><td>AYT — Alan Yeterlilik Testleri</td><td>160</td></tr>
+          <tr><td>Matematik</td><td>40</td></tr>
+          <tr><td>Fen Bilimleri (Fizik 14 · Kimya 13 · Biyoloji 13)</td><td>40</td></tr>
+          <tr><td>Türk Dili ve Edebiyatı – Sosyal Bilimler-1 (Edebiyat 24 · Tarih-1 10 · Coğrafya-1 6)</td><td>40</td></tr>
+          <tr><td>Sosyal Bilimler-2 (Tarih-2 11 · Coğrafya-2 11 · Felsefe Grubu 12 · Din Kültürü 6)</td><td>40</td></tr>
+          <tr class="grup-satir"><td>YDT — Yabancı Dil Testi</td><td>80</td></tr>
+        </tbody>
+      </table>
 
       <h2>Netini hesapladın, peki sonra ne olacak?</h2>
-      <p>Bir denemenin asıl değeri çıkan sayıda değil, o sayının nereden geldiğinde. 50 net yapan iki öğrenciden biri konuyu bilmediği için, diğeri dikkatsizlikten kaybediyor olabilir — ve bu ikisinin çözümü tamamen farklı.</p>
+      <p>Bir denemenin asıl değeri çıkan sayıda değil, o sayının nereden geldiğinde. TYT'de 70 net yapan iki öğrenciden biri konuyu bilmediği için, diğeri dikkatsizlikten ya da süre yetmediğinden kaybediyor olabilir — ve bu üçünün çözümü tamamen farklı.</p>
       <p>Yukarıda yanlışlarının kaç net götürdüğünü de gösteriyorum, çünkü çoğu öğrencinin en hızlı kazanacağı yer orası. Her yanlışın yanına tek kelimeyle sebebini yaz: "konu", "dikkat", "süre". Üç denemede bir hangisinin ağır bastığına bak.</p>
-      <p>Bu yöntemi <a href="/blog/cocugum-calisiyor-ama-netleri-artmiyor">çalıştığı hâlde netleri artmayan öğrenciler</a> ve <a href="/blog/lgs-nasil-calisilir">deneme analizinin nasıl yapılacağı</a> üzerine yazdığım yazılarda ayrıntılı anlattım.</p>
-
-      <h2>LGS'de hangi dersten kaç soru var?</h2>
-      <p>Sınav iki oturumdan oluşuyor, toplam 90 soru. Sözel bölümde Türkçe 20, T.C. İnkılap Tarihi ve Atatürkçülük 10, Din Kültürü ve Ahlak Bilgisi 10, Yabancı Dil 10 soru var. Sayısal bölümde Matematik 20 ve Fen Bilimleri 20 soru soruluyor.</p>
-      <p>Puan hesabında Türkçe, Matematik ve Fen Bilimleri'nin ağırlığı diğer üç dersin dört katı. Yani netini artıracak bir yer arıyorsan, bu üç ders diğerlerinden daha çok iş görüyor.</p>
+      <p>Mezun olarak hazırlananlar için ayrıca <a href="/blog/mezun-olarak-yks-hazirligi">mezun YKS hazırlığı üzerine yazdığım yazıya</a> bakabilirsin. Çalıştığı hâlde netleri artmayanlar için <a href="/blog/cocugum-calisiyor-ama-netleri-artmiyor">bu yazı</a> daha uygun.</p>
+      <p>8. sınıftaysan ve LGS'ye hazırlanıyorsan, <a href="/net-hesaplama">LGS net hesaplama aracı</a> ayrı bir sayfada — oradaki formül farklı (üç yanlış bir doğruyu götürüyor).</p>
     </div>
 
     <div class="article-cta" style="max-width:780px;margin:44px auto 0;">
       <div class="article-cta-title">Netlerini birlikte okuyalım</div>
-      <div class="article-cta-sub">Deneme sonuçlarını gönder, nerede net kaybettiğini konuşalım. İlk keşif görüşmesi ücretsiz — 30 dakika sürer, hiçbir bağlayıcılığı yoktur.</div>
+      <div class="article-cta-sub">TYT ve AYT deneme sonuçlarını gönder, nerede net kaybettiğini konuşalım. İlk keşif görüşmesi ücretsiz — 30 dakika sürer, hiçbir bağlayıcılığı yoktur.</div>
       <div class="article-cta-actions">
         <a href="/#iletisim" class="article-cta-btn">Ücretsiz Görüşme Planla</a>
-        <a href="https://wa.me/905406771685?text=Merhaba%2C%20deneme%20netlerimi%20de%C4%9Ferlendirmenizi%20istiyorum." class="article-cta-wa" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp'tan sorun</a>
+        <a href="https://wa.me/905406771685?text=Merhaba%2C%20YKS%20deneme%20netlerimi%20de%C4%9Ferlendirmenizi%20istiyorum." class="article-cta-wa" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp'tan sorun</a>
       </div>
     </div>
 
@@ -387,7 +408,7 @@
     </div>
   </footer>
 
-  <a href="https://wa.me/905406771685?text=Merhaba%2C%20deneme%20netlerimi%20de%C4%9Ferlendirmenizi%20istiyorum."
+  <a href="https://wa.me/905406771685?text=Merhaba%2C%20YKS%20deneme%20netlerimi%20de%C4%9Ferlendirmenizi%20istiyorum."
      class="wa-float" id="waFloat" target="_blank" rel="noopener"
      aria-label="WhatsApp'tan yazın">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -398,15 +419,66 @@
   (function () {
     'use strict';
 
-    // LGS 2026-2027: toplam 90 soru. Sozel 50, sayisal 40.
-    var DERSLER = [
-      { id: 'turkce',  ad: 'Türkçe',                            soru: 20, bolum: 'sozel'   },
-      { id: 'inkilap', ad: 'T.C. İnkılap Tarihi ve Atatürkçülük', soru: 10, bolum: 'sozel'   },
-      { id: 'din',     ad: 'Din Kültürü ve Ahlak Bilgisi',       soru: 10, bolum: 'sozel'   },
-      { id: 'ingilizce', ad: 'Yabancı Dil',                      soru: 10, bolum: 'sozel'   },
-      { id: 'matematik', ad: 'Matematik',                        soru: 20, bolum: 'sayisal' },
-      { id: 'fen',     ad: 'Fen Bilimleri',                      soru: 20, bolum: 'sayisal' }
+    // 2026-2027 YKS. Soru sayilari OSYM kilavuzundaki "Tablo 1B — YKS'deki
+    // Testler ve Soru Sayilari" bolumune dayaniyor. LGS'den kritik fark:
+    // burada net = dogru - yanlis/4, LGS'de bolen 3. Bu yuzden iki arac
+    // ayri sayfada duruyor; tek sayfada birlestirmeyin, karistirilir.
+    var BOLUMLER = [
+      {
+        id: 'tyt', kisa: 'TYT', baslik: 'TYT · Temel Yeterlilik Testi', soru: 120,
+        gruplar: [
+          { id: 'tyt-tek', ad: null, dersler: [
+            { id: 'tyt-turkce', ad: 'Türkçe',          soru: 40 },
+            { id: 'tyt-sosyal', ad: 'Sosyal Bilimler', soru: 20 },
+            { id: 'tyt-mat',    ad: 'Temel Matematik', soru: 40 },
+            { id: 'tyt-fen',    ad: 'Fen Bilimleri',   soru: 20 }
+          ]}
+        ]
+      },
+      {
+        id: 'ayt', kisa: 'AYT', baslik: 'AYT · Alan Yeterlilik Testleri', soru: 160,
+        not: 'Hepsini doldurman gerekmez — sadece kendi alanının testlerini doldur. Boş bıraktığın testler toplama karışmaz.',
+        gruplar: [
+          { id: 'ayt-matematik', ad: 'Matematik · 40 soru', dersler: [
+            { id: 'ayt-mat', ad: 'Matematik', soru: 40 }
+          ]},
+          { id: 'ayt-fen', ad: 'Fen Bilimleri · 40 soru', dersler: [
+            { id: 'ayt-fizik',    ad: 'Fizik',    soru: 14 },
+            { id: 'ayt-kimya',    ad: 'Kimya',    soru: 13 },
+            { id: 'ayt-biyoloji', ad: 'Biyoloji', soru: 13 }
+          ]},
+          { id: 'ayt-edb', ad: 'Türk Dili ve Edebiyatı – Sosyal Bilimler-1 · 40 soru', dersler: [
+            { id: 'ayt-tde',       ad: 'Türk Dili ve Edebiyatı', soru: 24 },
+            { id: 'ayt-tarih1',    ad: 'Tarih-1',                soru: 10 },
+            { id: 'ayt-cografya1', ad: 'Coğrafya-1',             soru: 6  }
+          ]},
+          { id: 'ayt-sos2', ad: 'Sosyal Bilimler-2 · 40 soru', dersler: [
+            { id: 'ayt-tarih2',    ad: 'Tarih-2',                       soru: 11 },
+            { id: 'ayt-cografya2', ad: 'Coğrafya-2',                    soru: 11 },
+            { id: 'ayt-felsefe',   ad: 'Felsefe Grubu',                 soru: 12 },
+            { id: 'ayt-din',       ad: 'Din Kültürü ve Ahlak Bilgisi',  soru: 6  }
+          ]}
+        ]
+      },
+      {
+        id: 'ydt', kisa: 'YDT', baslik: 'YDT · Yabancı Dil Testi', soru: 80,
+        gruplar: [
+          { id: 'ydt-tek', ad: null, dersler: [
+            { id: 'ydt-dil', ad: 'Yabancı Dil', soru: 80 }
+          ]}
+        ]
+      }
     ];
+
+    // Ic ice donguden kacinmak icin tum dersleri bir kez duz listeye aciyoruz.
+    var TUM_DERSLER = [];
+    BOLUMLER.forEach(function (b) {
+      b.gruplar.forEach(function (g) {
+        g.dersler.forEach(function (d) {
+          d.bolumId = b.id; d.grupId = g.id; TUM_DERSLER.push(d);
+        });
+      });
+    });
 
     function sayiyaCevir(deger) {
       var s = String(deger).replace(/\D/g, '');   // sadece rakam
@@ -440,22 +512,66 @@
       return d;
     }
 
-    var sozelKap   = document.getElementById('sozelSatirlar');
-    var sayisalKap = document.getElementById('sayisalSatirlar');
-    DERSLER.forEach(function (ders) {
-      (ders.bolum === 'sozel' ? sozelKap : sayisalKap).appendChild(satirKur(ders));
+    function basliklarKur() {
+      var b = document.createElement('div');
+      b.className = 'calc-basliklar';
+      b.setAttribute('aria-hidden', 'true');
+      b.innerHTML = '<span>Test</span><span>Doğru</span><span>Yanlış</span><span>Boş</span><span>Net</span>';
+      return b;
+    }
+
+    var kap = document.getElementById('bolumler');
+    BOLUMLER.forEach(function (bolum) {
+      var baslik = document.createElement('div');
+      baslik.className = 'calc-bolum';
+      baslik.textContent = bolum.baslik + ' · ' + bolum.soru + ' soru';
+      kap.appendChild(baslik);
+
+      if (bolum.not) {
+        var not = document.createElement('p');
+        not.className = 'calc-not';
+        not.textContent = bolum.not;
+        kap.appendChild(not);
+      }
+
+      bolum.gruplar.forEach(function (grup) {
+        if (grup.ad) {
+          var gb = document.createElement('div');
+          gb.className = 'calc-grup';
+          gb.textContent = grup.ad;
+          kap.appendChild(gb);
+        }
+        kap.appendChild(basliklarKur());
+        grup.dersler.forEach(function (ders) { kap.appendChild(satirKur(ders)); });
+
+        // Tek dersli gruplarda alt toplam gostermek gereksiz tekrar olurdu.
+        if (grup.ad && grup.dersler.length > 1) {
+          var gn = document.createElement('div');
+          gn.className = 'calc-arabaslik';
+          gn.innerHTML = grup.ad.split(' · ')[0] + ' neti<b id="net-' + grup.id + '">0,00</b>';
+          kap.appendChild(gn);
+        }
+      });
+
+      var bn = document.createElement('div');
+      bn.className = 'calc-toplam';
+      bn.innerHTML = '<span class="calc-toplam-etiket">' + bolum.kisa + ' neti</span>' +
+        '<span class="calc-toplam-deger" id="net-' + bolum.id + '" aria-live="polite">0,00 <span>/ ' +
+        bolum.soru + '</span></span>';
+      kap.appendChild(bn);
     });
 
     function hesapla() {
-      var sozel = 0, sayisal = 0, toplamYanlis = 0, girisVar = false, hataVar = false;
+      var toplamYanlis = 0, girisVar = false, hataVar = false;
+      var grupNet = {}, bolumNet = {};
 
-      DERSLER.forEach(function (ders) {
+      TUM_DERSLER.forEach(function (ders) {
         var dEl = document.getElementById(ders.id + '-d');
         var yEl = document.getElementById(ders.id + '-y');
         var dogru  = sayiyaCevir(dEl.value);
         var yanlis = sayiyaCevir(yEl.value);
 
-        // Tek bir derste soru sayisini asmak, tum tabloyu bozmasin diye
+        // Tek bir testte soru sayisini asmak tum tabloyu bozmasin diye
         // sadece o satiri isaretliyoruz; hesap yine de yapiliyor.
         var satir = document.getElementById('satir-' + ders.id);
         var asim = (dogru + yanlis) > ders.soru;
@@ -468,28 +584,34 @@
 
         // Net eksiye dusebilir (cok yanlis, az dogru). Deneme karnelerinde de
         // boyle gosteriliyor; sifira yuvarlamak gercegi gizler.
-        var net = dogru - (yanlis / 3);
+        var net = dogru - (yanlis / 4);
         document.getElementById(ders.id + '-net').textContent = bicimle(net);
 
-        if (ders.bolum === 'sozel') sozel += net; else sayisal += net;
+        grupNet[ders.grupId]   = (grupNet[ders.grupId]   || 0) + net;
+        bolumNet[ders.bolumId] = (bolumNet[ders.bolumId] || 0) + net;
         toplamYanlis += yanlis;
       });
 
-      document.getElementById('sozelNet').textContent   = bicimle(sozel);
-      document.getElementById('sayisalNet').textContent = bicimle(sayisal);
-      document.getElementById('toplamNet').innerHTML    =
-        bicimle(sozel + sayisal) + ' <span>/ 90</span>';
+      BOLUMLER.forEach(function (bolum) {
+        bolum.gruplar.forEach(function (grup) {
+          var el = document.getElementById('net-' + grup.id);
+          if (el) el.textContent = bicimle(grupNet[grup.id] || 0);
+        });
+        var bel = document.getElementById('net-' + bolum.id);
+        if (bel) bel.innerHTML = bicimle(bolumNet[bolum.id] || 0) +
+          ' <span>/ ' + bolum.soru + '</span>';
+      });
 
       var kutu = document.getElementById('kayipKutu');
       if (!girisVar) {
         kutu.innerHTML = 'Doğru ve yanlış sayılarını girdiğinde sonuç burada görünür.';
       } else if (hataVar) {
-        kutu.innerHTML = 'Kırmızı ile işaretlenen derste doğru ve yanlış toplamı soru sayısını geçiyor. ' +
+        kutu.innerHTML = 'Kırmızı ile işaretlenen testte doğru ve yanlış toplamı soru sayısını geçiyor. ' +
                          'Düzeltirsen toplam doğru çıkar.';
       } else if (toplamYanlis === 0) {
         kutu.innerHTML = 'Hiç yanlışın yok — bu netin tamamı doğrudan geliyor.';
       } else {
-        kutu.innerHTML = '<b>' + toplamYanlis + ' yanlış</b>, sana <b>' + bicimle(toplamYanlis / 3) +
+        kutu.innerHTML = '<b>' + toplamYanlis + ' yanlış</b>, sana <b>' + bicimle(toplamYanlis / 4) +
                          ' net</b> kaybettirdi. Her yanlışın yanına sebebini tek kelimeyle yaz: ' +
                          'konu, dikkat ya da süre. En hızlı kazanç genelde "dikkat" yazdığın sorularda.';
       }
@@ -500,7 +622,7 @@
     document.getElementById('sifirlaBtn').addEventListener('click', function () {
       Array.prototype.forEach.call(document.querySelectorAll('.calc-giris'), function (el) { el.value = ''; });
       hesapla();
-      document.getElementById('turkce-d').focus();
+      document.getElementById('tyt-turkce-d').focus();
     });
 
     hesapla();
