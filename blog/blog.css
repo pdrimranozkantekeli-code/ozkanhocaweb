@@ -241,6 +241,19 @@ img { max-width: 100%; display: block; }
 }
 .pdr-note strong { color: var(--indigo-800); }
 
+/* Not kutusu icindeki baglantilar.
+   Global kural `a { color: inherit; text-decoration: none }` oldugu icin
+   bu kutulardaki linkler duz metin gibi gorunuyordu — tiklanabilir
+   olduklari anlasilmiyordu (21 Eylul 2026'da fark edildi). */
+.pdr-note a {
+  color: var(--indigo-500);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+.pdr-note a:hover { color: var(--indigo-800); }
+
 /* Yazı içi karşılaştırma tablosu.
    Dar ekranda yatay kaydırılabilir olması için .tablo-sarmal ile sarılır. */
 .tablo-sarmal {

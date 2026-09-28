@@ -200,6 +200,19 @@
     .tool-outro p { font-size: 15.5px; color: var(--text-mid); line-height: 1.8; }
     .tool-outro p + p { margin-top: 12px; }
 
+    /* ── SAYFA ICI KOPRULER (21 Eylul 2026) ───────────────────
+       Sayfa ~4.200 kelime ve iletisim cagrisi yalnizca en altta
+       kaliyordu; denetimde en buyuk kayip kalemi olarak cikti
+       (ayda 1.934 gosterim, sitenin toplaminin %62'si).
+       Iki kopru eklendi: biri araci kullandiktan hemen sonra,
+       digeri 25 okulluk listenin ortasinda. Ikisi de koyu kutu
+       DEGIL — .pdr-note diliyle, metnin akisinin parcasi gibi.
+       Referans sayfa oldugu icin reklam gibi durmamasi onemli. */
+    .sayfa-kopru { max-width: 780px; margin: 30px auto 0; padding: 0 24px; }
+    .sayfa-kopru .pdr-note { margin: 0; }
+    .okul-liste-bolum .pdr-note { margin: 28px 0; }
+    @media (max-width: 600px) { .sayfa-kopru { padding: 0 20px; } }
+
     .tool-wrap { padding-bottom: 60px; }
 
     @media (max-width: 768px) {
@@ -492,6 +505,13 @@
       </ul>
     </div>
 
+    <div class="sayfa-kopru">
+      <div class="pdr-note">
+        <strong>Tabloyu gördünüz — peki çocuğunuz bugün nerede?</strong><br />
+        Bu sayfa hedefi gösteriyor, aradaki mesafeyi göstermiyor. Eylül ayında buraya bakan velilerin çoğu tercih yapmak üzere değil; yeni 8. sınıfa başlayan çocuğu için hangi okulun gerçekçi olduğunu merak ediyor. O sorunun cevabı tek bir puanda değil — çocuğun bugünkü netleri, hangi derste kayıp verdiği ve yıl boyunca sürdürebileceği bir düzen kurup kuramadığı birlikte belirliyor. Bunu konuşmak isterseniz <a href="/#iletisim">ilk görüşme ücretsiz</a>: 30 dakika sürer, hiçbir bağlayıcılığı yoktur.
+      </div>
+    </div>
+
     <div class="tool-outro">
 <section class="veri-kaynak">
       <h2 id="veri-hakkinda">Bu sayfadaki veri hakkında</h2>
@@ -686,6 +706,9 @@
         </tbody></table></div>
         <p class="okul-yorum">Seyhan'da, merkezî konumda. 2025 dilimi %8,84. Seyhan Rotary ile taban puanı arasında yarım puan var. 150 kontenjan.</p>
       </article>
+      <div class="pdr-note liste-koprusu">
+        <strong>Listeyi tararken aklınızdaki soru muhtemelen şu:</strong> "Çocuğum bunlardan hangisine yetişir?" Taban puanları bu soruyu tek başına cevaplamıyor, çünkü asıl belirleyici olan çocuğun bir yıl boyunca nasıl çalıştığı — tabloda görünmeyen kısım orası. <a href="/#takip">Birebir çalışmanın nasıl işlediğini</a> inceleyebilir, ya da <a href="https://wa.me/905406771685?text=Merhaba%2C%20yeni%208.%20s%C4%B1n%C4%B1fa%20ge%C3%A7en%20%C3%A7ocu%C4%9Fum%20i%C3%A7in%20hedef%20okul%20belirlemek%20istiyorum." target="_blank" rel="noopener">WhatsApp'tan yazıp</a> durumu kısaca anlatabilirsiniz.
+      </div>
       <article class="okul-karti" id="seyhan-danisment-gazi-anadolu-lisesi">
         <h3>Seyhan Danişment Gazi Anadolu Lisesi</h3>
         <div class="okul-etiketler"><span class="okul-etiket okul-tur-anadolu">Anadolu Lisesi</span><span class="okul-etiket">Seyhan</span><span class="okul-etiket okul-yukseldi">▲ 2,6 puan yükseldi</span></div>

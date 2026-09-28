@@ -117,6 +117,7 @@
         else if (link.closest('.faq-section'))           konum = 'sss';
         else if (link.closest('.site-footer'))           konum = 'footer';
         else if (link.closest('.article-cta'))           konum = 'yazi-sonu';
+        else if (link.closest('.liste-koprusu'))         konum = 'taban-liste-arasi';
         donusumBildir('whatsapp', konum);
       });
     });

@@ -352,3 +352,28 @@ Yeni ikon eklerken: `class="ikon"`, 24×24 viewBox, `fill="none" stroke="current
 - Favicon değişiklikleri tarayıcı cache'i nedeniyle hemen görünmeyebilir (Ctrl+Shift+R gerekir)
 - `gbp-kapak.png` depoda duruyor ama hiçbir HTML'de kullanılmıyor — Google Business Profile için hazırlanmış
 - Ayrıntılı SEO durumu ve geçmişi: `../../05-operasyon/seo-dizine-ekleme-plani.md`
+
+## Taban puanları sayfası — sayfa içi köprüler (21 Eylül 2026)
+
+`adana-lise-taban-puanlari` ayda **1.934 gösterim** alıyor, sitenin toplamının **%62'si**. Ama iletişim çağrısı
+4.000+ kelimelik sayfanın **yalnızca en altındaydı** — okurun oraya ulaşma ihtimali düşük.
+
+İki köprü eklendi. İkisi de koyu `.article-cta` kutusu **değil**, `.pdr-note` diliyle, metnin akışının parçası
+gibi — burası bir referans sayfası, reklam gibi duran kutu güveni düşürür.
+
+1. **`.sayfa-kopru`** — aracın ve uyarı listesinin hemen ardında. Okur puanını girip sonucu görmüş durumda;
+   en yüksek niyetli an burası. Metin Eylül gerçeğine göre yazıldı: bu sayfaya bakan veli tercih yapmıyor,
+   yeni 8. sınıfa başlayan çocuğu için hedef belirliyor.
+2. **`.liste-koprusu`** — 25 okulluk listenin ortasında (Gazi Anadolu Lisesi'nden sonra, 13. kart).
+   13 kart aşağı inmiş okur bağlı okurdur.
+
+**Ölçüm:** `analytics.js`'e `.liste-koprusu` → `konum = 'taban-liste-arasi'` eklendi. `.sayfa-kopru`'de
+WhatsApp linki yok (sadece `/#iletisim`), o yüzden ayrı etiketi yok.
+
+**Yol boyunca bulunan hata:** `blog.css`'te global `a { color: inherit; text-decoration: none }` kuralı
+yüzünden `.pdr-note` içindeki bağlantılar **düz metin gibi görünüyordu** — tıklanabilir oldukları
+anlaşılmıyordu. `lgs-yaz-tatili-hazirlik.html`'deki yönlendirme linki de bu yüzden görünmezmiş.
+`.pdr-note a` kuralı eklendi (indigo-500, altı çizili). Tek değişiklik, her iki yeri birden düzeltti.
+
+**Not:** Veri bölümündeki "Son güncelleme: 26 Ağustos 2026" satırı **kasten değiştirilmedi** —
+o satır verinin tarihini söylüyor, sayfa metninin değil. Veri değişmedi.
