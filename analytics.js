@@ -111,6 +111,7 @@
       link.addEventListener('click', function () {
         var konum = 'diger';
         if (link.classList.contains('wa-float'))        konum = 'sabit-buton';
+        else if (link.closest('.wa-serit'))            konum = 'sabit-serit';
         else if (link.classList.contains('btn-wa'))      konum = 'hero';
         else if (link.classList.contains('contact-wa-btn')) konum = 'iletisim';
         else if (link.classList.contains('donem-duyuru-btn')) konum = 'donem-duyuru';

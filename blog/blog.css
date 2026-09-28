@@ -372,6 +372,16 @@ img { max-width: 100%; display: block; }
   .post-card { padding: 18px; }
 }
 
+/* 360px genisliginde ust menu sayfanin disina tasiyordu (28 Eylul 2026'da
+   olculdu: link satiri 108-385px arasi, ekran 360px). "Ana Sayfa" linkini
+   gizliyoruz — soldaki logo zaten ana sayfaya gidiyor, yani bir sey
+   kaybetmiyoruz. Marka yazisi yerinde kaliyor. */
+@media (max-width: 420px) {
+  .blog-nav-links > a:first-child { display: none; }
+  .blog-nav-links { gap: 12px; }
+  .blog-nav-cta { padding: 6px 11px; }
+}
+
 
 /* ── İLGİLİ YAZILAR ───────────────────────────────── */
 .related-posts {
@@ -472,6 +482,65 @@ img { max-width: 100%; display: block; }
 /* ---- Sabit WhatsApp butonu -------------------------------------------
    Ana sayfadakinin ayni davranisi: sayfa biraz kaydirilinca beliriyor.
    Yazilar uzun oldugu icin veli sonu beklemeden ulasabilsin diye var. */
+/* ── SABIT WHATSAPP SERIDI ─────────────────────────────────
+   28 Eylul 2026. Ozkan'in istegi: yuvarlak butonun yerine tam
+   genislikte serit. SADECE /yks, blog yazilari ve arac sayfalarinda
+   (22 sayfa). Ana sayfada yuvarlak .wa-float kaldi — orada hero
+   CTA'si, donem duyurusu ve iletisim formu zaten var, serit fazlalik
+   olur ve formu asagi iterdi.
+   Kaydirma ile beliriyor; sayfa acilir acilmaz icerigin onune gecmiyor.
+   `body.wa-serit-var` alt bosluk birakiyor ki serit footer'i ortmesin. */
+.wa-serit {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 11px 20px;
+  background: var(--indigo-900);
+  box-shadow: 0 -4px 20px rgba(26, 22, 69, 0.22);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: opacity .25s ease, transform .25s ease, visibility .25s;
+}
+.wa-serit.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+
+.wa-serit-metin { color: #fff; font-size: 14.5px; line-height: 1.4; }
+
+.wa-serit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0F7C6F;          /* kontrast 5,08 — WCAG uyumlu yesil */
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: background .2s;
+}
+.wa-serit-btn:hover { background: #0C6558; }
+.wa-serit-btn svg { flex-shrink: 0; }
+
+body.wa-serit-var { padding-bottom: 78px; }
+
+@media (max-width: 640px) {
+  .wa-serit { gap: 10px; padding: 9px 12px; justify-content: space-between; }
+  .wa-serit-metin { font-size: 12.5px; }
+  .wa-serit-ek { display: none; }   /* dar ekranda cumleyi kisaltiyoruz */
+  .wa-serit-btn { padding: 9px 14px; font-size: 13px; }
+  body.wa-serit-var { padding-bottom: 70px; }
+}
+@media (max-width: 370px) {
+  /* Cok dar ekranda metin butona yer birakmiyor — metni tamamen gizle. */
+  .wa-serit-metin { display: none; }
+  .wa-serit-btn { flex: 1; justify-content: center; }
+}
+
 .wa-float {
   position: fixed;
   right: 20px;
