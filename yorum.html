@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>Yorumunuz · Özkan Hoca</title>
+  <meta name="description" content="Özkan Hoca öğrenci koçluğu hakkında Google'da yorum bırakın. Birkaç cümle, koç arayan velilere yol gösteriyor.">
+
+  <!-- Bu sayfa arama icin degil, mevcut veliler icin. Dizine girmesin:
+       hem arama sonuclarinda isi yok, hem de koclukla ilgili sayfalarimizla
+       yarisir. Sitemap'e de EKLENMEDI. -->
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://ozkanhoca.com/yorum" />
+
+  <!-- WhatsApp/Facebook onizlemesi icin. Sayfanin varlik sebebi bu:
+       veli ciplak bir g.page baglantisi yerine Ozkan Hoca markasini gorsun. -->
+  <meta property="og:title" content="Yorumunuz · Özkan Hoca">
+  <meta property="og:description" content="Özkan Hoca öğrenci koçluğu hakkında Google'da yorum bırakın.">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ozkanhoca.com/yorum" />
+  <meta property="og:image" content="https://ozkanhoca.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Özkan Hoca · Öğrenci Koçluğu · Adana" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Yorumunuz · Özkan Hoca">
+  <meta name="twitter:image" content="https://ozkanhoca.com/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="/blog/blog.css" />
+
+  <style>
+    .yorum-wrap { max-width: 640px; margin: 0 auto; padding: 52px 24px 72px; }
+
+    .yorum-bas { text-align: center; }
+    .yorum-bas h1 {
+      font-family: var(--serif);
+      font-size: 38px;
+      color: var(--indigo-900);
+      line-height: 1.15;
+      margin: 14px 0 0;
+    }
+    .yorum-bas p {
+      font-size: 16.5px;
+      color: var(--text-mid);
+      line-height: 1.75;
+      margin: 14px auto 0;
+      max-width: 480px;
+    }
+
+    .yorum-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 400px;
+      margin: 30px auto 0;
+      background: var(--indigo-500);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 17px 24px;
+      border-radius: 10px;
+      transition: background 0.2s;
+    }
+    .yorum-btn:hover { background: var(--indigo-800); }
+    .yorum-btn svg { flex-shrink: 0; }
+
+    .yorum-not {
+      text-align: center;
+      font-size: 13.5px;
+      color: var(--text-light);
+      margin-top: 12px;
+    }
+
+    .yorum-ipucu {
+      background: #f8f8fc;
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 20px 22px;
+      margin-top: 40px;
+    }
+    .yorum-ipucu h2 {
+      font-family: var(--serif);
+      font-size: 19px;
+      color: var(--indigo-800);
+      margin: 0 0 10px;
+    }
+    .yorum-ipucu ul { margin: 0; padding-left: 20px; }
+    .yorum-ipucu li {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 7px;
+    }
+    .yorum-ipucu li:last-child { margin-bottom: 0; }
+
+    .yorum-kapanis {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.75;
+      margin-top: 28px;
+      text-align: center;
+    }
+    .yorum-kapanis a { color: var(--indigo-500); text-decoration: underline; text-underline-offset: 2px; }
+
+    @media (max-width: 600px) {
+      .yorum-wrap { padding: 36px 20px 56px; }
+      .yorum-bas h1 { font-size: 30px; }
+      .yorum-bas p { font-size: 15.5px; }
+    }
+  </style>
+
+  <!-- Olcum, cerez onayi ve donusum takibi — tum sayfalarda ayni dosya. -->
+  <script src="/analytics.js" defer></script>
+  <script src="/nav.js" defer></script>
+</head>
+<body>
+
+  <nav class="blog-navbar">
+    <div class="blog-navbar-inner">
+      <a href="/" class="blog-nav-brand">
+        <img src="/logo-icon-dark.svg" alt="Özkan Hoca logo" />
+        <span>Özkan Hoca</span>
+      </a>
+      <div class="blog-nav-links">
+        <a href="/">Ana Sayfa</a>
+        <a href="/yks">YKS</a>
+        <div class="nav-arac">
+          <button type="button" class="nav-arac-btn" aria-expanded="false" aria-haspopup="true">Araçlar</button>
+          <div class="nav-arac-menu">
+            <a href="/net-hesaplama">LGS Net Hesaplama</a>
+            <a href="/yks-net-hesaplama">YKS Net Hesaplama</a>
+            <a href="/adana-lise-taban-puanlari">Taban Puanları</a>
+          </div>
+        </div>
+        <a href="/blog">Blog</a>
+        <a href="/#iletisim" class="blog-nav-cta">Başvuru</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="yorum-wrap">
+
+    <div class="yorum-bas">
+      <div class="blog-label">Teşekkürler</div>
+      <h1>Yorumunuz</h1>
+      <p>Çocuğunuzla geçirdiğimiz süreci birkaç cümleyle anlatmanız, koç arayan velilere gerçekten yol gösteriyor. Çoğu veli karar verirken en çok başka velilerin yazdıklarına bakıyor.</p>
+    </div>
+
+    <a href="https://g.page/r/CdetDx_xEF4OEBM/review" class="yorum-btn" id="yorumBtn" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01L12 2z"/></svg>
+      Google'da yorum yazın
+    </a>
+    <div class="yorum-not">Google hesabınızla açılır, bir iki dakika sürer.</div>
+
+    <div class="yorum-ipucu">
+      <h2>Ne yazacağınızı bilemezseniz</h2>
+      <ul>
+        <li>Çocuğunuzda en çok neyin değiştiği — çalışma düzeni, isteklilik, sınav kaygısı</li>
+        <li>Süreci nasıl takip ettiğimiz: haftalık seanslar, aylık veli raporu</li>
+        <li>Başlamadan önceki tereddüdünüz ve şimdi ne düşündüğünüz</li>
+        <li>Benimle çalışmayı düşünen bir veliye ne söylerdiniz</li>
+      </ul>
+    </div>
+
+    <p class="yorum-kapanis">
+      Sormak ya da söylemek istediğiniz bir şey olursa
+      <a href="https://wa.me/905406771685">WhatsApp'tan</a> her zaman ulaşabilirsiniz.
+    </p>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-links">
+        <a href="/">Ana Sayfa</a>
+        <a href="/yks">YKS Koçluğu</a>
+        <a href="/blog">Blog</a>
+        <a href="/adana-lise-taban-puanlari">Taban Puanları</a>
+        <a href="/net-hesaplama">LGS Net Hesaplama</a>
+        <a href="/yks-net-hesaplama">YKS Net Hesaplama</a>
+        <a href="/kvkk">KVKK</a>
+        <a href="/gizlilik">Gizlilik Politikası</a>
+      </div>
+      <div class="site-footer-copy">© 2026 Psk. Dan. İmran Özkan Tekeli · Tüm hakları saklıdır.</div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+    // Kac kisinin Google'a gectigini olcuyoruz. Bu bir "talep" degil —
+    // mevcut veli — o yuzden generate_lead'e karistirmiyoruz, ayri olay.
+    var btn = document.getElementById('yorumBtn');
+    if (btn) {
+      btn.addEventListener('click', function () {
+        if (typeof gtag === 'function') gtag('event', 'yorum_baglantisi');
+      });
+    }
+  })();
+  </script>
+
+</body>
+</html>
