@@ -115,6 +115,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://ozkanhoca.com/deneme-takip</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ozkanhoca.com/yks-deneme-takip</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://ozkanhoca.com/yks</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>

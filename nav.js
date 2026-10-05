@@ -19,7 +19,13 @@
 (function () {
   'use strict';
 
-  var ARAC_YOLLARI = ['/net-hesaplama', '/adana-lise-taban-puanlari'];
+  var ARAC_YOLLARI = [
+    '/net-hesaplama',
+    '/yks-net-hesaplama',
+    '/deneme-takip',
+    '/yks-deneme-takip',
+    '/adana-lise-taban-puanlari'
+  ];
 
   function yolAyikla(yol) {
     // cleanUrls acik: /net-hesaplama ve /net-hesaplama/ ayni sayfa.

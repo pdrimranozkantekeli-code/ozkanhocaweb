@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>YKS Deneme Takip Grafiği | TYT ve AYT Netleri · Özkan Hoca</title>
+  <meta name="description" content="TYT, AYT ve YDT deneme netlerini gir, ders ders ve toplam net eğrini gör. Girdiğin veriler yalnızca kendi cihazında kalır, hiçbir yere gönderilmez.">
+  <link rel="canonical" href="https://ozkanhoca.com/yks-deneme-takip" />
+  <meta property="og:title" content="YKS Deneme Takip Grafiği | TYT ve AYT Netleri · Özkan Hoca">
+  <meta property="og:description" content="TYT, AYT ve YDT deneme netlerini gir, ders ders ve toplam net eğrini gör. Veriler yalnızca kendi cihazında kalır.">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ozkanhoca.com/yks-deneme-takip" />
+  <meta property="og:image" content="https://ozkanhoca.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="YKS Deneme Takip Grafiği | TYT ve AYT Netleri · Özkan Hoca">
+  <meta name="twitter:image" content="https://ozkanhoca.com/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="/blog/blog.css" />
+
+  <style>
+    .tool-wrap { padding-bottom: 60px; }
+    .tool-header { max-width: 880px; margin: 0 auto; padding: 40px 24px 0; }
+    .tool-title {
+      font-family: var(--serif);
+      font-size: clamp(26px, 4vw, 38px);
+      line-height: 1.25;
+      color: var(--indigo-800);
+      margin-bottom: 14px;
+    }
+    .tool-intro { font-size: 16px; color: var(--text-mid); line-height: 1.75; }
+    .tool-intro p + p { margin-top: 12px; }
+
+    .dt { max-width: 880px; margin: 28px auto 0; padding: 0 24px; }
+    .dt-kart {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 20px;
+    }
+    .dt-kart + .dt-kart { margin-top: 20px; }
+
+    .dt-kart-bas {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .dt-kart-baslik {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--indigo-800);
+    }
+
+    /* ---- Sinav secici (TYT / AYT / YDT) ---- */
+    .dt-sinav {
+      display: flex;
+      gap: 8px;
+      max-width: 880px;
+      margin: 26px auto 0;
+      padding: 0 24px;
+      flex-wrap: wrap;
+    }
+    .dt-sinav button {
+      flex: 1;
+      min-width: 110px;
+      padding: 13px 18px;
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-mid);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background .2s ease;
+    }
+    .dt-sinav button small { display: block; font-weight: 400; font-size: 12px; color: var(--text-light); margin-top: 2px; }
+    .dt-sinav button:hover { background: var(--indigo-50); }
+    .dt-sinav button.secili {
+      color: #fff;
+      background: var(--indigo-500);
+      border-color: var(--indigo-500);
+    }
+    .dt-sinav button.secili small { color: rgba(255,255,255,0.8); }
+
+    /* ---- Deneme ekleme formu ---- */
+    .dt-ust {
+      display: grid;
+      grid-template-columns: 1fr 180px;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .dt-alan label {
+      display: block;
+      font-size: 12px;
+      color: var(--text-light);
+      margin-bottom: 5px;
+    }
+    .dt-metin, .dt-tarih {
+      width: 100%;
+      padding: 10px 12px;
+      font-family: var(--sans);
+      font-size: 15px;
+      color: var(--text-dark);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+    }
+    .dt-metin:focus, .dt-tarih:focus { outline: 2px solid var(--indigo-400); outline-offset: -1px; }
+
+    .dt-bolum {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--indigo-400);
+      padding: 18px 0 8px;
+    }
+
+    .dt-basliklar {
+      display: grid;
+      grid-template-columns: 1fr 84px 84px 74px;
+      gap: 10px;
+      padding-bottom: 8px;
+      font-size: 12px;
+      color: var(--text-light);
+      border-bottom: 1px solid var(--border);
+    }
+    .dt-basliklar span:not(:first-child) { text-align: center; }
+
+    .dt-satir {
+      display: grid;
+      grid-template-columns: 1fr 84px 84px 74px;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(127,119,221,0.1);
+    }
+    .dt-ders { font-size: 15px; color: var(--text-dark); font-weight: 500; }
+    .dt-ders i {
+      display: inline-block;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      margin-right: 8px;
+      vertical-align: 1px;
+    }
+    .dt-soru { display: block; font-size: 12px; color: var(--text-light); font-weight: 400; margin-top: 2px; padding-left: 17px; }
+
+    .dt-giris {
+      width: 100%;
+      padding: 10px 8px;
+      font-family: var(--sans);
+      font-size: 16px;
+      text-align: center;
+      color: var(--text-dark);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      -moz-appearance: textfield;
+    }
+    .dt-giris::-webkit-outer-spin-button,
+    .dt-giris::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .dt-giris:focus { outline: 2px solid var(--indigo-400); outline-offset: -1px; }
+    .dt-satir.hatali .dt-giris { border-color: #C0392B; background: #FDF3F2; }
+
+    .dt-net { text-align: center; font-size: 15px; font-weight: 600; color: var(--indigo-800); }
+    .dt-uyari {
+      display: none;
+      grid-column: 1 / -1;
+      font-size: 13px;
+      color: #C0392B;
+      padding-top: 6px;
+    }
+    .dt-satir.hatali .dt-uyari { display: block; }
+
+    .dt-toplam {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 18px;
+      padding: 18px 20px;
+      background: var(--indigo-50);
+      border-radius: 14px;
+    }
+    .dt-toplam-etiket { font-size: 15px; color: var(--text-mid); }
+    .dt-toplam-deger {
+      font-family: var(--serif);
+      font-size: 36px;
+      line-height: 1;
+      color: var(--indigo-800);
+    }
+    .dt-toplam-deger span { font-family: var(--sans); font-size: 15px; color: var(--text-light); }
+
+    .dt-btnler { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .dt-btn {
+      padding: 12px 22px;
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 500;
+      color: #fff;
+      background: var(--indigo-500);
+      border: 1px solid var(--indigo-500);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background .2s ease;
+    }
+    .dt-btn:hover { background: var(--indigo-800); border-color: var(--indigo-800); }
+    .dt-btn-ikincil {
+      color: var(--indigo-500);
+      background: #fff;
+      border-color: var(--border);
+    }
+    .dt-btn-ikincil:hover { background: var(--indigo-50); border-color: var(--border); }
+
+    .dt-form-uyari {
+      display: none;
+      margin-top: 12px;
+      font-size: 14px;
+      color: #C0392B;
+    }
+    .dt-form-uyari.gorunur { display: block; }
+
+    .dt-alan-notu {
+      margin-top: 14px;
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: var(--text-light);
+    }
+
+    /* ---- Grafik ---- */
+    .dt-sekme { display: flex; gap: 6px; }
+    .dt-sekme button {
+      padding: 8px 16px;
+      font-family: var(--sans);
+      font-size: 14px;
+      color: var(--text-mid);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .dt-sekme button.secili {
+      color: #fff;
+      background: var(--indigo-500);
+      border-color: var(--indigo-500);
+    }
+
+    .dt-grafik { width: 100%; }
+    .dt-grafik svg { display: block; width: 100%; height: auto; overflow: visible; }
+    .dt-nokta { cursor: pointer; }
+
+    .dt-rozetler { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .dt-rozet {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 13px;
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--text-mid);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .dt-rozet i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+    .dt-rozet.kapali { color: var(--text-light); opacity: .5; }
+
+    .dt-secili {
+      margin-top: 16px;
+      padding: 14px 18px;
+      background: var(--indigo-50);
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-mid);
+    }
+    .dt-secili b { color: var(--indigo-800); }
+    .dt-secili-dersler { margin-top: 6px; color: var(--text-light); }
+
+    .dt-bos {
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-light);
+    }
+
+    .dt-ornek-serit {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding: 11px 16px;
+      background: #FFF8EB;
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      font-size: 13.5px;
+      color: #6B5120;
+    }
+    .dt-ornek-serit.gorunur { display: flex; }
+
+    /* ---- Istatistik ---- */
+    .dt-ist {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .dt-ist-kutu {
+      padding: 14px 16px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    .dt-ist-etiket { font-size: 12px; color: var(--text-light); }
+    .dt-ist-deger {
+      font-family: var(--serif);
+      font-size: 24px;
+      line-height: 1.2;
+      color: var(--indigo-800);
+      margin-top: 4px;
+    }
+    .dt-ist-deger.artis { color: #1E7A5F; }
+    .dt-ist-deger.azalis { color: #C0392B; }
+
+    /* ---- Tablo ---- */
+    .dt-tablo-sar { overflow-x: auto; margin-top: 4px; }
+    .dt-tablo { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .dt-tablo th, .dt-tablo td {
+      padding: 10px 10px;
+      text-align: center;
+      border-bottom: 1px solid rgba(127,119,221,0.12);
+      white-space: nowrap;
+    }
+    .dt-tablo th {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-light);
+      text-align: center;
+    }
+    .dt-tablo th:first-child, .dt-tablo td:first-child { text-align: left; }
+    .dt-tablo td { color: var(--text-mid); }
+    .dt-tablo td.dt-td-toplam { font-weight: 600; color: var(--indigo-800); }
+    .dt-tablo tr:last-child td { border-bottom: none; }
+    .dt-ad { color: var(--text-dark); font-weight: 500; }
+    .dt-tarih-h { display: block; font-size: 12px; color: var(--text-light); font-weight: 400; }
+    .dt-sil {
+      padding: 5px 11px;
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--text-light);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .dt-sil:hover { color: #C0392B; border-color: #E3B5B0; }
+
+    .dt-veri-notu {
+      max-width: 880px;
+      margin: 16px auto 0;
+      padding: 0 24px;
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: var(--text-light);
+    }
+
+    .tool-body { max-width: 780px; margin: 44px auto 0; padding: 0 24px; }
+    .tool-body h2 {
+      font-family: var(--serif);
+      font-size: clamp(21px, 3vw, 26px);
+      color: var(--indigo-800);
+      margin: 34px 0 12px;
+      line-height: 1.3;
+    }
+    .tool-body p { font-size: 16px; line-height: 1.8; color: var(--text-body); margin-bottom: 14px; }
+    .tool-body a { color: var(--indigo-500); text-decoration: underline; }
+
+    @media (max-width: 720px) {
+      .dt-ist { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 620px) {
+      .dt, .dt-sinav { padding: 0 16px; }
+      .dt-ust { grid-template-columns: 1fr; }
+      .dt-basliklar { display: none; }
+      .dt-satir {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px 10px;
+        padding: 14px 0;
+      }
+      .dt-ders { grid-column: 1 / -1; }
+      .dt-giris-sar { position: relative; }
+      .dt-giris-sar::before {
+        content: attr(data-etiket);
+        display: block;
+        font-size: 11px;
+        color: var(--text-light);
+        margin-bottom: 4px;
+        text-align: center;
+      }
+      .dt-net { grid-column: 1 / -1; text-align: left; font-size: 14px; }
+      .dt-net::before { content: "Net: "; color: var(--text-light); font-weight: 400; }
+      /* Sabit WhatsApp butonu sag altta duruyor; buyuk sayi altina binmesin. */
+      .dt-toplam { flex-direction: column; align-items: flex-start; gap: 6px; padding-right: 76px; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "YKS Deneme Takip Grafiği",
+    "url": "https://ozkanhoca.com/yks-deneme-takip",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "tr",
+    "description": "TYT, AYT ve YDT deneme sınavlarının netlerini kaydedip ders bazında ve toplam net değişimini grafik olarak gösteren ücretsiz araç. Veriler kullanıcının kendi tarayıcısında saklanır.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
+    "publisher": { "@id": "https://ozkanhoca.com/#business" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://ozkanhoca.com/" },
+      { "@type": "ListItem", "position": 2, "name": "YKS Deneme Takip Grafiği" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "AYT'de sadece kendi alanımdaki testleri girebilir miyim?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Evet. Çözmediğin testlerin doğru ve yanlış kutularını boş bırak; o testler hesaba katılmaz, grafikte de çizilmez. Toplam net, yalnızca girdiğin testlerin soru sayısı üzerinden gösterilir."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Girdiğim deneme sonuçları nereye kaydediliyor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sadece kullandığın cihazın tarayıcısına kaydediliyor. Veriler hiçbir sunucuya gönderilmiyor, kimse göremiyor. Tarayıcı verilerini temizlersen ya da başka bir cihazdan girersen denemeler görünmez."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "YKS'de net nasıl hesaplanır?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Her test için net = doğru sayısı - (yanlış sayısı / 4). YKS'de dört yanlış bir doğruyu götürür. LGS'de bu oran üçtür, ikisi karıştırılmamalıdır. Boş bırakılan sorular nete etki etmez."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Olcum, cerez onayi ve donusum takibi — tum sayfalarda ayni dosya.
+       Icerik ve aciklamalar: /analytics.js -->
+  <script src="/analytics.js" defer></script>
+
+  <!-- Menudeki "Araclar" acilir listesi. Icerik: /nav.js -->
+  <script src="/nav.js" defer></script>
+</head>
+<body class="wa-serit-var">
+
+  <nav class="blog-navbar">
+    <div class="blog-navbar-inner">
+      <a href="/" class="blog-nav-brand">
+        <img src="/logo-icon-dark.svg" alt="Özkan Hoca logo" />
+        <span>Özkan Hoca</span>
+      </a>
+      <div class="blog-nav-links">
+        <a href="/">Ana Sayfa</a>
+        <a href="/yks">YKS</a>
+        <div class="nav-arac">
+          <button type="button" class="nav-arac-btn" aria-expanded="false" aria-haspopup="true">Araçlar</button>
+          <div class="nav-arac-menu">
+            <a href="/net-hesaplama">LGS Net Hesaplama</a>
+            <a href="/yks-net-hesaplama">YKS Net Hesaplama</a>
+            <a href="/deneme-takip">LGS Deneme Takip</a>
+            <a href="/yks-deneme-takip">YKS Deneme Takip</a>
+            <a href="/adana-lise-taban-puanlari">Taban Puanları</a>
+          </div>
+        </div>
+        <a href="/blog">Blog</a>
+        <a href="/#iletisim" class="blog-nav-cta">Başvuru</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="tool-wrap">
+
+    <div class="tool-header">
+      <div class="blog-label">Ücretsiz Araç</div>
+      <h1 class="tool-title">YKS deneme takip grafiği</h1>
+      <div class="tool-intro">
+        <p>Her denemeden sonra doğru ve yanlış sayılarını gir. Araç netini hesaplar, kaydeder ve zaman içinde nasıl değiştiğini grafik olarak gösterir — hem toplam net, hem test test.</p>
+        <p>TYT, AYT ve YDT ayrı ayrı takip edilir. AYT'de yalnızca kendi alanının testlerini doldurman yeterli.</p>
+      </div>
+    </div>
+
+    <div class="dt-sinav" id="sinavSecici">
+      <button type="button" data-sinav="tyt" class="secili">TYT<small>120 soru</small></button>
+      <button type="button" data-sinav="ayt">AYT<small>160 soru</small></button>
+      <button type="button" data-sinav="ydt">YDT<small>80 soru</small></button>
+    </div>
+
+    <div class="dt">
+
+      <!-- ---------------- Deneme ekleme ---------------- -->
+      <div class="dt-kart">
+        <div class="dt-kart-bas">
+          <div class="dt-kart-baslik" id="formBaslik">TYT denemesi ekle</div>
+        </div>
+
+        <form id="denemeForm" autocomplete="off">
+          <div class="dt-ust">
+            <div class="dt-alan">
+              <label for="denemeAd">Deneme adı</label>
+              <input class="dt-metin" type="text" id="denemeAd" maxlength="40" placeholder="1. Deneme" />
+            </div>
+            <div class="dt-alan">
+              <label for="denemeTarih">Tarih</label>
+              <input class="dt-tarih" type="date" id="denemeTarih" />
+            </div>
+          </div>
+
+          <div class="dt-basliklar" aria-hidden="true">
+            <span>Ders</span><span>Doğru</span><span>Yanlış</span><span>Net</span>
+          </div>
+          <div id="satirlar"></div>
+
+          <div class="dt-toplam">
+            <span class="dt-toplam-etiket">Bu denemenin toplam neti</span>
+            <span class="dt-toplam-deger" id="toplamNet" aria-live="polite">0,00 <span>/ 120</span></span>
+          </div>
+
+          <div class="dt-alan-notu" id="alanNotu"></div>
+
+          <div class="dt-form-uyari" id="formUyari"></div>
+
+          <div class="dt-btnler">
+            <button type="button" class="dt-btn" id="ekleBtn">Denemeyi kaydet</button>
+            <button type="button" class="dt-btn dt-btn-ikincil" id="formTemizleBtn">Formu temizle</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- ---------------- Grafik ---------------- -->
+      <div class="dt-kart">
+        <div class="dt-ornek-serit" id="ornekSerit">
+          <span><strong>Örnek veri gösteriliyor.</strong> Bunlar gerçek sonuçlar değil, aracın nasıl çalıştığını görmen için.</span>
+          <button type="button" class="dt-btn dt-btn-ikincil" id="ornekKaldirBtn">Örneği kaldır</button>
+        </div>
+
+        <div class="dt-kart-bas">
+          <div class="dt-kart-baslik" id="grafikBaslik">TYT net grafiği</div>
+          <div class="dt-sekme" id="sekmeler">
+            <button type="button" data-gorunum="toplam" class="secili">Toplam net</button>
+            <button type="button" data-gorunum="ders">Test bazında</button>
+          </div>
+        </div>
+
+        <div id="grafikAlani"></div>
+        <div class="dt-rozetler" id="rozetler" hidden></div>
+        <div class="dt-secili" id="seciliKutu" hidden></div>
+        <div class="dt-ist" id="istatistik" hidden></div>
+      </div>
+
+      <!-- ---------------- Tablo ---------------- -->
+      <div class="dt-kart" id="tabloKart" hidden>
+        <div class="dt-kart-bas">
+          <div class="dt-kart-baslik">Denemelerin</div>
+          <button type="button" class="dt-btn dt-btn-ikincil" id="tumunuSilBtn">Tümünü sil</button>
+        </div>
+        <div class="dt-tablo-sar">
+          <table class="dt-tablo" id="tablo"></table>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="dt-veri-notu">
+      Girdiğin denemeler yalnızca bu cihazın tarayıcısında saklanıyor; bize ya da başka bir yere
+      gönderilmiyor. Tarayıcı verilerini temizlersen veya başka bir cihazdan girersen liste boş gelir.
+    </p>
+
+    <div class="tool-body">
+      <h2>Eğriye nasıl bakılır?</h2>
+      <p>En sık yapılan hata tek denemeye bakmak. Bir denemede net düştü diye panik, yükseldi diye rahatlama — ikisi de yanıltıcı. Deneme netleri doğal olarak inip çıkar; yayının zorluğu, o günkü uyku, soruların rastgele denk gelmesi hepsi etkiler.</p>
+      <p>Grafikte bakılacak şey <strong>çizginin genel yönü</strong>. Üç deneme üst üste aynı yerde duruyorsa bir şey değişmiyor demektir. Bir deneme düşüp sonraki ikisi yükseliyorsa o düşüş gürültüdür, eğilim yukarıdır.</p>
+      <p>İkinci bakılacak şey <strong>hangi testin geri kaldığı</strong>. "Test bazında" sekmesine geç ve çizgileri yan yana gör. TYT toplamın sabit dururken matematik düşüp Türkçe yükseliyor olabilir — bu, toplam nete bakarken asla göremeyeceğin bir bilgi ve çalışma planını doğrudan değiştirir.</p>
+
+      <h2>TYT ve AYT'yi neden ayrı takip etmek gerekir?</h2>
+      <p>Çünkü ikisi farklı şeyi ölçüyor ve farklı hızda ilerliyor. TYT geniş ama yüzeysel; genelde daha erken oturur. AYT dar ama derin; ilerleme daha yavaş ve daha geç gelir. İkisini tek bir toplamda birleştirmek, hangisinin taşıdığını ve hangisinin geride kaldığını gizler.</p>
+      <p>Özellikle mezun öğrencilerde sık gördüğüm tablo şu: TYT neti yerinde sayarken AYT netleri sessizce yükseliyor, ya da tam tersi. Yerleştirme puanında ikisinin ağırlığı bölüme göre değiştiği için bunu bilmek doğrudan strateji meselesi.</p>
+      <p>AYT'de sadece kendi alanının testlerini doldur. Boş bıraktığın testler ne toplama katılır ne de grafikte çizilir, bu yüzden eğrin yanlış görünmez.</p>
+
+      <h2>Deneme analizi: sayıdan sonrası</h2>
+      <p>Grafik sana nereye gittiğini gösterir ama neden oraya gittiğini göstermez. Onu ancak yanlışlarına bakarak bulursun. Her yanlışın yanına tek kelimeyle sebebini yaz: "konu", "dikkat", "süre". Üç denemede bir hangisinin ağır bastığına bak — çözüm her birinde farklı.</p>
+      <p>Tek bir denemenin netini hesaplamak istersen <a href="/yks-net-hesaplama">YKS net hesaplama aracını</a> kullanabilirsin. Bir yılı nasıl kuracağını <a href="/blog/mezun-olarak-yks-hazirligi">mezun olarak YKS'ye hazırlanmak</a> yazısında, <a href="/yks">YKS koçluğunun</a> nasıl işlediğini de kendi sayfasında anlattım.</p>
+    </div>
+
+    <div class="article-cta" style="max-width:780px;margin:44px auto 0;">
+      <div class="article-cta-title">Eğriyi birlikte okuyalım</div>
+      <div class="article-cta-sub">Deneme grafiğinin ekran görüntüsünü gönder, nerede takıldığını konuşalım. İlk keşif görüşmesi ücretsiz — 30 dakika sürer, hiçbir bağlayıcılığı yoktur.</div>
+      <div class="article-cta-actions">
+        <a href="/#iletisim" class="article-cta-btn">Ücretsiz Görüşme Planla</a>
+        <a href="https://wa.me/905406771685?text=Merhaba%2C%20deneme%20grafi%C4%9Fimi%20de%C4%9Ferlendirmenizi%20istiyorum." class="article-cta-wa" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp'tan sorun</a>
+      </div>
+    </div>
+
+    <div class="author-box" style="max-width:780px;margin:28px auto 0;">
+      <div class="author-avatar"><img src="/logo-icon-dark.svg" alt="" /></div>
+      <div>
+        <div class="author-name">Özkan Hoca</div>
+        <div class="author-role">Psikolojik Danışmanlık ve Rehberlik · LGS ve YKS Öğrenci Koçu · Adana</div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-links">
+        <a href="/">Ana Sayfa</a>
+        <a href="/yks">YKS Koçluğu</a>
+        <a href="/blog">Blog</a>
+        <a href="/adana-lise-taban-puanlari">Taban Puanları</a>
+        <a href="/net-hesaplama">LGS Net Hesaplama</a>
+        <a href="/yks-net-hesaplama">YKS Net Hesaplama</a>
+        <a href="/kvkk">KVKK</a>
+        <a href="/gizlilik">Gizlilik Politikası</a>
+      </div>
+      <div class="site-footer-copy">© 2026 Psk. Dan. İmran Özkan Tekeli · Tüm hakları saklıdır.</div>
+    </div>
+  </footer>
+
+  <!-- Sabit WhatsApp seridi. Kaydirinca beliriyor (400px). Ana sayfada YOK. -->
+  <div class="wa-serit" id="waFloat">
+    <span class="wa-serit-metin">İlk 30 dakikalık görüşme ücretsiz<span class="wa-serit-ek"> · hiçbir bağlayıcılığı yok</span></span>
+    <a href="https://wa.me/905406771685?text=Merhaba%2C%20deneme%20grafi%C4%9Fimi%20de%C4%9Ferlendirmenizi%20istiyorum." class="wa-serit-btn" target="_blank" rel="noopener">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp'tan yazın
+    </a>
+  </div>
+
+  <script>
+  /* ==========================================================================
+     YKS deneme takip grafigi — TYT / AYT / YDT
+     --------------------------------------------------------------------------
+     /deneme-takip (LGS) ile AYNI motor. Farklari:
+       - BOLEN 4 (LGS'de 3)
+       - uc ayri sinav, her birinin kendi localStorage anahtari
+       - AYT'de ogrenci sadece kendi alanini doldurur; bos birakilan test
+         "girilmedi" sayilir (null), toplama ve grafige katilmaz.
+     Burada bir hata duzeltirsen /deneme-takip'e de bak.
+
+     Olusturulma: 5 Ekim 2026
+     ========================================================================== */
+  (function () {
+    'use strict';
+
+    var BOLEN = 4;   // YKS'de dort yanlis bir dogruyu goturur
+
+    var SINAVLAR = {
+      tyt: {
+        ad: 'TYT', toplam: 120, depo: 'ozkanhoca_deneme_tyt_v1',
+        not: '',
+        dersler: [
+          { id: 'tyt_turkce', ad: 'Türkçe',            kisa: 'Türkçe',    soru: 40, renk: '#534AB7' },
+          { id: 'tyt_sosyal', ad: 'Sosyal Bilimler',   kisa: 'Sosyal',    soru: 20, renk: '#B4553C' },
+          { id: 'tyt_mat',    ad: 'Temel Matematik',   kisa: 'Matematik', soru: 40, renk: '#C98A1E' },
+          { id: 'tyt_fen',    ad: 'Fen Bilimleri',     kisa: 'Fen',       soru: 20, renk: '#2E8B74' }
+        ]
+      },
+      ayt: {
+        ad: 'AYT', toplam: 160, depo: 'ozkanhoca_deneme_ayt_v1',
+        not: 'Yalnızca kendi alanının testlerini doldur. Boş bıraktığın testler toplama katılmaz, grafikte de çizilmez.',
+        dersler: [
+          { id: 'ayt_mat',    ad: 'Matematik',          kisa: 'Matematik', soru: 40, renk: '#C98A1E', grup: 'Matematik · 40 soru' },
+          { id: 'ayt_fizik',  ad: 'Fizik',              kisa: 'Fizik',     soru: 14, renk: '#2E8B74', grup: 'Fen Bilimleri · 40 soru' },
+          { id: 'ayt_kimya',  ad: 'Kimya',              kisa: 'Kimya',     soru: 13, renk: '#3E9B84' },
+          { id: 'ayt_biyo',   ad: 'Biyoloji',           kisa: 'Biyoloji',  soru: 13, renk: '#58AE93' },
+          { id: 'ayt_edb',    ad: 'Türk Dili ve Edebiyatı', kisa: 'Edebiyat', soru: 24, renk: '#534AB7', grup: 'Türk Dili ve Edebiyatı – Sosyal Bilimler-1 · 40 soru' },
+          { id: 'ayt_tarih1', ad: 'Tarih-1',            kisa: 'Tarih-1',   soru: 10, renk: '#6E63CE' },
+          { id: 'ayt_cog1',   ad: 'Coğrafya-1',         kisa: 'Coğrafya-1', soru: 6, renk: '#8C83E0' },
+          { id: 'ayt_tarih2', ad: 'Tarih-2',            kisa: 'Tarih-2',   soru: 11, renk: '#B4553C', grup: 'Sosyal Bilimler-2 · 40 soru' },
+          { id: 'ayt_cog2',   ad: 'Coğrafya-2',         kisa: 'Coğrafya-2', soru: 11, renk: '#C76F55' },
+          { id: 'ayt_felsefe', ad: 'Felsefe Grubu',     kisa: 'Felsefe',   soru: 12, renk: '#7D6B9E' },
+          { id: 'ayt_din',    ad: 'Din Kültürü',        kisa: 'Din',       soru: 6,  renk: '#9A8BB8' }
+        ]
+      },
+      ydt: {
+        ad: 'YDT', toplam: 80, depo: 'ozkanhoca_deneme_ydt_v1',
+        not: '',
+        dersler: [
+          { id: 'ydt_dil', ad: 'Yabancı Dil', kisa: 'Yabancı Dil', soru: 80, renk: '#3E7CA8' }
+        ]
+      }
+    };
+
+    // ---- durum ----
+    var aktif = 'tyt';
+    var DERSLER = SINAVLAR.tyt.dersler;
+    var TOPLAM_SORU = SINAVLAR.tyt.toplam;
+    var DEPO = SINAVLAR.tyt.depo;
+
+    var denemeler = [];
+    var ornekMi = false;
+    var gorunum = 'toplam';
+    var acik = {};
+    var secili = -1;
+
+    // ---- yardimcilar ----
+    function bicimle(n) { return n.toFixed(2).replace('.', ','); }
+
+    function tarihBicim(iso) {
+      if (!iso) return '';
+      var p = iso.split('-');
+      if (p.length !== 3) return iso;
+      return p[2] + '.' + p[1] + '.' + p[0];
+    }
+
+    function bugun() {
+      var t = new Date();
+      var a = t.getMonth() + 1, g = t.getDate();
+      return t.getFullYear() + '-' + (a < 10 ? '0' + a : a) + '-' + (g < 10 ? '0' + g : g);
+    }
+
+    function sayi(deger) {
+      var s = String(deger == null ? '' : deger).replace(/\D/g, '');
+      return s === '' ? 0 : parseInt(s, 10);
+    }
+
+    function kacar(n) { return Math.round(n * 100) / 100; }
+
+    function kacak(metin) {
+      return String(metin).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    // ---- depolama ----
+    function yukle() {
+      denemeler = [];
+      ornekMi = false;
+      try {
+        var ham = localStorage.getItem(DEPO);
+        if (!ham) return;
+        var veri = JSON.parse(ham);
+        if (veri && Object.prototype.toString.call(veri.liste) === '[object Array]') {
+          denemeler = veri.liste;
+          ornekMi = !!veri.ornek;
+        }
+      } catch (e) { /* gizli sekme, dolu kota, bozuk kayit: veri yokmus gibi devam */ }
+    }
+
+    function kaydet() {
+      try {
+        localStorage.setItem(DEPO, JSON.stringify({ v: 1, ornek: ornekMi, liste: denemeler }));
+      } catch (e) { /* kaydedilemezse arac yine de calisir, sadece kalici olmaz */ }
+    }
+
+    // ---- form ----
+    function formKur() {
+      var kap = document.getElementById('satirlar');
+      kap.innerHTML = '';
+      DERSLER.forEach(function (ders) {
+        if (ders.grup) {
+          var b = document.createElement('div');
+          b.className = 'dt-bolum';
+          b.textContent = ders.grup;
+          kap.appendChild(b);
+        }
+        var d = document.createElement('div');
+        d.className = 'dt-satir';
+        d.id = 'satir-' + ders.id;
+        d.innerHTML =
+          '<label class="dt-ders" for="' + ders.id + '-d">' +
+            '<i style="background:' + ders.renk + '"></i>' + ders.ad +
+            '<span class="dt-soru">' + ders.soru + ' soru</span></label>' +
+          '<span class="dt-giris-sar" data-etiket="Doğru">' +
+            '<input class="dt-giris" type="number" inputmode="numeric" min="0" max="' + ders.soru + '" ' +
+            'id="' + ders.id + '-d" aria-label="' + ders.ad + ' doğru sayısı" placeholder="0" /></span>' +
+          '<span class="dt-giris-sar" data-etiket="Yanlış">' +
+            '<input class="dt-giris" type="number" inputmode="numeric" min="0" max="' + ders.soru + '" ' +
+            'id="' + ders.id + '-y" aria-label="' + ders.ad + ' yanlış sayısı" placeholder="0" /></span>' +
+          '<span class="dt-net" id="' + ders.id + '-net">—</span>' +
+          '<span class="dt-uyari">Doğru ve yanlış toplamı ' + ders.soru + ' soruyu geçemez.</span>';
+        kap.appendChild(d);
+      });
+    }
+
+    function formuOku() {
+      var netler = {}, toplam = 0, azami = 0, hata = false, doluVar = false;
+      DERSLER.forEach(function (ders) {
+        var dEl = document.getElementById(ders.id + '-d');
+        var yEl = document.getElementById(ders.id + '-y');
+        var satir = document.getElementById('satir-' + ders.id);
+
+        // Iki kutu da bossa o test GIRILMEMIS sayiliyor (sifir degil). AYT'de
+        // ogrenci sadece kendi alanini cozuyor; sifir yazmak onu "40 soruyu
+        // cozdu, hepsini bos birakti" gibi gosterirdi.
+        if (dEl.value === '' && yEl.value === '') {
+          satir.classList.remove('hatali');
+          netler[ders.id] = null;
+          document.getElementById(ders.id + '-net').textContent = '—';
+          return;
+        }
+        doluVar = true;
+
+        var dg = sayi(dEl.value), yn = sayi(yEl.value);
+        if (dg + yn > ders.soru) {
+          satir.classList.add('hatali');
+          hata = true;
+          netler[ders.id] = null;
+          document.getElementById(ders.id + '-net').textContent = '—';
+          return;
+        }
+        satir.classList.remove('hatali');
+        var net = kacar(dg - yn / BOLEN);
+        netler[ders.id] = net;
+        toplam += net;
+        azami += ders.soru;
+        document.getElementById(ders.id + '-net').textContent = bicimle(net);
+      });
+      toplam = kacar(toplam);
+      if (!azami) azami = TOPLAM_SORU;
+      document.getElementById('toplamNet').innerHTML =
+        bicimle(hata ? 0 : toplam) + ' <span>/ ' + azami + '</span>';
+      return { netler: netler, toplam: toplam, azami: azami, hata: hata, doluVar: doluVar };
+    }
+
+    function formuTemizle() {
+      DERSLER.forEach(function (ders) {
+        document.getElementById(ders.id + '-d').value = '';
+        document.getElementById(ders.id + '-y').value = '';
+        document.getElementById('satir-' + ders.id).classList.remove('hatali');
+      });
+      document.getElementById('denemeAd').value = '';
+      document.getElementById('denemeTarih').value = bugun();
+      uyariGoster('');
+      formuOku();
+    }
+
+    function uyariGoster(metin) {
+      var el = document.getElementById('formUyari');
+      el.textContent = metin;
+      el.classList.toggle('gorunur', !!metin);
+    }
+
+    function ekle() {
+      var sonuc = formuOku();
+      if (sonuc.hata) { uyariGoster('Yukarıda işaretli satırları düzelt, sonra kaydet.'); return; }
+      if (!sonuc.doluVar) { uyariGoster('Önce en az bir testin doğru ya da yanlış sayısını gir.'); return; }
+
+      var ad = document.getElementById('denemeAd').value.trim();
+      if (!ad) ad = (denemeler.length + 1) + '. Deneme';
+      var tarih = document.getElementById('denemeTarih').value || bugun();
+
+      // Ornek veri duruyorsa ilk gercek kayitta kendiliginden cekiliyor.
+      if (ornekMi) { denemeler = []; ornekMi = false; }
+
+      denemeler.push({ ad: ad, tarih: tarih, netler: sonuc.netler, toplam: sonuc.toplam, azami: sonuc.azami });
+      denemeler.sort(function (a, b) { return a.tarih < b.tarih ? -1 : (a.tarih > b.tarih ? 1 : 0); });
+      secili = -1;
+      kaydet();
+      formuTemizle();
+      cizDurum();
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'deneme_eklendi', { sayfa: location.pathname, sinav: aktif, adet: denemeler.length });
+      }
+    }
+
+    function sil(i) {
+      denemeler.splice(i, 1);
+      if (!denemeler.length) ornekMi = false;
+      secili = -1;
+      kaydet();
+      cizDurum();
+    }
+
+    // ---- ornek veri ----
+    // Dogru/yanlis olarak duruyor ki netler gercekten hesaplansin. Egri bilerek
+    // duz degil: ucuncu denemede dususu var, gercek takipte de oyle oluyor.
+    // AYT ornegi sayisal bir ogrenci — sozel testler bilerek bos.
+    var ORNEKLER = {
+      tyt: [
+        { ad: '1. Deneme', tarih: '2026-09-20', dy: { tyt_turkce:[22,8],  tyt_sosyal:[11,5], tyt_mat:[12,10], tyt_fen:[6,7]  } },
+        { ad: '2. Deneme', tarih: '2026-10-04', dy: { tyt_turkce:[24,7],  tyt_sosyal:[12,4], tyt_mat:[14,9],  tyt_fen:[7,6]  } },
+        { ad: '3. Deneme', tarih: '2026-10-18', dy: { tyt_turkce:[23,9],  tyt_sosyal:[12,5], tyt_mat:[13,11], tyt_fen:[7,7]  } },
+        { ad: '4. Deneme', tarih: '2026-11-01', dy: { tyt_turkce:[26,6],  tyt_sosyal:[13,4], tyt_mat:[16,8],  tyt_fen:[9,5]  } },
+        { ad: '5. Deneme', tarih: '2026-11-15', dy: { tyt_turkce:[28,5],  tyt_sosyal:[14,3], tyt_mat:[18,8],  tyt_fen:[10,5] } },
+        { ad: '6. Deneme', tarih: '2026-11-29', dy: { tyt_turkce:[29,5],  tyt_sosyal:[14,3], tyt_mat:[19,7],  tyt_fen:[11,4] } },
+        { ad: '7. Deneme', tarih: '2026-12-13', dy: { tyt_turkce:[30,4],  tyt_sosyal:[15,3], tyt_mat:[21,6],  tyt_fen:[12,4] } },
+        { ad: '8. Deneme', tarih: '2026-12-27', dy: { tyt_turkce:[32,4],  tyt_sosyal:[15,2], tyt_mat:[22,6],  tyt_fen:[13,3] } }
+      ],
+      ayt: [
+        { ad: '1. Deneme', tarih: '2026-09-20', dy: { ayt_mat:[9,12],  ayt_fizik:[3,5], ayt_kimya:[4,4], ayt_biyo:[5,4]  } },
+        { ad: '2. Deneme', tarih: '2026-10-04', dy: { ayt_mat:[11,10], ayt_fizik:[4,4], ayt_kimya:[5,4], ayt_biyo:[6,4]  } },
+        { ad: '3. Deneme', tarih: '2026-10-18', dy: { ayt_mat:[10,13], ayt_fizik:[4,6], ayt_kimya:[5,5], ayt_biyo:[6,5]  } },
+        { ad: '4. Deneme', tarih: '2026-11-01', dy: { ayt_mat:[14,9],  ayt_fizik:[5,4], ayt_kimya:[6,3], ayt_biyo:[7,4]  } },
+        { ad: '5. Deneme', tarih: '2026-11-15', dy: { ayt_mat:[17,8],  ayt_fizik:[6,4], ayt_kimya:[7,3], ayt_biyo:[8,3]  } },
+        { ad: '6. Deneme', tarih: '2026-11-29', dy: { ayt_mat:[19,7],  ayt_fizik:[7,3], ayt_kimya:[8,3], ayt_biyo:[8,3]  } },
+        { ad: '7. Deneme', tarih: '2026-12-13', dy: { ayt_mat:[22,6],  ayt_fizik:[8,3], ayt_kimya:[8,2], ayt_biyo:[9,2]  } },
+        { ad: '8. Deneme', tarih: '2026-12-27', dy: { ayt_mat:[24,6],  ayt_fizik:[9,2], ayt_kimya:[9,2], ayt_biyo:[10,2] } }
+      ],
+      ydt: [
+        { ad: '1. Deneme', tarih: '2026-09-20', dy: { ydt_dil:[28,22] } },
+        { ad: '2. Deneme', tarih: '2026-10-04', dy: { ydt_dil:[32,20] } },
+        { ad: '3. Deneme', tarih: '2026-10-18', dy: { ydt_dil:[31,24] } },
+        { ad: '4. Deneme', tarih: '2026-11-01', dy: { ydt_dil:[38,18] } },
+        { ad: '5. Deneme', tarih: '2026-11-15', dy: { ydt_dil:[42,16] } },
+        { ad: '6. Deneme', tarih: '2026-11-29', dy: { ydt_dil:[46,14] } }
+      ]
+    };
+
+    function ornekYukle() {
+      denemeler = (ORNEKLER[aktif] || []).map(function (o) {
+        var netler = {}, toplam = 0, azami = 0;
+        DERSLER.forEach(function (d) {
+          var p = o.dy[d.id];
+          if (!p) { netler[d.id] = null; return; }
+          var net = kacar(p[0] - p[1] / BOLEN);
+          netler[d.id] = net;
+          toplam += net;
+          azami += d.soru;
+        });
+        return { ad: o.ad, tarih: o.tarih, netler: netler, toplam: kacar(toplam), azami: azami };
+      });
+      ornekMi = true;
+      secili = denemeler.length - 1;
+      kaydet();
+      cizDurum();
+    }
+
+    // ---- grafik ----
+    var VB_W = 720, VB_H = 300, PL = 46, PR = 16, PT = 18, PB = 42;
+
+    function xKon(i, n) {
+      if (n <= 1) return PL + (VB_W - PL - PR) / 2;
+      return PL + i * (VB_W - PL - PR) / (n - 1);
+    }
+    function yKon(v, enBuyuk) {
+      return PT + (1 - (v / enBuyuk)) * (VB_H - PT - PB);
+    }
+
+    function parcalar(degerler) {
+      var liste = [], suan = [];
+      degerler.forEach(function (v, i) {
+        if (v == null) { if (suan.length) { liste.push(suan); suan = []; } return; }
+        suan.push(i);
+      });
+      if (suan.length) liste.push(suan);
+      return liste;
+    }
+
+    function cizgiCiz(degerler, renk, enBuyuk, n) {
+      var cikti = '';
+      parcalar(degerler).forEach(function (p) {
+        if (p.length > 1) {
+          var noktalar = p.map(function (i) {
+            return xKon(i, n).toFixed(1) + ',' + yKon(degerler[i], enBuyuk).toFixed(1);
+          }).join(' ');
+          cikti += '<polyline points="' + noktalar + '" fill="none" stroke="' + renk +
+                   '" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />';
+        }
+      });
+      return cikti;
+    }
+
+    function grafikCiz() {
+      var alan = document.getElementById('grafikAlani');
+      var n = denemeler.length;
+
+      if (!n) {
+        alan.innerHTML =
+          '<div class="dt-bos">Bu sınav için henüz deneme eklemedin.<br />Yukarıdan ilk denemeni gir ya da ' +
+          '<button type="button" class="dt-btn dt-btn-ikincil" id="ornekBtn" style="margin-top:14px">Örnek göster</button></div>';
+        document.getElementById('ornekBtn').addEventListener('click', ornekYukle);
+        return;
+      }
+
+      // Grafikte sadece en az bir denemede girilmis testler var.
+      var girilen = DERSLER.filter(function (d) {
+        return denemeler.some(function (dn) {
+          var v = dn.netler[d.id];
+          return v !== undefined && v !== null;
+        });
+      });
+      var gorunenDersler = girilen.filter(function (d) { return acik[d.id] !== false; });
+      if (!gorunenDersler.length) gorunenDersler = girilen;
+
+      var enBuyuk;
+      if (gorunum === 'toplam') {
+        enBuyuk = 0;
+        denemeler.forEach(function (d) { if (d.azami && d.azami > enBuyuk) enBuyuk = d.azami; });
+        if (!enBuyuk) enBuyuk = TOPLAM_SORU;
+      } else {
+        enBuyuk = 6;
+        gorunenDersler.forEach(function (d) { if (d.soru > enBuyuk) enBuyuk = d.soru; });
+      }
+
+      var svg = '<svg viewBox="0 0 ' + VB_W + ' ' + VB_H + '" role="img" ' +
+                'aria-label="Deneme netlerinin zaman içindeki değişimini gösteren çizgi grafik">';
+
+      for (var k = 0; k <= 4; k++) {
+        var deger = enBuyuk * k / 4;
+        var y = yKon(deger, enBuyuk);
+        svg += '<line x1="' + PL + '" y1="' + y.toFixed(1) + '" x2="' + (VB_W - PR) +
+               '" y2="' + y.toFixed(1) + '" stroke="rgba(127,119,221,0.18)" stroke-width="1" />';
+        svg += '<text x="' + (PL - 10) + '" y="' + (y + 4).toFixed(1) +
+               '" text-anchor="end" font-size="12" fill="#6e6c92">' +
+               (Math.round(deger * 10) / 10).toString().replace('.', ',') + '</text>';
+      }
+
+      var adim = Math.ceil(n / 9);
+      for (var i = 0; i < n; i++) {
+        if (i % adim !== 0 && i !== n - 1) continue;
+        svg += '<text x="' + xKon(i, n).toFixed(1) + '" y="' + (VB_H - PB + 22) +
+               '" text-anchor="middle" font-size="12" fill="#6e6c92">' + (i + 1) + '</text>';
+      }
+
+      if (gorunum === 'toplam') {
+        svg += cizgiCiz(denemeler.map(function (d) { return d.toplam; }), '#534AB7', enBuyuk, n);
+      } else {
+        gorunenDersler.forEach(function (ders) {
+          var dizi = denemeler.map(function (d) {
+            var v = d.netler[ders.id];
+            return (v === undefined || v === null) ? null : v;
+          });
+          svg += cizgiCiz(dizi, ders.renk, enBuyuk, n);
+        });
+      }
+
+      function nokta(i, v, renk, baslik) {
+        if (v == null) return '';
+        var r = (i === secili) ? 6 : 4.5;
+        var dolgu = (i === secili) ? renk : '#ffffff';
+        return '<circle class="dt-nokta" data-i="' + i + '" cx="' + xKon(i, n).toFixed(1) + '" cy="' +
+               yKon(v, enBuyuk).toFixed(1) + '" r="' + r + '" fill="' + dolgu + '" stroke="' + renk +
+               '" stroke-width="2.5"><title>' + kacak(baslik) + '</title></circle>';
+      }
+
+      if (gorunum === 'toplam') {
+        denemeler.forEach(function (d, i) {
+          svg += nokta(i, d.toplam, '#534AB7', d.ad + ' — ' + bicimle(d.toplam) + ' net');
+        });
+      } else {
+        gorunenDersler.forEach(function (ders) {
+          denemeler.forEach(function (d, i) {
+            var v = d.netler[ders.id];
+            if (v === undefined || v === null) return;
+            svg += nokta(i, v, ders.renk, d.ad + ' · ' + ders.kisa + ' — ' + bicimle(v) + ' net');
+          });
+        });
+      }
+
+      svg += '</svg>';
+      alan.innerHTML = '<div class="dt-grafik">' + svg + '</div>';
+
+      Array.prototype.forEach.call(alan.querySelectorAll('.dt-nokta'), function (c) {
+        c.addEventListener('click', function () {
+          secili = parseInt(c.getAttribute('data-i'), 10);
+          grafikCiz();
+          seciliCiz();
+        });
+      });
+    }
+
+    function girilenDersler() {
+      return DERSLER.filter(function (d) {
+        return denemeler.some(function (dn) {
+          var v = dn.netler[d.id];
+          return v !== undefined && v !== null;
+        });
+      });
+    }
+
+    function rozetCiz() {
+      var kap = document.getElementById('rozetler');
+      var liste = girilenDersler();
+      if (gorunum !== 'ders' || !denemeler.length || liste.length < 2) {
+        kap.hidden = true; kap.innerHTML = ''; return;
+      }
+      kap.hidden = false;
+      kap.innerHTML = liste.map(function (d) {
+        var aktifMi = acik[d.id] !== false;
+        return '<button type="button" class="dt-rozet' + (aktifMi ? '' : ' kapali') +
+               '" data-ders="' + d.id + '" aria-pressed="' + (aktifMi ? 'true' : 'false') + '">' +
+               '<i style="background:' + d.renk + '"></i>' + d.kisa + '</button>';
+      }).join('');
+      Array.prototype.forEach.call(kap.querySelectorAll('.dt-rozet'), function (b) {
+        b.addEventListener('click', function () {
+          var id = b.getAttribute('data-ders');
+          var acikSayisi = liste.filter(function (d) { return acik[d.id] !== false; }).length;
+          if (acik[id] !== false && acikSayisi === 1) return;   // hepsi kapanmasin
+          acik[id] = (acik[id] === false);
+          grafikCiz();
+          rozetCiz();
+        });
+      });
+    }
+
+    function seciliCiz() {
+      var kutu = document.getElementById('seciliKutu');
+      if (!denemeler.length) { kutu.hidden = true; return; }
+      var i = (secili >= 0 && secili < denemeler.length) ? secili : denemeler.length - 1;
+      var d = denemeler[i];
+      var dersMetni = DERSLER.map(function (ders) {
+        var v = d.netler[ders.id];
+        if (v === undefined || v === null) return null;
+        return ders.kisa + ' ' + bicimle(v);
+      }).filter(Boolean).join(' · ');
+      kutu.hidden = false;
+      kutu.innerHTML =
+        '<b>' + kacak(d.ad) + '</b> · ' + tarihBicim(d.tarih) + ' — toplam <b>' + bicimle(d.toplam) + '</b> net' +
+        '<div class="dt-secili-dersler">' + dersMetni + '</div>';
+    }
+
+    function istatistikCiz() {
+      var kap = document.getElementById('istatistik');
+      if (!denemeler.length) { kap.hidden = true; kap.innerHTML = ''; return; }
+      var toplamlar = denemeler.map(function (d) { return d.toplam; });
+      var son = toplamlar[toplamlar.length - 1];
+      var enIyi = Math.max.apply(null, toplamlar);
+      var fark = kacar(son - toplamlar[0]);
+      var ortalama = kacar(toplamlar.reduce(function (a, b) { return a + b; }, 0) / toplamlar.length);
+      var farkSinif = fark > 0 ? ' artis' : (fark < 0 ? ' azalis' : '');
+      var farkMetin = (fark > 0 ? '+' : '') + bicimle(fark);
+
+      kap.hidden = false;
+      kap.innerHTML =
+        '<div class="dt-ist-kutu"><div class="dt-ist-etiket">Son deneme</div>' +
+          '<div class="dt-ist-deger">' + bicimle(son) + '</div></div>' +
+        '<div class="dt-ist-kutu"><div class="dt-ist-etiket">En yüksek</div>' +
+          '<div class="dt-ist-deger">' + bicimle(enIyi) + '</div></div>' +
+        '<div class="dt-ist-kutu"><div class="dt-ist-etiket">Ortalama</div>' +
+          '<div class="dt-ist-deger">' + bicimle(ortalama) + '</div></div>' +
+        '<div class="dt-ist-kutu"><div class="dt-ist-etiket">İlkten bu yana</div>' +
+          '<div class="dt-ist-deger' + farkSinif + '">' + farkMetin + '</div></div>';
+    }
+
+    function tabloCiz() {
+      var kart = document.getElementById('tabloKart');
+      var tablo = document.getElementById('tablo');
+      if (!denemeler.length) { kart.hidden = true; tablo.innerHTML = ''; return; }
+      kart.hidden = false;
+
+      var sutunlar = girilenDersler();
+      var bas = '<tr><th>Deneme</th>' +
+        sutunlar.map(function (d) { return '<th>' + d.kisa + '</th>'; }).join('') +
+        '<th>Toplam</th><th></th></tr>';
+
+      var satirlar = denemeler.map(function (d, i) {
+        var hucreler = sutunlar.map(function (ders) {
+          var v = d.netler[ders.id];
+          return '<td>' + ((v === undefined || v === null) ? '—' : bicimle(v)) + '</td>';
+        }).join('');
+        return '<tr><td><span class="dt-ad">' + kacak(d.ad) + '</span>' +
+               '<span class="dt-tarih-h">' + tarihBicim(d.tarih) + '</span></td>' +
+               hucreler +
+               '<td class="dt-td-toplam">' + bicimle(d.toplam) + '</td>' +
+               '<td><button type="button" class="dt-sil" data-i="' + i + '" ' +
+               'aria-label="' + kacak(d.ad) + ' kaydını sil">Sil</button></td></tr>';
+      }).join('');
+
+      tablo.innerHTML = '<thead>' + bas + '</thead><tbody>' + satirlar + '</tbody>';
+
+      Array.prototype.forEach.call(tablo.querySelectorAll('.dt-sil'), function (b) {
+        b.addEventListener('click', function () { sil(parseInt(b.getAttribute('data-i'), 10)); });
+      });
+    }
+
+    function cizDurum() {
+      document.getElementById('ornekSerit').classList.toggle('gorunur', ornekMi && denemeler.length > 0);
+      grafikCiz();
+      rozetCiz();
+      seciliCiz();
+      istatistikCiz();
+      tabloCiz();
+    }
+
+    function sinavaGec(kod) {
+      if (!SINAVLAR[kod]) return;
+      aktif = kod;
+      var s = SINAVLAR[kod];
+      DERSLER = s.dersler;
+      TOPLAM_SORU = s.toplam;
+      DEPO = s.depo;
+      acik = {};
+      secili = -1;
+
+      document.getElementById('formBaslik').textContent = s.ad + ' denemesi ekle';
+      document.getElementById('grafikBaslik').textContent = s.ad + ' net grafiği';
+      document.getElementById('alanNotu').textContent = s.not;
+      document.getElementById('toplamNet').innerHTML = '0,00 <span>/ ' + s.toplam + '</span>';
+
+      Array.prototype.forEach.call(document.querySelectorAll('#sinavSecici button'), function (b) {
+        b.classList.toggle('secili', b.getAttribute('data-sinav') === kod);
+      });
+
+      formKur();
+      formuTemizle();
+      yukle();
+      cizDurum();
+    }
+
+    // ---- baslat ----
+    function baslat() {
+      Array.prototype.forEach.call(document.querySelectorAll('#sinavSecici button'), function (b) {
+        b.addEventListener('click', function () { sinavaGec(b.getAttribute('data-sinav')); });
+      });
+
+      document.getElementById('satirlar').addEventListener('input', function () {
+        uyariGoster('');
+        formuOku();
+      });
+
+      document.getElementById('ekleBtn').addEventListener('click', ekle);
+      document.getElementById('formTemizleBtn').addEventListener('click', formuTemizle);
+
+      document.getElementById('ornekKaldirBtn').addEventListener('click', function () {
+        denemeler = []; ornekMi = false; secili = -1; kaydet(); cizDurum();
+      });
+
+      document.getElementById('tumunuSilBtn').addEventListener('click', function () {
+        denemeler = []; ornekMi = false; secili = -1; kaydet(); cizDurum();
+      });
+
+      Array.prototype.forEach.call(document.querySelectorAll('#sekmeler button'), function (b) {
+        b.addEventListener('click', function () {
+          gorunum = b.getAttribute('data-gorunum');
+          Array.prototype.forEach.call(document.querySelectorAll('#sekmeler button'), function (x) {
+            x.classList.toggle('secili', x === b);
+          });
+          grafikCiz();
+          rozetCiz();
+        });
+      });
+
+      // Enter'a basinca form gonderilip sayfa yenilenmesin.
+      document.getElementById('denemeForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        ekle();
+      });
+
+      sinavaGec('tyt');
+    }
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', baslat);
+    else baslat();
+
+  })();
+  </script>
+
+</body>
+</html>
