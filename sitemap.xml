@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://ozkanhoca.com/blog</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -135,6 +135,12 @@
   <url>
     <loc>https://ozkanhoca.com/blog/lgs-kurs-mu-ozel-ders-mi-kocluk-mu</loc>
     <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ozkanhoca.com/blog/lgs-puan-hesaplama-meb-uyumlu-mu</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
